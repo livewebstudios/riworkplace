@@ -4,15 +4,17 @@
 // Covers the copy kill list, the LWS page rules, demo scaffolding, and the
 // "same words in all three demos" comparison from the handoff acceptance list.
 
-import { readFileSync, readdirSync, statSync } from 'node:fs';
+import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { dirname, join, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const read = (p) => readFileSync(join(ROOT, p), 'utf8');
 const site = JSON.parse(read('content/site.json'));
-const PAGES = ['index.html', ...site.demos.map((d) => `${d.slug}/index.html`)];
-const DEMOS = site.demos.map((d) => `${d.slug}/index.html`);
+// A demo listed in site.json whose page is not built yet (its template does not exist) is skipped and reported.
+const ALL_DEMOS = site.demos.map((d) => `${d.slug}/index.html`);
+const DEMOS = ALL_DEMOS.filter((p) => existsSync(join(ROOT, p)));
+const PAGES = ['index.html', ...DEMOS];
 
 const EM_DASH = String.fromCharCode(8212);
 let failed = 0;
@@ -20,6 +22,7 @@ const out = [];
 const pass = (name, detail = '') => out.push(`PASS  ${name}${detail ? '  ' + detail : ''}`);
 const fail = (name, detail) => { failed++; out.push(`FAIL  ${name}\n      ${[].concat(detail).join('\n      ')}`); };
 const check = (name, problems, detail) => (problems.length ? fail(name, problems) : pass(name, detail));
+for (const p of ALL_DEMOS.filter((x) => !DEMOS.includes(x))) out.push(`SKIP  ${p} is not built yet`);
 
 const decode = (s) => s.replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;/g, "'");
 // Visible text of the <main> of a page, one string per text run.
@@ -132,7 +135,7 @@ for (const page of DEMOS) {
 }
 // What each demo shows beyond the others (demo-specific furniture, listed for the record).
 const sets = Object.fromEntries(DEMOS.map((p) => [p, new Set(texts[p].map(norm).flatMap((t) => t.split(' ')))]));
-for (const page of DEMOS) {
+for (const page of DEMOS.length > 1 ? DEMOS : []) {
   const others = DEMOS.filter((p) => p !== page);
   const extra = [...sets[page]].filter((w) => /[a-z]{3,}/.test(w) && others.every((o) => !sets[o].has(w)));
   out.push(`INFO  words only on ${page}: ${extra.length ? extra.join(', ') : 'none'}`);

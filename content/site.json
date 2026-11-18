@@ -713,50 +713,37 @@
   "demos": [
     {
       "n": 1,
-      "slug": "open-house",
-      "name": "OPEN HOUSE",
-      "pitch": "A warm editorial page. Big rooms, thin type, quiet confidence.",
+      "slug": "blue-hour",
+      "name": "BLUE HOUR",
+      "pitch": "Deep navy and big photography. Each room lights up as you scroll to it.",
       "open": "OPEN 1",
-      "shot": "chooser/open-house"
+      "shot": "chooser/blue-hour"
     },
     {
       "n": 2,
-      "slug": "walkthrough",
-      "name": "THE WALKTHROUGH",
-      "pitch": "You walk a real RI office, room by room, as you scroll.",
-      "open": "OPEN 2",
-      "shot": "chooser/walkthrough"
-    },
-    {
-      "n": 3,
       "slug": "cross-section",
       "name": "CROSS SECTION",
       "pitch": "The fast one. Everything a buyer wants in the first two screens.",
-      "open": "OPEN 3",
+      "open": "OPEN 2",
       "shot": "chooser/cross-section"
     }
   ],
   "chooser": {
-    "title": "RI Workplace | Three Home Page Options",
-    "description": "Same words, same photos, three designs. A private preview of three home pages for RI Workplace.",
+    "title": "RI Workplace | Two Home Page Options",
+    "description": "Same words, same photos, two designs. A private preview of two home pages for RI Workplace.",
     "label": "HOME PAGE OPTIONS · NOVEMBER 2026",
-    "h1": "Three home pages for RI Workplace.",
-    "line": "Same words, same photos, three designs. Open each one, then tell Jon which feels like RI.",
-    "navLabel": "The three options",
+    "h1": "Two home pages for RI Workplace.",
+    "line": "Same words, same photos, two designs. Open each one, then tell Jon which feels like RI.",
+    "navLabel": "The two options",
     "footer": "Private preview. Not indexed."
   },
   "images": {
-    "chooser/open-house": {
-      "src": "_screenshots/chooser-open-house.jpg",
-      "alt": "First screen of home page option 1, Open House"
-    },
-    "chooser/walkthrough": {
-      "src": "_screenshots/chooser-walkthrough.jpg",
-      "alt": "First screen of home page option 2, The Walkthrough"
+    "chooser/blue-hour": {
+      "alt": "First screen of home page option 1, Blue Hour"
     },
     "chooser/cross-section": {
       "src": "_screenshots/chooser-cross-section.jpg",
-      "alt": "First screen of home page option 3, Cross Section"
+      "alt": "First screen of home page option 2, Cross Section"
     },
     "projects/ls-power/cafe": {
       "src": "assets/originals/ls-power/ls-power-office-cafe-workplace-retreat-nj-scaled.jpg",
@@ -989,54 +976,5 @@
   },
   "film": {
     "poster": "projects/ls-power/cafe"
-  },
-  "walk": {
-    "h2": "Walk the floor at LS Power.",
-    "label": "EAST BRUNSWICK, NJ · 26,000 SQ FT · 8 MONTHS",
-    "railLabel": "Rooms on the floor",
-    "stops": [
-      {
-        "label": "Elevator lobby",
-        "image": "projects/ls-power/elevator-lobby"
-      },
-      {
-        "label": "Reception",
-        "image": "projects/ls-power/reception"
-      },
-      {
-        "label": "Reception lounge",
-        "image": "projects/ls-power/lounge"
-      },
-      {
-        "label": "Café",
-        "image": "projects/ls-power/cafe"
-      },
-      {
-        "label": "Boardroom",
-        "image": "projects/ls-power/boardroom"
-      },
-      {
-        "label": "Wellness room",
-        "image": "projects/ls-power/wellness"
-      },
-      {
-        "label": "Open office",
-        "image": "projects/ls-power/open-office"
-      }
-    ]
-  },
-  "approach": {
-    "image": "projects/kdlm/library"
-  },
-  "accents": {
-    "_note": "Demo 2 sets one phrase of each headline in blue. Each value is the closing phrase of that headline, never new words.",
-    "work": "work",
-    "steps": "Four steps.",
-    "industries": "we serve",
-    "quotes": "clients say",
-    "family": "family business.",
-    "showroom": "in person.",
-    "contact": "your office.",
-    "walk": "LS Power."
   }
 }

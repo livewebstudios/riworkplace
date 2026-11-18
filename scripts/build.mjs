@@ -51,14 +51,6 @@ site.work.rows = [
 ].map((r) => ({ ...r, sectorSlug: slug(r.sector) }));
 site.work.sectors = [...new Set(site.work.rows.map((r) => r.sector).filter(Boolean))].map((label) => ({ label, slug: slug(label) }));
 for (const q of site.quotes.items) q.name = q.by.split(' · ')[0];
-// Two-tone headlines (demo 2): split each h2 into its lead and its closing accent phrase.
-site.tone = {};
-for (const [key, accent] of Object.entries(site.accents)) {
-  if (key.startsWith('_')) continue;
-  const h2 = site[key].h2;
-  if (!h2.endsWith(accent)) throw new Error(`Accent "${accent}" is not the end of "${h2}"`);
-  site.tone[key] = { lead: h2.slice(0, h2.length - accent.length).trim(), accent };
-}
 for (const i of site.industries.items) {
   if (!servicePaths[i.label]) throw new Error(`Industry not in nav: ${i.label}`);
   i.href = live(servicePaths[i.label]);

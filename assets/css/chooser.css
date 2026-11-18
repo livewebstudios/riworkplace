@@ -1,8 +1,9 @@
-/* Chooser page: three options, one decision. */
+/* Chooser page: two options, one decision. White page. Manrope for text and labels, Instrument Serif for the H1. */
 .chooser {
   --paper: var(--white);
-  --font-body: var(--f-jakarta);
-  --font-label: var(--f-jakarta);
+  --font-body: var(--f-manrope);
+  --font-display: var(--f-instrument);
+  --font-label: var(--f-manrope);
   --weight-label: 700;
   --radius-control: 0px;
 }
@@ -25,13 +26,13 @@
 .pick-label { color: var(--ink-mute); }
 .pick-h1 {
   margin-top: var(--s-4);
-  font-size: clamp(2.25rem, 5.4vw, 4.5rem); font-weight: 700; line-height: 1.02; letter-spacing: -0.03em;
+  font-family: var(--font-display); font-size: clamp(2.6rem, 6vw, 5rem); font-weight: 400; line-height: 1; letter-spacing: -0.01em;
   text-wrap: balance;
 }
 .pick-line { margin-top: var(--s-5); max-width: 46ch; font-size: var(--fs-lead); line-height: 1.5; color: var(--ink-soft); }
 
 .pick-grid { display: grid; gap: var(--s-7); margin-top: clamp(var(--s-7), 6vw, var(--s-8)); }
-@media (min-width: 1024px) { .pick-grid { grid-template-columns: repeat(3, 1fr); gap: var(--s-6); } }
+@media (min-width: 1024px) { .pick-grid { grid-template-columns: repeat(2, 46%); justify-content: space-between; gap: var(--s-6) 0; } }
 .opt { display: flex; flex-direction: column; border-top: 2px solid var(--ink); }
 .opt-shot {
   display: block; aspect-ratio: 16 / 10; overflow: hidden;
@@ -39,13 +40,12 @@
 }
 .opt-shot img, .opt-shot .pic-missing { width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform 0.6s var(--ease); }
 .opt:hover .opt-shot img { transform: scale(1.03); }
-.opt-open-house .pic-missing { background-color: var(--cream); }
-.opt-walkthrough .pic-missing { background-color: var(--mist); }
+.opt-blue-hour .pic-missing { background: var(--bh-night); } /* navy tint until the real crop lands (task 6) */
 .opt-cross-section .pic-missing { background-color: var(--concrete); }
 .opt-body { display: grid; grid-template-columns: auto 1fr; column-gap: var(--s-5); align-items: start; padding-top: var(--s-5); flex: 1; }
 .opt-n {
   grid-row: 1 / span 3;
-  font-size: clamp(3.5rem, 5vw, 4.5rem); font-weight: 800; line-height: 0.85; letter-spacing: -0.04em; color: var(--blue);
+  font-family: var(--font-display); font-size: clamp(3.75rem, 5.4vw, 5rem); font-weight: 400; line-height: 0.8; letter-spacing: -0.02em; color: var(--blue);
 }
 .opt-name { font-size: 1.125rem; font-weight: 700; letter-spacing: 0.06em; line-height: 1.3; }
 .opt-pitch { margin-top: var(--s-2); color: var(--ink-soft); line-height: 1.5; max-width: 34ch; }

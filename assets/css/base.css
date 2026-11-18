@@ -11,6 +11,13 @@
 @font-face { font-family: "Space Grotesk"; font-weight: 400; font-style: normal; font-display: swap; src: url("../fonts/space-grotesk-latin-400-normal.woff2") format("woff2"); }
 @font-face { font-family: "Space Grotesk"; font-weight: 500; font-style: normal; font-display: swap; src: url("../fonts/space-grotesk-latin-500-normal.woff2") format("woff2"); }
 @font-face { font-family: "IBM Plex Mono"; font-weight: 400; font-style: normal; font-display: swap; src: url("../fonts/ibm-plex-mono-latin-400-normal.woff2") format("woff2"); }
+/* BLUE HOUR (round 2) and the chooser */
+@font-face { font-family: "Instrument Serif"; font-weight: 400; font-style: normal; font-display: swap; src: url("../fonts/instrument-serif-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Instrument Serif"; font-weight: 400; font-style: italic; font-display: swap; src: url("../fonts/instrument-serif-latin-400-italic.woff2") format("woff2"); }
+@font-face { font-family: "Manrope"; font-weight: 400; font-style: normal; font-display: swap; src: url("../fonts/manrope-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Manrope"; font-weight: 500; font-style: normal; font-display: swap; src: url("../fonts/manrope-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Manrope"; font-weight: 600; font-style: normal; font-display: swap; src: url("../fonts/manrope-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Manrope"; font-weight: 700; font-style: normal; font-display: swap; src: url("../fonts/manrope-latin-700-normal.woff2") format("woff2"); }
 
 :root {
   /* color: measured in handoff section 4.3 */
@@ -33,6 +40,20 @@
   --shadow-card: 0 24px 48px -28px rgba(16, 18, 22, 0.25);
   --shadow-float: 0 12px 32px -16px rgba(16, 18, 22, 0.28);
 
+  /* BLUE HOUR (round 2). Navy built on the logo blue's hue. */
+  --bh-abyss: #060E1A;   /* veil over the blurred backdrop, deepest surface */
+  --bh-night: #0A1628;   /* the page frame */
+  --bh-deep:  #0F2038;   /* panels */
+  --bh-tile:  #16294A;   /* raised tiles, hover */
+  --bh-frost: #F2F5FA;   /* headings, primary text */
+  --bh-haze:  #B9C4D6;   /* body text */
+  --bh-dim:   #8C99AF;   /* captions, labels */
+  --bh-sky:   #5AA8FF;   /* small accent text and links on navy */
+  --bh-line: rgba(242, 245, 250, 0.12);
+  --bh-line-strong: rgba(242, 245, 250, 0.28);
+  --bh-glass: rgba(15, 32, 56, 0.72);
+  --bh-glass-edge: rgba(255, 255, 255, 0.14);
+
   /* spacing */
   --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-5: 24px; --s-6: 32px;
   --s-7: 48px; --s-8: 64px; --s-9: 96px; --s-10: 128px; --s-11: 192px;
@@ -46,6 +67,8 @@
   --f-jakarta: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --f-grotesk: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
   --f-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --f-instrument: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --f-manrope: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
   /* type scale */
   --fs-body: 1rem;

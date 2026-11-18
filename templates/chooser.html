@@ -2,7 +2,8 @@
 <html lang="en" class="no-js">
 <head>
 {{> head title=chooser.title description=chooser.description}}
-<link rel="preload" as="font" type="font/woff2" href="{{root}}assets/fonts/plus-jakarta-sans-latin-700-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="{{root}}assets/fonts/instrument-serif-latin-400-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="{{root}}assets/fonts/manrope-latin-700-normal.woff2" crossorigin>
 <link rel="stylesheet" href="{{root}}assets/css/base.css">
 <link rel="stylesheet" href="{{root}}assets/css/kit.css">
 <link rel="stylesheet" href="{{root}}assets/css/chooser.css">
@@ -30,7 +31,7 @@
   <ol class="pick-grid">
     {{#each demos as d}}
     <li class="opt opt-{{d.slug}}">
-      <a class="opt-shot" href="{{root}}{{d.slug}}/index.html" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">{{pic d.shot sizes="(min-width: 1024px) 30vw, 92vw"}}</a>
+      <a class="opt-shot" href="{{root}}{{d.slug}}/index.html" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">{{pic d.shot sizes="(min-width: 1024px) 44vw, 92vw"}}</a>
       <div class="opt-body">
         <p class="opt-n" aria-hidden="true">{{d.n}}</p>
         <h2 class="opt-name">{{d.name}}</h2>
