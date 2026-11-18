@@ -318,7 +318,7 @@
 .wt-contact .field input, .wt-contact .field select, .wt-contact .field textarea { background-color: var(--chalk); }
 .wt-contact .field:not(.field-check) label { letter-spacing: 0.06em; }
 .wt-contact-side { display: grid; gap: var(--s-2); align-content: start; padding: var(--card-pad); background: var(--fog); border-radius: var(--radius); }
-.wt-contact-tel { font-weight: 700; font-size: clamp(1.75rem, 2.6vw, 2.25rem); letter-spacing: -0.03em; line-height: 1.1; }
+.wt-contact-tel { display: inline-flex; align-items: center; min-height: var(--tap); width: fit-content; font-weight: 700; font-size: clamp(1.75rem, 2.6vw, 2.25rem); letter-spacing: -0.03em; line-height: 1.1; }
 .wt-contact-mail { display: inline-flex; align-items: center; min-height: var(--tap); width: fit-content; font-weight: 500; }
 .wt-contact-tel:hover, .wt-contact-mail:hover { color: var(--blue-ink); }
 .wt-contact-addr { margin-top: var(--s-2); max-width: 16em; color: var(--ink-soft); }

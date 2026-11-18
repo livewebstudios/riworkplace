@@ -1,0 +1,158 @@
+#!/usr/bin/env node
+// RI Workplace home demos: static checks on the four generated pages.
+// Zero dependencies. Run: node scripts/check.mjs   (exit code 1 if anything fails)
+// Covers the copy kill list, the LWS page rules, demo scaffolding, and the
+// "same words in all three demos" comparison from the handoff acceptance list.
+
+import { readFileSync, readdirSync, statSync } from 'node:fs';
+import { dirname, join, extname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+const read = (p) => readFileSync(join(ROOT, p), 'utf8');
+const site = JSON.parse(read('content/site.json'));
+const PAGES = ['index.html', ...site.demos.map((d) => `${d.slug}/index.html`)];
+const DEMOS = site.demos.map((d) => `${d.slug}/index.html`);
+
+const EM_DASH = String.fromCharCode(8212);
+let failed = 0;
+const out = [];
+const pass = (name, detail = '') => out.push(`PASS  ${name}${detail ? '  ' + detail : ''}`);
+const fail = (name, detail) => { failed++; out.push(`FAIL  ${name}\n      ${[].concat(detail).join('\n      ')}`); };
+const check = (name, problems, detail) => (problems.length ? fail(name, problems) : pass(name, detail));
+
+const decode = (s) => s.replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;/g, "'");
+// Visible text of the <main> of a page, one string per text run.
+function visible(html, scope = /<main[\s\S]*<\/main>/) {
+  const body = (html.match(scope) || [''])[0]
+    .replace(/<script[\s\S]*?<\/script>/g, ' ')
+    .replace(/<svg[\s\S]*?<\/svg>/g, ' ')
+    .replace(/<[^>]+aria-hidden="true"[^>]*>[^<]*<\/[a-z]+>/g, ' ');
+  return body.split(/<[^>]+>/).map((t) => decode(t).replace(/\s+/g, ' ').trim()).filter(Boolean);
+}
+
+/* ---------- 1. copy kill list, every page, markup included ---------- */
+const BANNED = ['learn more', 'click here', 'submit', 'circle back', "don't hesitate to reach out", 'schedule a free consultation',
+  'seamless', 'solutions', 'comprehensive', 'cutting-edge', 'leverage', 'utilize', 'robust', 'streamlined', 'world-class', 'london'];
+// RI's own service name and the client's own company name stay exactly as they are (handoff 2.6 and 5.4).
+const EXEMPT = [/Return-to-Work Solutions/g, /return-to-work-solutions/g];
+for (const page of PAGES) {
+  const raw = read(page);
+  const problems = [];
+  if (raw.includes(EM_DASH)) problems.push('em dash found');
+  let text = raw;
+  for (const re of EXEMPT) text = text.replace(re, '');
+  const lower = text.toLowerCase();
+  for (const word of BANNED) if (lower.includes(word)) problems.push(`"${word}" at ...${lower.substr(Math.max(0, lower.indexOf(word) - 40), 90).replace(/\s+/g, ' ')}...`);
+  if (lower.replace(/tweezerman[- ]international/g, '').includes('international')) problems.push('"international" used outside the client name Tweezerman International');
+  check(`kill list: ${page}`, problems);
+}
+// Source files too: no em dash in CSS, JS, templates, content or scripts (vendor code excluded).
+const walk = (dir) => readdirSync(join(ROOT, dir)).flatMap((f) => {
+  const p = `${dir}/${f}`;
+  if (/node_modules|vendor|\.git/.test(p)) return [];
+  return statSync(join(ROOT, p)).isDirectory() ? walk(p) : ['.css', '.js', '.mjs', '.html', '.json', '.toml', '.txt'].includes(extname(p)) ? [p] : [];
+});
+check('no em dash in any source file', ['assets', 'templates', 'content', 'scripts'].flatMap(walk).filter((p) => read(p).includes(EM_DASH)));
+
+/* ---------- 2. LWS page rules ---------- */
+for (const page of PAGES) {
+  const html = read(page);
+  const problems = [];
+  const h1 = (html.match(/<h1[\s>]/g) || []).length;
+  if (h1 !== 1) problems.push(`${h1} h1 elements`);
+  const levels = [...html.matchAll(/<h([1-6])[\s>]/g)].map((m) => +m[1]);
+  levels.forEach((l, i) => { if (i && l - levels[i - 1] > 1) problems.push(`heading jumps h${levels[i - 1]} to h${l}`); });
+  if (/\sstyle="/.test(html)) problems.push('inline style attribute');
+  const rootRel = html.match(/(?:href|src|srcset|action|imagesrcset)="\/[^/"][^"]*"/g);
+  if (rootRel) problems.push(`root-relative path: ${rootRel.slice(0, 3).join(' ')}`);
+  if (/(?:href|src)="https?:\/\/[^"]*riworkplace[^"]*\.(?:css|js|png|jpe?g|svg|woff2)"/.test(html)) problems.push('absolute URL for an internal asset');
+  for (const need of ['<meta name="viewport"', '<meta name="description"', '<meta name="robots" content="noindex, nofollow">', 'property="og:title"',
+    'property="og:description"', 'property="og:image"', 'application/ld+json', '"ProfessionalService"', '"foundingDate": "1991"',
+    '<!-- GA4: G-XXXXXXXXXX goes here at launch -->', 'verifiedsecured.png" width="150" height="37"', 'Built by Live Web Studios', '<main', '<footer', '<header']) {
+    if (!html.includes(need)) problems.push(`missing ${need}`);
+  }
+  if (/googletagmanager|gtag\(/.test(html)) problems.push('live analytics tag');
+  for (const img of html.match(/<img\b[^>]*>/g) || []) {
+    if (!/\salt="/.test(img)) problems.push(`img without alt: ${img.slice(0, 80)}`);
+    if (!/\swidth="\d+"/.test(img) || !/\sheight="\d+"/.test(img)) problems.push(`img without width/height: ${img.slice(0, 80)}`);
+    if (!/loading="lazy"|fetchpriority="high"/.test(img) && !/ri-35-years-logo/.test(img)) problems.push(`img neither lazy nor priority: ${img.slice(0, 80)}`);
+  }
+  const logos = html.match(/<img\b[^>]*ri-35-years-logo[^>]*>/g) || [];
+  if (!logos.length || logos.some((l) => !l.includes('alt="RI Workplace, 35 years"'))) problems.push('logo img missing or wrong alt');
+  check(`page rules: ${page}`, problems);
+}
+
+/* ---------- 3. demo pages: nav, form, scaffolding ---------- */
+for (const page of DEMOS) {
+  const html = read(page);
+  const problems = [];
+  const labels = site.nav.flatMap((n) => [n.label, ...(n.children || []).map((c) => c.label)]);
+  for (const l of labels) if (!html.includes(`>${l.replace(/&/g, '&amp;')}</a>`)) problems.push(`nav label missing: ${l}`);
+  if (!html.includes('action="https://formspree.io/f/REPLACE_ME"')) problems.push('form action is not the Formspree placeholder');
+  if (!html.includes('name="_gotcha"')) problems.push('honeypot missing');
+  if (!/id="contact"/.test(html) || !/id="work"/.test(html)) problems.push('#work or #contact anchor missing');
+  // every link to the live site is scaffolding: new tab, noopener, flagged
+  for (const a of html.match(/<a\b[^>]*href="https:\/\/riworkplace\.com[^>]*>/g) || []) {
+    if (!a.includes('target="_blank"') || !a.includes('rel="noopener"') || !a.includes('data-demo-scaffold')) problems.push(`live link not flagged: ${a.slice(0, 110)}`);
+  }
+  if (!html.includes('data-switcher data-demo-scaffold')) problems.push('switcher missing');
+  if ((html.match(/aria-current="page"/g) || []).length !== 1) problems.push('switcher does not mark exactly one current demo');
+  if (/tawk\.to/i.test(html)) problems.push('tawk.to chat widget present');
+  if (/istock/i.test(html)) problems.push('stock image reference');
+  check(`demo rules: ${page}`, problems);
+}
+
+/* ---------- 4. the same words in all three demos ---------- */
+// Every string of the shared copy deck must be visible on every demo.
+const deck = [
+  site.hero.eyebrow, site.hero.sub, site.hero.primary, site.hero.secondary, site.hero.film,
+  ...site.numbers.flatMap((n) => [n.figure, n.label]),
+  site.work.line, site.work.all.label,
+  ...site.work.projects.flatMap((p) => [p.name, p.place, p.sector, p.line]),
+  ...site.work.index.flatMap((p) => [p.name, p.place, p.sector].filter(Boolean)),
+  site.steps.line, site.steps.all.label, ...site.steps.items.flatMap((s) => [s.name, s.copy, ...s.services]),
+  ...site.industries.items.map((i) => i.label),
+  ...site.quotes.items.flatMap((q) => [q.text, q.by]),
+  ...site.family.body, site.family.link.label, ...site.family.people.flatMap((p) => [p.name, p.title]), ...site.family.timeline.flatMap((t) => [t.year, t.entry]),
+  site.showroom.body, site.showroom.button, site.clients.heading,
+  site.contact.line, site.contact.button, site.contact.fields.consent.label, ...site.contact.fields.source.options,
+  ...['first', 'last', 'email', 'tel', 'company', 'source', 'message'].map((k) => site.contact.fields[k].label),
+  site.org.telephone, site.org.email,
+];
+const headings = [site.hero.h1, site.work.h2, site.steps.h2, site.industries.h2, site.quotes.h2, site.family.h2, site.showroom.h2, site.contact.h2];
+const norm = (s) => s.replace(/\s+/g, ' ').replace(/ ?· ?/g, ' ').trim().toLowerCase();
+const texts = {};
+for (const page of DEMOS) {
+  const html = read(page);
+  const flat = norm(visible(html).join(' '));
+  texts[page] = visible(html);
+  const problems = [...deck, ...headings].filter((s) => !flat.includes(norm(s))).map((s) => `deck text not found: ${s.slice(0, 70)}`);
+  if (!norm(visible(html).join(' ')).includes(norm(site.org.address.street))) problems.push('address not found');
+  check(`copy deck complete: ${page}`, problems, `${deck.length + headings.length} strings`);
+}
+// What each demo shows beyond the others (demo-specific furniture, listed for the record).
+const sets = Object.fromEntries(DEMOS.map((p) => [p, new Set(texts[p].map(norm).flatMap((t) => t.split(' ')))]));
+for (const page of DEMOS) {
+  const others = DEMOS.filter((p) => p !== page);
+  const extra = [...sets[page]].filter((w) => /[a-z]{3,}/.test(w) && others.every((o) => !sets[o].has(w)));
+  out.push(`INFO  words only on ${page}: ${extra.length ? extra.join(', ') : 'none'}`);
+}
+// Testimonials character for character.
+for (const page of DEMOS) check(`testimonials verbatim: ${page}`, site.quotes.items.filter((q) => !decode(read(page)).includes(`<p>${q.text}</p>`)).map((q) => q.by));
+// Family below the work and above the contact form.
+for (const page of DEMOS) {
+  const html = read(page);
+  const pos = [html.indexOf('id="work"'), html.indexOf(site.family.people[0].name + '</h3>'), html.indexOf('id="contact"')];
+  check(`the Scotts sit between work and contact: ${page}`, pos[0] < pos[1] && pos[1] < pos[2] ? [] : [`order ${pos.join(' / ')}`]);
+}
+
+/* ---------- 5. scaffolding files ---------- */
+check('robots.txt', /User-agent: \*\s+Disallow: \//.test(read('robots.txt')) ? [] : ['wrong content']);
+check('_headers', /\/\*\s+X-Robots-Tag: noindex, nofollow/.test(read('_headers')) ? [] : ['wrong content']);
+check('no sitemap.xml', readdirSync(ROOT).includes('sitemap.xml') ? ['sitemap.xml exists'] : []);
+check('netlify.toml', /publish = "\."/.test(read('netlify.toml')) && !/command/.test(read('netlify.toml')) ? [] : ['wrong content']);
+
+console.log(out.join('\n'));
+console.log(failed ? `\n${failed} check(s) failed` : '\nall checks passed');
+process.exit(failed ? 1 : 0);

@@ -183,8 +183,6 @@
     "menu": "MENU",
     "close": "CLOSE",
     "submenu": "submenu",
-    "newTab": "opens in a new tab",
-    "top": "RI Workplace, back to top",
     "previous": "Previous",
     "next": "Next",
     "previousQuote": "Previous quote",
@@ -198,7 +196,6 @@
     "filmId": "oGB5OoqgadI",
     "switcherLabel": "Home page options",
     "switcherAll": "ALL 3",
-    "scrollRow": "Scroll the row",
     "indexLabel": "More RI projects",
     "preview": "Project photo"
   },
@@ -649,7 +646,7 @@
     ]
   },
   "contact": {
-    "h2": "Let's talk about your office.",
+    "h2": "Let’s talk about your office.",
     "line": "Tell us where you are now and where you need to be.",
     "action": "https://formspree.io/f/REPLACE_ME",
     "fields": {
@@ -764,7 +761,7 @@
     },
     "projects/ls-power/cafe": {
       "src": "assets/originals/ls-power/ls-power-office-cafe-workplace-retreat-nj-scaled.jpg",
-      "alt": "Café at LS Power in East Brunswick, NJ, with a black stone island, glass meeting rooms and tables by the window"
+      "alt": "Café at LS Power in East Brunswick, NJ, with a black stone island and glass meeting rooms"
     },
     "projects/ls-power/elevator-lobby": {
       "src": "assets/originals/ls-power/2-scaled.webp",
@@ -780,11 +777,11 @@
     },
     "projects/ls-power/boardroom": {
       "src": "assets/originals/ls-power/32-1-scaled.jpg",
-      "alt": "Boardroom at LS Power with a long table, a leather banquette and floor-to-ceiling windows"
+      "alt": "Boardroom at LS Power with a long table and floor-to-ceiling windows"
     },
     "projects/ls-power/wellness": {
       "src": "assets/originals/ls-power/6-1-scaled.jpg",
-      "alt": "Wellness room at LS Power with soft seating, a textured green wall and plants by the window"
+      "alt": "Wellness room at LS Power with soft seating and a textured green wall"
     },
     "projects/ls-power/open-office": {
       "src": "assets/originals/ls-power/26-1-scaled.jpg",
@@ -800,7 +797,7 @@
     },
     "projects/kdlm/boardroom": {
       "src": "assets/originals/kdlm/KDLM-1-scaled.jpg",
-      "alt": "Boardroom at Kramer, Dillof, Livingston & Moore in New York with a black stone table, tan leather chairs and built-in law library shelving"
+      "alt": "Boardroom at Kramer, Dillof, Livingston & Moore in New York with a black stone table and built-in law library shelving"
     },
     "projects/kdlm/library": {
       "src": "assets/originals/kdlm/KDLM-9-scaled.jpg",
@@ -808,7 +805,7 @@
     },
     "projects/kdlm/office": {
       "src": "assets/originals/kdlm/KDLM-3-scaled.jpg",
-      "alt": "Executive office at Kramer, Dillof, Livingston & Moore with a sofa, armchairs and oak built-in shelving"
+      "alt": "Executive office at Kramer, Dillof, Livingston & Moore with a sofa and oak built-in shelving"
     },
     "projects/kdlm/entry": {
       "src": "assets/originals/kdlm/KDLM-14-scaled.jpg",
@@ -816,11 +813,11 @@
     },
     "projects/wetransfer/lounge": {
       "src": "assets/originals/wetransfer/WeTransfer-Modern-Corporate-Office-Space-11.jpg",
-      "alt": "Lounge at WeTransfer in New York with velvet sofas on a striped rug, plants and tall loft windows"
+      "alt": "Lounge at WeTransfer in New York with velvet sofas on a striped rug and tall loft windows"
     },
     "projects/wetransfer/floor": {
       "src": "assets/originals/wetransfer/WeTransfer-Modern-Corporate-Office-Space-New-York-City.jpg",
-      "alt": "Open floor at WeTransfer with oak storage walls, orange shelving niches and polished concrete"
+      "alt": "Open floor at WeTransfer with oak storage walls and orange shelving niches"
     },
     "projects/jura/lounge": {
       "src": "assets/originals/jura/Main-Image.jpg",
@@ -908,7 +905,7 @@
     },
     "projects/corporate-essentials/lead": {
       "src": "assets/originals/index/2021_07_20190124_RI_JEP_5209.jpg",
-      "alt": "Café at Corporate Essentials with a brick wall, a teal bar and metal chairs"
+      "alt": "Café at Corporate Essentials with a brick wall and a teal bar"
     },
     "team/rob-scott": {
       "src": "assets/originals/team/Rob-Scott.jpg",

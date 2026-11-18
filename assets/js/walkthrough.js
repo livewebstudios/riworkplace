@@ -90,6 +90,9 @@
         scrollTrigger: {
           trigger: walk,
           pin: pin,
+          /* With Lenis the scroll runs on the main thread, so the pin can ride a transform: no jump and no
+             layout shift when a fast wheel crosses the start. Touch screens scroll natively and keep the fixed pin. */
+          pinType: RI.lenis ? 'transform' : 'fixed',
           start: function () { return 'top ' + ($('.head').offsetHeight) + 'px'; },
           end: function () { return '+=' + distance(); }, /* track width minus one viewport */
           scrub: true,

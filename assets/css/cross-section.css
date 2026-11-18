@@ -298,7 +298,7 @@
 .cs-contact .field label { letter-spacing: 0.04em; }
 .cs-contact .field:not(.field-check) label, .cs-contact .field-req { font-family: var(--f-mono); }
 .cs-contact-side { display: grid; gap: var(--s-2); align-content: start; padding-block: var(--s-7); border-top: var(--rule); background: var(--concrete); font-family: var(--f-mono); font-size: 0.8125rem; letter-spacing: 0.02em; }
-.cs-contact-tel { font-family: var(--f-grotesk); font-weight: 500; font-size: clamp(1.75rem, 2.6vw, 2.25rem); letter-spacing: -0.03em; line-height: 1.1; }
+.cs-contact-tel { display: inline-flex; align-items: center; min-height: var(--tap); width: fit-content; font-family: var(--f-grotesk); font-weight: 500; font-size: clamp(1.75rem, 2.6vw, 2.25rem); letter-spacing: -0.03em; line-height: 1.1; }
 .cs-contact-mail { display: inline-flex; align-items: center; min-height: var(--tap); width: fit-content; }
 .cs-contact-tel:hover, .cs-contact-mail:hover { color: var(--blue-ink); }
 .cs-contact-addr { margin-top: var(--s-2); max-width: 24em; color: var(--ink-soft); text-transform: uppercase; line-height: 1.6; }

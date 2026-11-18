@@ -28,10 +28,10 @@
   --concrete: #ECEBE8;
   --hairline: rgba(16, 18, 22, 0.14);
   --hairline-strong: rgba(16, 18, 22, 0.32);
+  --field-line: rgba(16, 18, 22, 0.5);    /* form control edges: 3.5:1 on white */
   --veil: rgba(247, 247, 245, 0.9);       /* light backdrop behind dialogs */
   --shadow-card: 0 24px 48px -28px rgba(16, 18, 22, 0.25);
   --shadow-float: 0 12px 32px -16px rgba(16, 18, 22, 0.28);
-  --error: #A8201A;     /* 7.3:1 on white, 6.0:1 on stone */
 
   /* spacing */
   --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-5: 24px; --s-6: 32px;
@@ -87,7 +87,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--nav-h) + var(--s-4)); }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--nav-h) + var(--s-4)); overflow-x: clip; }
 @media (prefers-reduced-motion: no-preference) {
   html:not(.lenis) { scroll-behavior: smooth; }
 }

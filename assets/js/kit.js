@@ -21,7 +21,7 @@
   if (hasGsap && !reduced && !touch && wantLenis && typeof window.Lenis !== 'undefined') {
     var lenis = (RI.lenis = new window.Lenis({
       lerp: 0.11,
-      anchors: { offset: -(parseInt(getComputedStyle(root).getPropertyValue('--nav-h'), 10) || 78) },
+      anchors: true, /* Lenis reads scroll-padding-top from the html element, so the sticky nav is already allowed for */
     }));
     lenis.on('scroll', window.ScrollTrigger.update);
     window.gsap.ticker.add(function (time) { lenis.raf(time * 1000); });
@@ -97,16 +97,18 @@
       caret.setAttribute('aria-expanded', String(open));
     });
     item.addEventListener('mouseenter', function () { item.classList.remove('is-shut'); });
-    item.addEventListener('focusin', function () { item.classList.remove('is-shut'); });
+    item.addEventListener('focusin', function () { if (!item.dataset.escaping) item.classList.remove('is-shut'); });
     item.addEventListener('focusout', function (e) {
-      if (!item.contains(e.relatedTarget)) { item.classList.remove('is-open'); caret.setAttribute('aria-expanded', 'false'); }
+      if (!item.contains(e.relatedTarget)) { item.classList.remove('is-open', 'is-shut'); caret.setAttribute('aria-expanded', 'false'); }
     });
     item.addEventListener('keydown', function (e) {
       if (e.key !== 'Escape') return;
       item.classList.add('is-shut');
       item.classList.remove('is-open');
       caret.setAttribute('aria-expanded', 'false');
+      item.dataset.escaping = '1';
       $('.nav-link', item).focus();
+      delete item.dataset.escaping;
     });
   });
   doc.addEventListener('click', function (e) { if (!e.target.closest('.nav-item.has-drop')) closeDrops(); });
