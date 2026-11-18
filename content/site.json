@@ -1024,5 +1024,16 @@
   },
   "approach": {
     "image": "projects/kdlm/library"
+  },
+  "accents": {
+    "_note": "Demo 2 sets one phrase of each headline in blue. Each value is the closing phrase of that headline, never new words.",
+    "work": "work",
+    "steps": "Four steps.",
+    "industries": "we serve",
+    "quotes": "clients say",
+    "family": "family business.",
+    "showroom": "in person.",
+    "contact": "your office.",
+    "walk": "LS Power."
   }
 }

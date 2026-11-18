@@ -257,7 +257,8 @@ body.is-locked { overflow: hidden; }
 .foot-in { display: grid; gap: var(--s-7); }
 .foot-brand { display: grid; gap: var(--s-6); justify-items: start; }
 .foot-logo img { height: var(--logo-foot-h); width: auto; }
-.foot-contact { display: grid; gap: var(--s-1); align-content: start; max-width: 30ch; }
+.foot-contact { display: grid; gap: var(--s-1); align-content: start; }
+.foot-contact span { text-wrap: balance; }
 .foot-contact a { display: inline-flex; align-items: center; min-height: var(--tap); }
 .foot-contact a:hover, .foot-nav a:hover, .foot-built:hover { color: var(--blue-ink); }
 .foot-nav ul { display: grid; grid-template-columns: 1fr; gap: 0 var(--s-6); }
@@ -293,6 +294,7 @@ body.is-locked { overflow: hidden; }
   transition: transform 0.35s var(--ease);
 }
 .switcher.is-lifted { transform: translate(-50%, -72px); }
+.switcher.is-tucked { transform: translate(-50%, calc(100% + var(--s-6))); }
 .switcher a {
   display: inline-flex; align-items: center; justify-content: center;
   min-width: var(--tap); min-height: var(--tap); padding-inline: var(--s-4);

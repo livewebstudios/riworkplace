@@ -2,6 +2,8 @@
 <html lang="en" class="no-js">
 <head>
 {{> head title=meta.title description=meta.description}}
+<link rel="preload" as="font" type="font/woff2" href="{{root}}assets/fonts/plus-jakarta-sans-latin-700-normal.woff2" crossorigin>
+{{preload work.projects.1.lead sizes="(min-width: 1024px) 86vw, 100vw"}}
 <link rel="stylesheet" href="{{root}}assets/css/base.css">
 <link rel="stylesheet" href="{{root}}assets/css/kit.css">
 <link rel="stylesheet" href="{{root}}assets/css/walkthrough.css">
@@ -10,21 +12,239 @@
 {{> icons}}
 {{> header}}
 <main id="main">
-  <section class="wrap">
-    <p class="label">{{hero.eyebrow}}</p>
-    <h1>{{hero.h1}}</h1>
-    <p>{{hero.sub}}</p>
+
+  <section class="wt-hero">
+    <div class="wrap wt-hero-copy">
+      <p class="label wt-eyebrow">{{hero.eyebrow}}</p>
+      <h1 class="wt-h1">{{hero.h1a}} <span class="wt-tone">{{hero.h1b}}</span></h1>
+      <p class="wt-sub">{{hero.sub}}</p>
+      <div class="wt-actions">
+        <a class="btn btn-primary" href="#work">{{hero.primary}}</a>
+        <a class="btn btn-ghost" href="#contact">{{hero.secondary}}</a>
+      </div>
+      <button class="link link-film" type="button" data-film-open><svg class="ico" aria-hidden="true"><use href="#i-play"/></svg><span class="link-text">{{hero.film}}</span></button>
+    </div>
+    <div class="wt-hero-stage" data-hero-stage>
+      <p class="wt-ghost" aria-hidden="true" data-ghost>{{hero.ghost}}</p>
+      <figure class="wt-hero-photo" data-hero-photo>{{pic work.projects.1.lead sizes="(min-width: 1024px) 86vw, 100vw" eager}}</figure>
+    </div>
   </section>
-  <section class="wrap" id="contact">
-    <h2>{{contact.h2}}</h2>
-    {{> form}}
+
+  <div class="wrap wt-numbers">
+    <ul class="wt-tiles">
+      {{#each numbers as n}}
+      <li class="wt-tile" data-reveal><strong class="wt-tile-fig" data-count>{{n.figure}}</strong> <span class="wt-tile-label">{{n.label}}</span></li>
+      {{/each}}
+    </ul>
+  </div>
+
+  <section class="wt-walk" data-walk>
+    <div class="wt-walk-pin" data-walk-pin>
+      <header class="wrap wt-walk-head">
+        <p class="label wt-walk-label">{{walk.label}}</p>
+        <h2 class="wt-h2">{{tone.walk.lead}} <span class="wt-tone">{{tone.walk.accent}}</span></h2>
+      </header>
+      <div class="wt-walk-scroller" data-walk-scroller tabindex="0" role="region" aria-label="{{walk.h2}}">
+        <ol class="wt-track" data-walk-track>
+          {{#each walk.stops as s}}
+          <li class="wt-stop" data-walk-card>
+            <figure class="wt-stop-card">
+              <div class="wt-stop-photo">{{pic s.image sizes="(min-width: 1024px) 62vw, 84vw"}}</div>
+              <figcaption class="wt-chip"><span class="wt-chip-n" aria-hidden="true">{{@n | pad2}}</span>{{s.label}}</figcaption>
+            </figure>
+          </li>
+          {{/each}}
+        </ol>
+      </div>
+      <div class="wrap wt-rail-wrap">
+        <div class="wt-rail" data-walk-rail>
+          <span class="wt-rail-line" aria-hidden="true"></span>
+          <span class="wt-rail-fill" aria-hidden="true" data-walk-fill></span>
+          <span class="wt-rail-runner" aria-hidden="true" data-walk-runner><span class="wt-rail-dot"></span></span>
+          <ol class="wt-rail-stops" aria-label="{{walk.railLabel}}">
+            {{#each walk.stops as s}}
+            <li><button class="wt-rail-stop" type="button" data-walk-stop="{{@index}}"{{#if @first}} aria-current="true"{{/if}}><span class="wt-rail-tick" aria-hidden="true"></span><span class="wt-rail-label">{{s.label}}</span></button></li>
+            {{/each}}
+          </ol>
+        </div>
+      </div>
+    </div>
   </section>
+
+  <section class="wt-work" id="work">
+    <div class="wrap wt-work-head">
+      <header class="wt-head">
+        <h2 class="wt-h2">{{tone.work.lead}} <span class="wt-tone">{{tone.work.accent}}</span></h2>
+        <p class="wt-lead">{{work.line}}</p>
+      </header>
+      <div class="wt-arrows" data-row-arrows hidden>
+        <button class="wt-arrow" type="button" aria-label="{{ui.previous}}" data-row-prev><svg class="ico" aria-hidden="true"><use href="#i-prev"/></svg></button>
+        <button class="wt-arrow" type="button" aria-label="{{ui.next}}" data-row-next><svg class="ico" aria-hidden="true"><use href="#i-next"/></svg></button>
+      </div>
+    </div>
+    <div class="wt-row" data-row data-reveal="fade" tabindex="0" role="region" aria-label="{{work.h2}}">
+      <ul class="wt-row-track">
+        {{#each work.projects as p}}
+        <li class="wt-card">
+          <div class="wt-card-photo">
+            {{pic p.lead sizes="(min-width: 600px) 420px, 84vw"}}
+            <p class="wt-card-tags"><span class="wt-tag">{{p.sector}}</span><span class="wt-tag">{{p.place}}</span></p>
+          </div>
+          <div class="wt-card-body">
+            <h3 class="wt-card-name">{{p.name}}</h3>
+            <p class="wt-card-line">{{p.line}}</p>
+            <a class="link" href="{{p.href}}" target="_blank" rel="noopener" aria-label="{{ui.viewProject}}: {{p.name}}" data-demo-scaffold><span class="link-text">{{ui.viewProject}}</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+    <div class="wrap">
+      <div class="wt-index">
+        <ul class="wt-index-list" aria-label="{{ui.indexLabel}}">
+          {{#each work.index as p}}
+          <li><a href="{{p.href}}" target="_blank" rel="noopener" data-demo-scaffold><span class="wt-index-name">{{p.name}}</span> <span class="wt-index-meta">{{p.place}}{{#if p.sector}} · {{p.sector}}{{/if}}</span></a></li>
+          {{/each}}
+        </ul>
+        <a class="btn btn-ghost" href="{{work.allHref}}" target="_blank" rel="noopener" data-demo-scaffold>{{work.all.label}}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap wt-steps">
+    <header class="wt-head wt-head-center">
+      <h2 class="wt-h2">{{tone.steps.lead}} <span class="wt-tone">{{tone.steps.accent}}</span></h2>
+      <p class="wt-lead">{{steps.line}}</p>
+    </header>
+    <div class="wt-stepper" data-stepper>
+      <ol class="wt-stepper-list">
+        {{#each steps.items as s}}
+        <li class="wt-step{{#if @first}} is-on{{/if}}" data-step>
+          <h3 class="wt-step-head"><button class="wt-step-node" type="button" aria-controls="wt-step-{{s.n}}" data-step-node><span class="wt-step-n">{{s.n}}</span><span class="wt-step-name">{{s.name}}</span></button></h3>
+          <div class="wt-step-panel" id="wt-step-{{s.n}}" data-step-panel>
+            <p class="wt-step-copy">{{s.copy}}</p>
+            <ul class="wt-step-links">
+              {{#each s.links as l}}
+              <li><a href="{{l.href}}" target="_blank" rel="noopener" data-demo-scaffold>{{l.label}}</a></li>
+              {{/each}}
+            </ul>
+          </div>
+        </li>
+        {{/each}}
+      </ol>
+    </div>
+    <p class="wt-steps-all"><a class="btn btn-ghost" href="{{steps.allHref}}" target="_blank" rel="noopener" data-demo-scaffold>{{steps.all.label}}</a></p>
+  </section>
+
+  <section class="wrap wt-ind">
+    <header class="wt-head wt-head-center">
+      <h2 class="wt-h2">{{tone.industries.lead}} <span class="wt-tone">{{tone.industries.accent}}</span></h2>
+    </header>
+    <ul class="wt-ind-list">
+      {{#each industries.items as i}}
+      <li data-reveal><a class="wt-ind-pill{{#if i.image}}{{else}} is-plain{{/if}}" href="{{i.href}}" target="_blank" rel="noopener" data-demo-scaffold>{{#if i.image}}<span class="wt-ind-photo">{{pic i.image sizes="56px" alt=""}}</span>{{/if}}<span>{{i.label}}</span></a></li>
+      {{/each}}
+    </ul>
+  </section>
+
+  <section class="wrap wt-quotes">
+    <header class="wt-head">
+      <h2 class="wt-h2">{{tone.quotes.lead}} <span class="wt-tone">{{tone.quotes.accent}}</span></h2>
+    </header>
+    <div class="wt-quote-card" data-quotes>
+      {{#each quotes.items as q}}
+      <figure class="wt-quote" data-quote>
+        <div class="wt-quote-photo">{{pic q.image sizes="(min-width: 1024px) 40vw, 100vw"}}</div>
+        <div class="wt-quote-body">
+          <blockquote><p>{{q.text}}</p></blockquote>
+          <figcaption class="wt-quote-by">{{q.by}}</figcaption>
+        </div>
+      </figure>
+      {{/each}}
+      <div class="wt-dots" data-quote-dots data-word-quote="{{ui.quote}}" hidden></div>
+    </div>
+  </section>
+
+  <section class="wrap wt-family">
+    <div class="wt-family-panel">
+      <div class="wt-family-top">
+        <div class="wt-family-copy">
+          <h2 class="wt-h2">{{tone.family.lead}} <span class="wt-tone">{{tone.family.accent}}</span></h2>
+          {{#each family.body as para}}
+          <p class="wt-family-p">{{para}}</p>
+          {{/each}}
+          <a class="btn btn-ghost" href="{{family.linkHref}}" target="_blank" rel="noopener" data-demo-scaffold>{{family.link.label}}</a>
+        </div>
+        <ul class="wt-people">
+          {{#each family.people as m}}
+          <li class="wt-person" data-reveal>
+            <div class="wt-person-photo">{{pic m.image}}</div>
+            <h3 class="wt-person-name">{{m.name}}</h3>
+            <p class="wt-person-title">{{m.title}}</p>
+          </li>
+          {{/each}}
+        </ul>
+      </div>
+      <ol class="wt-time" aria-label="{{family.timelineLabel}}">
+        {{#each family.timeline as t}}
+        <li class="wt-time-chip{{#if t.image}}{{else}} is-plain{{/if}}">{{#if t.image}}<span class="wt-time-photo">{{pic t.image sizes="48px" alt=""}}</span>{{/if}}<span class="wt-time-text"><strong class="wt-time-year">{{t.year}}</strong> <span class="wt-time-entry">{{t.entry}}</span></span></li>
+        {{/each}}
+      </ol>
+    </div>
+  </section>
+
+  <section class="wrap wt-show">
+    <div class="wt-show-card">
+      <div class="wt-show-copy">
+        <h2 class="wt-h2">{{tone.showroom.lead}} <span class="wt-tone">{{tone.showroom.accent}}</span></h2>
+        <p class="wt-show-body">{{showroom.body}}</p>
+        <a class="btn btn-primary" href="#contact">{{showroom.button}}</a>
+      </div>
+      <figure class="wt-show-photo">{{pic showroom.image sizes="(min-width: 1024px) 50vw, 100vw"}}</figure>
+    </div>
+  </section>
+
+  <section class="wt-clients">
+    <h2 class="label wt-clients-h">{{clients.heading}}</h2>
+    <div class="wt-marquee" tabindex="0" role="group" aria-label="{{clients.heading}}" data-marquee>
+      <ul class="wt-marquee-track">
+        {{#each clients.logos as c}}
+        <li>{{pic c.image}}</li>
+        {{/each}}
+      </ul>
+      <ul class="wt-marquee-track" aria-hidden="true">
+        {{#each clients.logos as c}}
+        <li>{{pic c.image alt=""}}</li>
+        {{/each}}
+      </ul>
+    </div>
+  </section>
+
+  <section class="wrap wt-contact" id="contact">
+    <div class="wt-contact-in">
+      <div class="wt-contact-card">
+        <header class="wt-head">
+          <h2 class="wt-h2">{{tone.contact.lead}} <span class="wt-tone">{{tone.contact.accent}}</span></h2>
+          <p class="wt-lead">{{contact.line}}</p>
+        </header>
+        {{> form}}
+      </div>
+      <aside class="wt-contact-side" aria-label="{{contact.detailsLabel}}">
+        <a class="wt-contact-tel" href="{{org.telHref}}">{{org.telephone}}</a>
+        <a class="wt-contact-mail" href="{{org.mailHref}}">{{org.email}}</a>
+        <address class="wt-contact-addr">{{org.address.full}}</address>
+      </aside>
+    </div>
+  </section>
+
 </main>
 {{> footer}}
+{{> film}}
 {{> switcher}}
 <script src="{{root}}assets/js/vendor/gsap.min.js"></script>
 <script src="{{root}}assets/js/vendor/ScrollTrigger.min.js"></script>
 <script src="{{root}}assets/js/vendor/lenis.min.js"></script>
 <script src="{{root}}assets/js/kit.js"></script>
+<script src="{{root}}assets/js/walkthrough.js"></script>
 </body>
 </html>
