@@ -1,0 +1,33 @@
+<footer class="foot" id="footer">
+  <div class="wrap foot-in">
+    <div class="foot-brand">
+      <a class="foot-logo" href="#top"><img src="{{root}}assets/img/{{logo.file}}" width="{{logo.width}}" height="{{logo.height}}" alt="{{logo.alt}}" loading="lazy" decoding="async"></a>
+      <ul class="foot-social" aria-label="{{ui.socialNav}}">
+        {{#each org.social as s}}
+        <li><a href="{{s.url}}" target="_blank" rel="noopener" aria-label="{{s.name}}"><svg class="ico" aria-hidden="true"><use href="#i-{{s.icon}}"/></svg></a></li>
+        {{/each}}
+      </ul>
+    </div>
+    <address class="foot-contact">
+      <span>{{org.address.street}}</span>
+      <span>{{org.address.city}}, {{org.address.region}} {{org.address.zip}}</span>
+      <a href="{{org.telHref}}">{{org.telephone}}</a>
+      <a href="{{org.mailHref}}">{{org.email}}</a>
+    </address>
+    <nav class="foot-nav" aria-label="{{ui.footerNav}}">
+      <ul>
+        {{#each nav as item}}
+        <li><a href="{{item.href}}" target="_blank" rel="noopener" data-demo-scaffold>{{item.label}}</a></li>
+        {{/each}}
+        <li><a href="#contact">{{util.contact.label}}</a></li>
+        <li><a href="{{util.portal.url}}" target="_blank" rel="noopener" data-demo-scaffold>{{util.portal.label}}</a></li>
+        <li><a href="{{footer.privacyHref}}" target="_blank" rel="noopener" data-demo-scaffold>{{footer.privacy.label}}</a></li>
+      </ul>
+    </nav>
+    <div class="foot-base">
+      <span>{{footer.copyright}}</span>
+      <img class="foot-badge" src="{{root}}assets/img/brand/verifiedsecured.png" width="150" height="37" alt="{{footer.badgeAlt}}" loading="lazy" decoding="async">
+      <a class="foot-built" href="{{footer.built.url}}" target="_blank" rel="noopener">{{footer.built.label}}</a>
+    </div>
+  </div>
+</footer>

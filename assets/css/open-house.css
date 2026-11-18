@@ -1,0 +1,2 @@
+/* open-house: theme tokens. Sections arrive in a later task. */
+.demo-open-house { --paper: var(--cream); --panel: var(--stone); --text-mute: var(--ink-soft); --font-body: var(--f-jost); --font-display: var(--f-jost); --font-label: var(--f-jost); --weight-label: 500; }

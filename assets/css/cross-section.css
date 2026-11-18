@@ -1,0 +1,2 @@
+/* cross-section: theme tokens. Sections arrive in a later task. */
+.demo-cross-section { --paper: var(--white); --panel: var(--concrete); --text-mute: var(--ink-soft); --font-body: var(--f-grotesk); --font-display: var(--f-grotesk); --font-label: var(--f-mono); --weight-label: 400; --track-label: 0.08em; --track-nav: 0.04em; }

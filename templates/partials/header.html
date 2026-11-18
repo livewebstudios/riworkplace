@@ -1,0 +1,77 @@
+<a class="skip" href="#main">{{ui.skip}}</a>
+<div class="util">
+  <nav class="wrap" aria-label="{{ui.utilNav}}">
+    <ul class="util-list">
+      <li><a href="{{org.telHref}}">{{org.telephone}}</a></li>
+      <li><a href="{{org.mailHref}}">{{org.email}}</a></li>
+      <li><a href="{{util.portal.url}}" target="_blank" rel="noopener" data-demo-scaffold>{{util.portal.label}}</a></li>
+      <li class="util-social">
+        {{#each org.social as s}}
+        <a href="{{s.url}}" target="_blank" rel="noopener" aria-label="{{s.name}}"><svg class="ico" aria-hidden="true"><use href="#i-{{s.icon}}"/></svg></a>
+        {{/each}}
+      </li>
+      <li><a class="util-cta" href="#contact">{{util.contact.label}}</a></li>
+    </ul>
+  </nav>
+</div>
+<header class="head" data-head>
+  <div class="wrap head-in">
+    <a class="head-logo" href="#top"><img src="{{root}}assets/img/{{logo.file}}" width="{{logo.width}}" height="{{logo.height}}" alt="{{logo.alt}}"></a>
+    <nav class="nav" aria-label="{{ui.mainNav}}">
+      <ul class="nav-list">
+        {{#each nav as item}}
+        <li class="nav-item{{#if item.hasChildren}} has-drop{{/if}}{{#if item.wide}} is-wide{{/if}}">
+          <a class="nav-link" href="{{item.href}}" target="_blank" rel="noopener" data-demo-scaffold>{{item.label}}</a>
+          {{#if item.hasChildren}}
+          <button class="nav-caret" type="button" aria-expanded="false" aria-controls="drop-{{item.id}}" aria-label="{{item.label}} {{ui.submenu}}"><svg class="ico" aria-hidden="true"><use href="#i-chevron"/></svg></button>
+          <ul class="drop" id="drop-{{item.id}}">
+            {{#each item.children as c}}
+            <li><a href="{{c.href}}" target="_blank" rel="noopener" data-demo-scaffold>{{c.label}}</a></li>
+            {{/each}}
+          </ul>
+          {{/if}}
+        </li>
+        {{/each}}
+      </ul>
+    </nav>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="sheet" data-sheet-open><span>{{ui.menu}}</span><span class="nav-toggle-bars" aria-hidden="true"></span></button>
+  </div>
+</header>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="{{ui.mainNav}}" hidden>
+  <div class="sheet-top">
+    <img src="{{root}}assets/img/{{logo.file}}" width="{{logo.width}}" height="{{logo.height}}" alt="{{logo.alt}}">
+    <button class="sheet-close" type="button" data-sheet-close>{{ui.close}}</button>
+  </div>
+  <nav class="sheet-nav" aria-label="{{ui.mainNav}}">
+    <ul>
+      {{#each nav as item}}
+      <li class="sheet-item">
+        <div class="sheet-row">
+          <a href="{{item.href}}" target="_blank" rel="noopener" data-demo-scaffold>{{item.label}}</a>
+          {{#if item.hasChildren}}
+          <button class="sheet-caret" type="button" aria-expanded="false" aria-controls="sheet-{{item.id}}" aria-label="{{item.label}} {{ui.submenu}}"><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></button>
+          {{/if}}
+        </div>
+        {{#if item.hasChildren}}
+        <ul class="sheet-sub" id="sheet-{{item.id}}" hidden>
+          {{#each item.children as c}}
+          <li><a href="{{c.href}}" target="_blank" rel="noopener" data-demo-scaffold>{{c.label}}</a></li>
+          {{/each}}
+        </ul>
+        {{/if}}
+      </li>
+      {{/each}}
+    </ul>
+  </nav>
+  <ul class="sheet-util">
+    <li><a href="{{org.telHref}}">{{org.telephone}}</a></li>
+    <li><a href="{{org.mailHref}}">{{org.email}}</a></li>
+    <li><a href="{{util.portal.url}}" target="_blank" rel="noopener" data-demo-scaffold>{{util.portal.label}}</a></li>
+    <li class="sheet-social">
+      {{#each org.social as s}}
+      <a href="{{s.url}}" target="_blank" rel="noopener" aria-label="{{s.name}}"><svg class="ico" aria-hidden="true"><use href="#i-{{s.icon}}"/></svg></a>
+      {{/each}}
+    </li>
+    <li><a class="btn btn-primary" href="#contact" data-sheet-close>{{util.contact.label}}</a></li>
+  </ul>
+</div>

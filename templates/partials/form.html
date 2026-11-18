@@ -1,0 +1,54 @@
+<form class="form" action="{{contact.action}}" method="POST" novalidate data-form data-msg-success="{{contact.success}}" data-msg-failure="{{contact.failure}}" data-msg-sending="{{contact.sending}}">
+  <div class="field">
+    <label for="f-first">{{contact.fields.first.label}} <span class="field-req">({{contact.required}})</span></label>
+    <input id="f-first" name="first_name" type="text" autocomplete="given-name" required aria-describedby="e-first">
+    <p class="field-error" id="e-first" hidden>{{contact.fields.first.error}}</p>
+  </div>
+  <div class="field">
+    <label for="f-last">{{contact.fields.last.label}} <span class="field-req">({{contact.required}})</span></label>
+    <input id="f-last" name="last_name" type="text" autocomplete="family-name" required aria-describedby="e-last">
+    <p class="field-error" id="e-last" hidden>{{contact.fields.last.error}}</p>
+  </div>
+  <div class="field">
+    <label for="f-email">{{contact.fields.email.label}} <span class="field-req">({{contact.required}})</span></label>
+    <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="e-email">
+    <p class="field-error" id="e-email" hidden>{{contact.fields.email.error}}</p>
+  </div>
+  <div class="field">
+    <label for="f-tel">{{contact.fields.tel.label}} <span class="field-req">({{contact.required}})</span></label>
+    <input id="f-tel" name="phone" type="tel" autocomplete="tel" inputmode="tel" required aria-describedby="e-tel">
+    <p class="field-error" id="e-tel" hidden>{{contact.fields.tel.error}}</p>
+  </div>
+  <div class="field">
+    <label for="f-company">{{contact.fields.company.label}} <span class="field-req">({{contact.optional}})</span></label>
+    <input id="f-company" name="company" type="text" autocomplete="organization">
+  </div>
+  <div class="field">
+    <label for="f-source">{{contact.fields.source.label}} <span class="field-req">({{contact.required}})</span></label>
+    <select id="f-source" name="source" required aria-describedby="e-source">
+      <option value="">{{contact.fields.source.placeholder}}</option>
+      {{#each contact.fields.source.options as o}}
+      <option>{{o}}</option>
+      {{/each}}
+    </select>
+    <p class="field-error" id="e-source" hidden>{{contact.fields.source.error}}</p>
+  </div>
+  <div class="field field-wide">
+    <label for="f-message">{{contact.fields.message.label}} <span class="field-req">({{contact.required}})</span></label>
+    <textarea id="f-message" name="message" rows="5" required aria-describedby="e-message"></textarea>
+    <p class="field-error" id="e-message" hidden>{{contact.fields.message.error}}</p>
+  </div>
+  <div class="field field-check field-wide">
+    <input id="f-consent" name="consent" type="checkbox" value="yes" required aria-describedby="e-consent">
+    <label for="f-consent">{{contact.fields.consent.label}}</label>
+    <p class="field-error" id="e-consent" hidden>{{contact.fields.consent.error}}</p>
+  </div>
+  <div class="field-trap" aria-hidden="true">
+    <label for="f-gotcha">{{contact.fields.company.label}}</label>
+    <input id="f-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+  </div>
+  <div class="form-foot field-wide">
+    <button class="btn btn-primary" data-form-send>{{contact.button}}</button>
+    <p class="form-status" role="status" aria-live="polite" data-form-status></p>
+  </div>
+</form>

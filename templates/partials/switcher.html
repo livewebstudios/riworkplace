@@ -1,0 +1,7 @@
+<nav class="switcher" aria-label="{{ui.switcherLabel}}" data-switcher data-demo-scaffold>
+  <a href="{{root}}index.html">{{ui.switcherAll}}</a>
+  {{#each demos as d}}
+  <span class="switcher-dot" aria-hidden="true">·</span>
+  <a href="{{root}}{{d.slug}}/index.html"{{#if d.current}} aria-current="page"{{/if}} aria-label="{{d.n}}, {{d.name}}">{{d.n}}</a>
+  {{/each}}
+</nav>

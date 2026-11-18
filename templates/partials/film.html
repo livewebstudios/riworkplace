@@ -1,0 +1,13 @@
+<dialog class="film" id="film" aria-label="{{ui.filmTitle}}" data-film data-film-src="https://www.youtube-nocookie.com/embed/{{ui.filmId}}?autoplay=1&amp;rel=0" data-film-title="{{ui.filmTitle}}">
+  <div class="film-bar">
+    <span class="label">{{ui.filmTitle}}</span>
+    <button class="film-close" type="button" data-film-close>{{ui.close}}</button>
+  </div>
+  <div class="film-stage" data-film-stage>
+    {{pic film.poster sizes="(min-width: 1000px) 960px, 100vw"}}
+    <button class="film-play" type="button" data-film-play>
+      <span class="btn btn-primary film-play-btn"><svg class="ico" aria-hidden="true"><use href="#i-play"/></svg>{{ui.filmPlay}}</span>
+      <span class="film-note">{{ui.filmNote}}</span>
+    </button>
+  </div>
+</dialog>

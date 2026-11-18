@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+{{> head title=chooser.title description=chooser.description}}
+<link rel="preload" as="font" type="font/woff2" href="{{root}}assets/fonts/plus-jakarta-sans-latin-700-normal.woff2" crossorigin>
+<link rel="stylesheet" href="{{root}}assets/css/base.css">
+<link rel="stylesheet" href="{{root}}assets/css/kit.css">
+<link rel="stylesheet" href="{{root}}assets/css/chooser.css">
+</head>
+<body class="chooser" id="top">
+<a class="skip" href="#main">{{ui.skip}}</a>
+<header class="head">
+  <div class="wrap head-in">
+    <a class="head-logo" href="#top"><img src="{{root}}assets/img/{{logo.file}}" width="{{logo.width}}" height="{{logo.height}}" alt="{{logo.alt}}"></a>
+    <nav class="pick-nav" aria-label="{{chooser.navLabel}}">
+      <ul>
+        {{#each demos as d}}
+        <li><a href="{{root}}{{d.slug}}/index.html"><span class="pick-nav-n">{{d.n}}</span> {{d.name}}</a></li>
+        {{/each}}
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap pick">
+  <div class="pick-intro">
+    <p class="label pick-label">{{chooser.label}}</p>
+    <h1 class="pick-h1">{{chooser.h1}}</h1>
+    <p class="pick-line">{{chooser.line}}</p>
+  </div>
+  <ol class="pick-grid">
+    {{#each demos as d}}
+    <li class="opt opt-{{d.slug}}">
+      <a class="opt-shot" href="{{root}}{{d.slug}}/index.html" tabindex="-1" aria-hidden="true">{{pic d.shot sizes="(min-width: 1024px) 30vw, 92vw"}}</a>
+      <div class="opt-body">
+        <p class="opt-n" aria-hidden="true">{{d.n}}</p>
+        <h2 class="opt-name">{{d.name}}</h2>
+        <p class="opt-pitch">{{d.pitch}}</p>
+        <a class="btn btn-primary" href="{{root}}{{d.slug}}/index.html">{{d.open}}</a>
+      </div>
+    </li>
+    {{/each}}
+  </ol>
+</main>
+<footer class="pick-foot">
+  <div class="wrap pick-foot-in">
+    <span>{{chooser.footer}}</span>
+    <img class="foot-badge" src="{{root}}assets/img/brand/verifiedsecured.png" width="150" height="37" alt="{{footer.badgeAlt}}" loading="lazy" decoding="async">
+    <a class="foot-built" href="{{footer.built.url}}" target="_blank" rel="noopener">{{footer.built.label}}</a>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,16 @@
+# Windows
+desktop.ini
+Thumbs.db
+ehthumbs.db
+$RECYCLE.BIN/
+
+# Mac
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Tooling
+node_modules/
+.env
+*.log
+.claude/

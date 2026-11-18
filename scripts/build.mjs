@@ -1,0 +1,292 @@
+#!/usr/bin/env node
+// RI Workplace home demos: static build.
+// Zero dependencies. Reads content/site.json (every word) and content/images.json
+// (measured image sizes), stamps them into templates/*.html, writes the four pages.
+// Run: node scripts/build.mjs   (add --lint to list any copy typed into a template)
+
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+const read = (p) => readFileSync(join(ROOT, p), 'utf8');
+const LINT = process.argv.includes('--lint');
+
+const site = JSON.parse(read('content/site.json'));
+const manifest = existsSync(join(ROOT, 'content/images.json'))
+  ? JSON.parse(read('content/images.json'))
+  : {};
+
+/* ---------- data prep: derive hrefs, never words ---------- */
+
+const live = (path) => site.org.url + path;
+
+for (const item of site.nav) {
+  item.href = live(item.path);
+  item.id = item.path.replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '');
+  for (const child of item.children || []) child.href = live(child.path);
+  item.hasChildren = (item.children || []).length > 0;
+  item.wide = (item.children || []).length > 8;
+}
+const servicePaths = Object.fromEntries(
+  site.nav.flatMap((n) => n.children || []).map((c) => [c.label, c.path])
+);
+for (const step of site.steps.items) {
+  step.links = step.services.map((label) => {
+    if (!servicePaths[label]) throw new Error(`Step service not in nav: ${label}`);
+    return { label, href: live(servicePaths[label]) };
+  });
+}
+for (const p of site.work.projects) p.href = live(p.path);
+for (const p of site.work.index || []) p.href = live(p.path);
+for (const i of site.industries.items) {
+  if (!servicePaths[i.label]) throw new Error(`Industry not in nav: ${i.label}`);
+  i.href = live(servicePaths[i.label]);
+}
+site.work.allHref = live(site.work.all.path);
+site.steps.allHref = live(site.steps.all.path);
+site.family.linkHref = live(site.family.link.path);
+site.footer.privacyHref = live(site.footer.privacy.path);
+site.org.telHref = 'tel:+1' + site.org.telephone.replace(/\D/g, '');
+site.org.mailHref = 'mailto:' + site.org.email;
+site.meta.ogImageFile = (manifest[site.meta.ogImage]?.variants.at(-1) || { file: site.meta.ogImage + '.jpg' }).file;
+site.ld = JSON.stringify(
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    name: site.org.name,
+    url: site.org.url,
+    telephone: site.org.telephone,
+    email: site.org.email,
+    foundingDate: site.org.founded,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: site.org.address.street,
+      addressLocality: site.org.address.city,
+      addressRegion: site.org.address.region,
+      postalCode: site.org.address.zip,
+      addressCountry: 'US',
+    },
+    sameAs: site.org.social.map((s) => s.url),
+  },
+  null,
+  2
+);
+
+/* ---------- tiny template engine ---------- */
+
+const esc = (v) =>
+  String(v ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+
+const filters = {
+  pad2: (v) => String(v).padStart(2, '0'),
+  json: (v) => JSON.stringify(v),
+  slug: (v) => String(v).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''),
+  count: (v) => (v || []).length,
+};
+
+function lookup(expr, scopes) {
+  expr = expr.trim();
+  if (/^"[^"]*"$/.test(expr)) return expr.slice(1, -1);
+  if (/^-?\d+(\.\d+)?$/.test(expr)) return Number(expr);
+  if (expr === 'true') return true;
+  if (expr === 'false') return false;
+  const parts = expr.split('.');
+  for (const s of scopes) {
+    if (s && Object.prototype.hasOwnProperty.call(s, parts[0])) {
+      let v = s[parts[0]];
+      for (const p of parts.slice(1)) v = v == null ? undefined : v[p];
+      return v;
+    }
+  }
+  return undefined;
+}
+
+function value(expr, scopes) {
+  const [path, ...pipes] = expr.split('|').map((s) => s.trim());
+  let v = lookup(path, scopes);
+  for (const f of pipes) {
+    if (!filters[f]) throw new Error(`Unknown filter: ${f}`);
+    v = filters[f](v);
+  }
+  return v;
+}
+
+function truthy(cond, scopes) {
+  cond = cond.trim();
+  let m;
+  if ((m = cond.match(/^(.+?)\s*(==|!=)\s*(.+)$/))) {
+    const eq = String(value(m[1], scopes)) === String(value(m[3], scopes));
+    return m[2] === '==' ? eq : !eq;
+  }
+  if (cond.startsWith('!')) return !truthy(cond.slice(1), scopes);
+  const v = value(cond, scopes);
+  return Array.isArray(v) ? v.length > 0 : Boolean(v);
+}
+
+function parseArgs(str) {
+  const out = { _: [] };
+  const re = /([\w-]+)=("[^"]*"|\S+)|("[^"]*"|\S+)/g;
+  let m;
+  while ((m = re.exec(str))) {
+    if (m[1]) out[m[1]] = m[2];
+    else out._.push(m[3]);
+  }
+  return out;
+}
+
+function parse(src) {
+  const re = /\{\{\{([\s\S]+?)\}\}\}|\{\{([\s\S]+?)\}\}/g;
+  const root = { type: 'root', body: [] };
+  const stack = [root];
+  let target = root.body;
+  let last = 0;
+  let m;
+  const push = (n) => target.push(n);
+  while ((m = re.exec(src))) {
+    if (m.index > last) push({ type: 'text', value: src.slice(last, m.index) });
+    last = re.lastIndex;
+    if (m[1] != null) {
+      push({ type: 'var', expr: m[1].trim(), raw: true });
+      continue;
+    }
+    const tag = m[2].trim();
+    if (tag.startsWith('!')) continue;
+    if (tag.startsWith('#each ')) {
+      const mm = tag.match(/^#each\s+(.+?)(?:\s+as\s+(\w+))?$/);
+      const node = { type: 'each', expr: mm[1], as: mm[2] || 'it', body: [] };
+      push(node);
+      stack.push(node);
+      target = node.body;
+    } else if (tag.startsWith('#if ')) {
+      const node = { type: 'if', cond: tag.slice(4), body: [], alt: [] };
+      push(node);
+      stack.push(node);
+      target = node.body;
+    } else if (tag === 'else') {
+      const top = stack[stack.length - 1];
+      if (top.type !== 'if') throw new Error('{{else}} outside {{#if}}');
+      top.inAlt = true;
+      target = top.alt;
+    } else if (tag === '/each' || tag === '/if') {
+      const node = stack.pop();
+      if (node.type !== tag.slice(1)) throw new Error(`Mismatched ${tag}`);
+      const parent = stack[stack.length - 1];
+      target = parent.type === 'if' && parent.inAlt ? parent.alt : parent.body;
+    } else if (tag.startsWith('> ')) {
+      const [name, ...rest] = tag.slice(2).trim().split(/\s+/);
+      push({ type: 'partial', name, args: parseArgs(rest.join(' ')) });
+    } else if (tag.startsWith('pic ')) {
+      push({ type: 'pic', args: parseArgs(tag.slice(4)) });
+    } else {
+      push({ type: 'var', expr: tag, raw: false });
+    }
+  }
+  if (last < src.length) push({ type: 'text', value: src.slice(last) });
+  if (stack.length > 1) throw new Error(`Unclosed block: ${stack[stack.length - 1].type}`);
+  return root.body;
+}
+
+const partialCache = {};
+function partial(name) {
+  if (!partialCache[name]) partialCache[name] = parse(read(`templates/partials/${name}.html`));
+  return partialCache[name];
+}
+
+// Picture helper. One <img> with srcset from the measured manifest.
+function pic(args, scopes) {
+  const key = value(args._[0], scopes);
+  const root = lookup('root', scopes);
+  const meta = site.images[key];
+  const info = manifest[key];
+  const cls = args.class ? value(args.class, scopes) : '';
+  const eager = args._.includes('eager');
+  if (!meta) throw new Error(`Image not in site.json: ${key}`);
+  if (!info) {
+    // Fallback for a slot with no downloaded photo: a labeled tint block.
+    return `<span class="pic-missing ${esc(cls)}" role="img" aria-label="${esc(meta.alt)}" data-slot="${esc(key)}" data-demo-scaffold></span>`;
+  }
+  const sizes = args.sizes ? value(args.sizes, scopes) : '100vw';
+  const largest = info.variants[info.variants.length - 1];
+  const srcset = info.variants.map((v) => `${root}assets/img/${v.file} ${v.w}w`).join(', ');
+  const attrs = [
+    cls ? `class="${esc(cls)}"` : '',
+    `src="${root}assets/img/${largest.file}"`,
+    info.variants.length > 1 ? `srcset="${srcset}" sizes="${esc(sizes)}"` : '',
+    `width="${largest.w}" height="${largest.h}"`,
+    `alt="${esc(args.alt ? value(args.alt, scopes) : meta.alt)}"`,
+    eager ? 'fetchpriority="high" decoding="async"' : 'loading="lazy" decoding="async"',
+  ];
+  return `<img ${attrs.filter(Boolean).join(' ')}>`;
+}
+
+function render(nodes, scopes) {
+  let out = '';
+  for (const n of nodes) {
+    if (n.type === 'text') out += n.value;
+    else if (n.type === 'var') {
+      const v = value(n.expr, scopes);
+      if (v === undefined) throw new Error(`Missing value: {{${n.expr}}}`);
+      out += n.raw ? String(v) : esc(v);
+    } else if (n.type === 'each') {
+      const list = value(n.expr, scopes) || [];
+      list.forEach((item, i) => {
+        out += render(n.body, [
+          { [n.as]: item, '@index': i, '@n': i + 1, '@first': i === 0, '@last': i === list.length - 1, '@odd': i % 2 === 0 },
+          ...scopes,
+        ]);
+      });
+    } else if (n.type === 'if') {
+      out += render(truthy(n.cond, scopes) ? n.body : n.alt, scopes);
+    } else if (n.type === 'partial') {
+      const extra = {};
+      for (const [k, v] of Object.entries(n.args)) if (k !== '_') extra[k] = value(v, scopes);
+      out += render(partial(n.name), [extra, ...scopes]);
+    } else if (n.type === 'pic') {
+      out += pic(n.args, scopes);
+    }
+  }
+  return out;
+}
+
+/* ---------- lint: no copy typed into templates ---------- */
+
+function lint(name, src) {
+  const text = src
+    .replace(/\{\{[\s\S]+?\}\}/g, ' ')
+    .replace(/<script[\s\S]*?<\/script>/g, ' ')
+    .replace(/<svg[\s\S]*?<\/svg>/g, ' ')
+    .replace(/<!--[\s\S]*?-->/g, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&[a-z]+;|&#\d+;/g, ' ');
+  const words = text.match(/[A-Za-z]{2,}[A-Za-z' ]*/g);
+  if (words) console.warn(`  lint ${name}: literal text -> ${[...new Set(words.map((w) => w.trim()))].join(' | ')}`);
+}
+
+/* ---------- pages ---------- */
+
+const pages = [
+  { template: 'chooser', out: 'index.html', root: '', demo: null },
+  ...site.demos.map((d) => ({ template: d.slug, out: `${d.slug}/index.html`, root: '../', demo: d })),
+];
+
+for (const page of pages) {
+  const path = `templates/${page.template}.html`;
+  if (!existsSync(join(ROOT, path))) {
+    console.warn(`skip ${page.out} (no ${path})`);
+    continue;
+  }
+  const src = read(path);
+  if (LINT) lint(page.template, src);
+  const demos = site.demos.map((d) => ({ ...d, current: page.demo && page.demo.slug === d.slug }));
+  let html = render(parse(src), [{ root: page.root, page, demo: page.demo, demos, isDemo: Boolean(page.demo) }, site]);
+  html = html.replace(/^[ \t]*\n/gm, '');
+  mkdirSync(dirname(join(ROOT, page.out)), { recursive: true });
+  writeFileSync(join(ROOT, page.out), html);
+  console.log(`wrote ${page.out} (${(html.length / 1024).toFixed(1)} KB)`);
+}
+if (LINT) for (const name of Object.keys(partialCache)) lint(`partials/${name}`, read(`templates/partials/${name}.html`));

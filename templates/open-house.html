@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+{{> head title=meta.title description=meta.description}}
+<link rel="stylesheet" href="{{root}}assets/css/base.css">
+<link rel="stylesheet" href="{{root}}assets/css/kit.css">
+<link rel="stylesheet" href="{{root}}assets/css/open-house.css">
+</head>
+<body class="demo demo-open-house" id="top">
+{{> icons}}
+{{> header}}
+<main id="main">
+  <section class="wrap">
+    <p class="label">{{hero.eyebrow}}</p>
+    <h1>{{hero.h1}}</h1>
+    <p>{{hero.sub}}</p>
+  </section>
+  <section class="wrap" id="contact">
+    <h2>{{contact.h2}}</h2>
+    {{> form}}
+  </section>
+</main>
+{{> footer}}
+{{> switcher}}
+<script src="{{root}}assets/js/vendor/gsap.min.js"></script>
+<script src="{{root}}assets/js/vendor/ScrollTrigger.min.js"></script>
+<script src="{{root}}assets/js/vendor/lenis.min.js"></script>
+<script src="{{root}}assets/js/kit.js"></script>
+</body>
+</html>

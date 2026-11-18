@@ -1,0 +1,2 @@
+/* walkthrough: theme tokens. Sections arrive in a later task. */
+.demo-walkthrough { --paper: var(--mist); --panel: var(--fog); --text-mute: var(--ink-soft); --font-body: var(--f-jakarta); --font-display: var(--f-jakarta); --font-label: var(--f-jakarta); --weight-label: 700; --radius: 20px; --radius-control: 999px; --radius-field: 12px; --radius-check: 6px; --radius-control-soft: 16px; }

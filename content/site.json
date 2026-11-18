@@ -1,0 +1,266 @@
+{
+  "meta": {
+    "title": "RI Workplace | Office Design and Build, New York and New Jersey",
+    "description": "RI Workplace designs, builds and furnishes offices across New York and New Jersey. One family-run team from first sketch to move-in day. 35 years, 475+ projects.",
+    "ogImage": "projects/ls-power/cafe"
+  },
+  "org": {
+    "name": "RI Workplace",
+    "url": "https://riworkplace.com",
+    "telephone": "800.427.5811",
+    "email": "info@riworkplace.com",
+    "founded": "1991",
+    "address": {
+      "street": "250 Pehle Avenue, Plaza Two, Suite 100",
+      "city": "Saddle Brook",
+      "region": "NJ",
+      "zip": "07663",
+      "full": "250 Pehle Avenue, Plaza Two, Suite 100, Saddle Brook, NJ 07663"
+    },
+    "social": [
+      { "name": "LinkedIn", "icon": "linkedin", "url": "https://www.linkedin.com/company/ri-office-design-group/" },
+      { "name": "Facebook", "icon": "facebook", "url": "https://www.facebook.com/RIworkplace" },
+      { "name": "Instagram", "icon": "instagram", "url": "https://www.instagram.com/riworkplace/" },
+      { "name": "Pinterest", "icon": "pinterest", "url": "https://www.pinterest.co.uk/riworkplacepinterest/" }
+    ]
+  },
+  "logo": {
+    "alt": "RI Workplace, 35 years",
+    "file": "brand/ri-35-years-logo.png",
+    "width": 640,
+    "height": 213
+  },
+  "util": {
+    "portal": { "label": "CLIENT PORTAL LOG-IN", "url": "https://buildertrend.net/" },
+    "contact": { "label": "CONTACT US" }
+  },
+  "nav": [
+    {
+      "label": "ABOUT US",
+      "path": "/about-us/",
+      "children": [
+        { "label": "Client Journey", "path": "/client-journey/" },
+        { "label": "Leadership Team", "path": "/leadership-team/" },
+        { "label": "Our Workplace", "path": "/our-workplace/" }
+      ]
+    },
+    {
+      "label": "OUR SERVICES",
+      "path": "/our-services/",
+      "children": [
+        { "label": "Workplace Analysis & Strategy", "path": "/our-services/workplace-analysis-strategy/" },
+        { "label": "Workplace Architectural Services", "path": "/our-services/workplace-architectural-services/" },
+        { "label": "Space Planning and Layout", "path": "/our-services/space-planning-and-layout/" },
+        { "label": "Interior Design, Decorating and Branding", "path": "/our-services/interior-design-decorating-and-branding/" },
+        { "label": "Pre-Construction", "path": "/pre-construction/" },
+        { "label": "Zoning Services", "path": "/zoning-services/" },
+        { "label": "Project Expediting", "path": "/project-expediting/" },
+        { "label": "Workplace Build-out and Project Management", "path": "/our-services/workplace-build-and-project-management/" },
+        { "label": "Workplace Furniture and Finishes", "path": "/our-services/workplace-furniture-and-finishes/" },
+        { "label": "Hybrid & Flexible Workspaces", "path": "/our-services/hybrid-flexible-workspaces/" },
+        { "label": "Return-to-Work Solutions", "path": "/return-to-work-solutions/" },
+        { "label": "Workplace Retreat", "path": "/our-services/workplace-retreat/" }
+      ]
+    },
+    { "label": "PROJECTS", "path": "/projects/", "children": [] },
+    {
+      "label": "INDUSTRIES WE SERVE",
+      "path": "/industries/",
+      "children": [
+        { "label": "Corporate Offices", "path": "/industries/corporate-office-industries/" },
+        { "label": "Financial Firm Office Design", "path": "/industries/financial-firm-office-design/" },
+        { "label": "Law Firm Office Design", "path": "/industries/law-firm-office-design/" },
+        { "label": "Pharmaceutical Facilities", "path": "/industries/life-sciences-workspace-design/" },
+        { "label": "Educational Space Design", "path": "/industries/educational-space-design/" },
+        { "label": "Medical Workplaces", "path": "/industries/medical-workplaces/" }
+      ]
+    },
+    { "label": "BLOGS", "path": "/blog-news/", "children": [] },
+    { "label": "RI WORKPLACE RETREAT", "path": "/our-services/ri-workplace-retreat/", "children": [] }
+  ],
+  "ui": {
+    "skip": "Skip to content",
+    "mainNav": "Main",
+    "utilNav": "Contact and client links",
+    "footerNav": "Footer",
+    "socialNav": "RI Workplace on social media",
+    "menu": "MENU",
+    "close": "CLOSE",
+    "submenu": "submenu",
+    "newTab": "opens in a new tab",
+    "top": "RI Workplace, back to top",
+    "previous": "Previous",
+    "next": "Next",
+    "previousQuote": "Previous quote",
+    "nextQuote": "Next quote",
+    "quote": "Quote",
+    "of": "of",
+    "viewProject": "VIEW PROJECT",
+    "filmTitle": "RI Workplace film",
+    "filmPlay": "PLAY THE FILM",
+    "filmNote": "The film plays from YouTube once you press play.",
+    "filmId": "oGB5OoqgadI",
+    "switcherLabel": "Home page options",
+    "switcherAll": "ALL 3",
+    "scrollRow": "Scroll the row",
+    "indexLabel": "More RI projects",
+    "preview": "Project photo"
+  },
+  "hero": {
+    "eyebrow": "OFFICE DESIGN-BUILD · NEW YORK + NEW JERSEY · SINCE 1991",
+    "h1": "Thriving workplaces designed, built and delivered fast.",
+    "h1a": "Thriving workplaces",
+    "h1b": "designed, built and delivered fast.",
+    "sub": "One family-run team takes your office from first sketch to move-in day. You never get passed between a designer and a contractor.",
+    "primary": "SEE THE WORK",
+    "secondary": "START A PROJECT",
+    "film": "WATCH THE FILM · 0:48"
+  },
+  "numbers": [
+    { "figure": "35+", "label": "years in business" },
+    { "figure": "475+", "label": "projects designed and delivered" },
+    { "figure": "56.5%", "label": "of our business comes from referrals" },
+    { "figure": "Up to 30%", "label": "faster than traditional fit-out firms" }
+  ],
+  "work": {
+    "h2": "Recent work",
+    "line": "Every space on this page is a finished RI project.",
+    "all": { "label": "ALL PROJECTS", "path": "/projects/" },
+    "projects": [],
+    "index": []
+  },
+  "steps": {
+    "h2": "One team. Four steps.",
+    "line": "Design and construction sit under one roof at RI. That is why our projects finish up to 30% faster than the architect-plus-contractor route.",
+    "all": { "label": "ALL SERVICES", "path": "/our-services/" },
+    "items": [
+      {
+        "n": "01",
+        "name": "Dream",
+        "copy": "We start with a working session on your goals and your budget. The project is about you.",
+        "services": ["Workplace Analysis & Strategy", "Hybrid & Flexible Workspaces", "Return-to-Work Solutions"]
+      },
+      {
+        "n": "02",
+        "name": "Design",
+        "copy": "Our designers and architects turn that into a space that looks like your company. You see it in 3D before anything gets built.",
+        "services": ["Workplace Architectural Services", "Space Planning and Layout", "Interior Design, Decorating and Branding"]
+      },
+      {
+        "n": "03",
+        "name": "Build",
+        "copy": "Our own project managers run construction, with weekly check-ins and a budget tracked as we go.",
+        "services": ["Pre-Construction", "Zoning Services", "Project Expediting", "Workplace Build-out and Project Management"]
+      },
+      {
+        "n": "04",
+        "name": "Transform",
+        "copy": "Furniture and finishes go in. Your team moves into an office they want to come back to.",
+        "services": ["Workplace Furniture and Finishes", "Workplace Retreat"]
+      }
+    ]
+  },
+  "industries": {
+    "h2": "Industries we serve",
+    "items": []
+  },
+  "quotes": {
+    "h2": "What clients say",
+    "items": []
+  },
+  "family": {
+    "h2": "Still a family business.",
+    "body": [
+      "The story starts in the trades in the 1970s. In 1991 Rob Scott opened Renotech Interiors in a converted house in Valley Stream, New York.",
+      "Thirty-five years and two name changes later, the Scotts still run the company, now in its third generation."
+    ],
+    "people": [],
+    "link": { "label": "MEET THE LEADERSHIP TEAM", "path": "/leadership-team/" },
+    "timeline": []
+  },
+  "showroom": {
+    "h2": "Come see it in person.",
+    "body": "Our Saddle Brook office doubles as the showroom. Walk the space and pull samples from the library. Coffee is on us.",
+    "button": "PLAN A VISIT"
+  },
+  "clients": {
+    "heading": "Trusted by",
+    "logos": []
+  },
+  "contact": {
+    "h2": "Let's talk about your office.",
+    "line": "Tell us where you are now and where you need to be.",
+    "action": "https://formspree.io/f/REPLACE_ME",
+    "fields": {
+      "first": { "label": "First name", "error": "Enter your first name." },
+      "last": { "label": "Last name", "error": "Enter your last name." },
+      "email": { "label": "Email", "error": "Enter an email address we can reply to." },
+      "tel": { "label": "Tel / Mobile", "error": "Enter a phone number." },
+      "company": { "label": "Company" },
+      "source": {
+        "label": "How did you learn about us?",
+        "placeholder": "Choose one",
+        "error": "Choose how you learned about us.",
+        "options": ["Google search", "Google ad", "Word of mouth", "Social media", "Reached out to by RI Workplace", "Other"]
+      },
+      "message": { "label": "Message", "error": "Tell us a little about your office." },
+      "consent": {
+        "label": "RI Workplace may contact me about my project. RI does not share personal information with third parties.",
+        "error": "Check the box so we can reply."
+      }
+    },
+    "required": "required",
+    "optional": "optional",
+    "button": "SEND MESSAGE",
+    "sending": "SENDING",
+    "success": "Thank you. Your message is on its way to the RI team.",
+    "failure": "This preview form is not connected yet. Call 800.427.5811 or email info@riworkplace.com.",
+    "detailsLabel": "Reach us directly"
+  },
+  "footer": {
+    "privacy": { "label": "PRIVACY POLICY", "path": "/privacy-policy/" },
+    "copyright": "© 2026 RI Workplace",
+    "badgeAlt": "Verified and secured by Live Web Studios",
+    "built": { "label": "Built by Live Web Studios", "url": "https://livewebstudios.com" }
+  },
+  "demos": [
+    {
+      "n": 1,
+      "slug": "open-house",
+      "name": "OPEN HOUSE",
+      "pitch": "A warm editorial page. Big rooms, thin type, quiet confidence.",
+      "open": "OPEN 1",
+      "shot": "chooser/open-house"
+    },
+    {
+      "n": 2,
+      "slug": "walkthrough",
+      "name": "THE WALKTHROUGH",
+      "pitch": "You walk a real RI office, room by room, as you scroll.",
+      "open": "OPEN 2",
+      "shot": "chooser/walkthrough"
+    },
+    {
+      "n": 3,
+      "slug": "cross-section",
+      "name": "CROSS SECTION",
+      "pitch": "The fast one. Everything a buyer wants in the first two screens.",
+      "open": "OPEN 3",
+      "shot": "chooser/cross-section"
+    }
+  ],
+  "chooser": {
+    "title": "RI Workplace | Three Home Page Options",
+    "description": "Same words, same photos, three designs. A private preview of three home pages for RI Workplace.",
+    "label": "HOME PAGE OPTIONS · NOVEMBER 2026",
+    "h1": "Three home pages for RI Workplace.",
+    "line": "Same words, same photos, three designs. Open each one, then tell Jon which feels like RI.",
+    "navLabel": "The three options",
+    "footer": "Private preview. Not indexed."
+  },
+  "images": {
+    "chooser/open-house": { "alt": "First screen of home page option 1, Open House" },
+    "chooser/walkthrough": { "alt": "First screen of home page option 2, The Walkthrough" },
+    "chooser/cross-section": { "alt": "First screen of home page option 3, Cross Section" }
+  }
+}
