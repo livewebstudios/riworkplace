@@ -741,6 +741,13 @@
     "chooser/blue-hour": {
       "alt": "First screen of home page option 1, Blue Hour"
     },
+    "blue-hour/backdrop": {
+      "src": "assets/originals/ls-power/22-1-scaled.jpg",
+      "alt": "",
+      "max": 64,
+      "quality": 70,
+      "_note": "Blurred page backdrop for BLUE HOUR at 1024 and up. Decoration made from the LS Power reception lounge photo, shown blurred under a navy veil."
+    },
     "chooser/cross-section": {
       "src": "_screenshots/chooser-cross-section.jpg",
       "alt": "First screen of home page option 2, Cross Section"
@@ -976,5 +983,13 @@
   },
   "film": {
     "poster": "projects/ls-power/cafe"
+  },
+  "blueHour": {
+    "_note": "Demo-only extras for BLUE HOUR (round 2 handoff, section 5). Nothing else may be added here.",
+    "since": "SINCE 1991",
+    "featured": {
+      "slug": "kdlm",
+      "labels": ["LOCATION", "SECTOR"]
+    }
   }
 }

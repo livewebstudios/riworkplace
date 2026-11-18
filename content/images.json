@@ -681,5 +681,14 @@
         "file": "clients/workman-254.png"
       }
     ]
+  },
+  "blue-hour/backdrop": {
+    "variants": [
+      {
+        "w": 64,
+        "h": 42,
+        "file": "blue-hour/backdrop-64.jpg"
+      }
+    ]
   }
 }

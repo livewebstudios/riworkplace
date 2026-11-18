@@ -4,7 +4,9 @@
 // writes assets/img/<key>-<width>.jpg at 800 and 1600 wide (never upscaled), JPG quality 82,
 // metadata stripped, WebP sources converted to JPG. Files already under 100KB are copied as they are.
 // PNG sources (logos) are copied untouched. Writes content/images.json for build.mjs.
-// Needs sharp (npm i inside scripts/). Run: node scripts/optimize-images.mjs
+// An entry may set its own `quality` and `max` width.
+// Needs sharp (npm i inside scripts/). Run: node scripts/optimize-images.mjs [key ...]
+// With keys, only those images are processed and merged into the existing content/images.json.
 
 import sharp from 'sharp';
 import { readFileSync, writeFileSync, mkdirSync, copyFileSync, statSync, existsSync } from 'node:fs';
@@ -19,12 +21,15 @@ const WIDTHS = [800, 1600];
 const QUALITY = 82;
 const SKIP_UNDER = 100 * 1024;
 
-const manifest = {};
+const ONLY = process.argv.slice(2);
+const manifestPath = join(BUILD, 'content', 'images.json');
+const manifest = ONLY.length && existsSync(manifestPath) ? JSON.parse(readFileSync(manifestPath, 'utf8')) : {};
 const report = [];
 let before = 0, after = 0;
 
 for (const [key, meta] of Object.entries(site.images)) {
   if (!meta.src) continue;
+  if (ONLY.length && !ONLY.includes(key)) continue;
   const src = join(DOCS, meta.src);
   if (!existsSync(src)) { console.warn(`  no source yet: ${key} (${meta.src})`); continue; }
   const bytes = statSync(src).size;
@@ -46,7 +51,7 @@ for (const [key, meta] of Object.entries(site.images)) {
     for (const w of widths) {
       const file = `${key}-${w}.jpg`;
       const res = await sharp(src).rotate().resize({ width: w, withoutEnlargement: true })
-        .jpeg({ quality: QUALITY, mozjpeg: true, progressive: true }).toFile(join(OUT, file));
+        .jpeg({ quality: meta.quality || QUALITY, mozjpeg: true, progressive: true }).toFile(join(OUT, file));
       variants.push({ w: res.width, h: res.height, file });
       total += res.size;
     }
@@ -57,7 +62,7 @@ for (const [key, meta] of Object.entries(site.images)) {
   manifest[key] = { variants };
 }
 
-writeFileSync(join(BUILD, 'content', 'images.json'), JSON.stringify(manifest, null, 2) + '\n');
+writeFileSync(manifestPath, JSON.stringify(manifest, null, 2) + '\n');
 const kb = (n) => `${(n / 1024).toFixed(0)} KB`;
 console.log('image'.padEnd(44), 'sizes'.padEnd(12), 'before'.padStart(9), 'after'.padStart(9));
 for (const [k, s, b, a, how] of report) console.log(k.padEnd(44), s.padEnd(12), kb(b).padStart(9), kb(a).padStart(9), how);

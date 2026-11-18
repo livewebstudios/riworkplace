@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js bh">
+<head>
+{{> head title=meta.title description=meta.description}}
+<link rel="preload" as="font" type="font/woff2" href="{{root}}assets/fonts/instrument-serif-latin-400-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="{{root}}assets/fonts/manrope-latin-700-normal.woff2" crossorigin>
+{{preload hero.image sizes="(min-width: 1024px) 96vw, 100vw"}}
+<link rel="stylesheet" href="{{root}}assets/css/base.css">
+<link rel="stylesheet" href="{{root}}assets/css/kit.css">
+<link rel="stylesheet" href="{{root}}assets/css/blue-hour.css">
+</head>
+<body class="demo demo-blue-hour" id="top">
+{{> icons}}
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="bh-desk" viewBox="0 0 24 24"><path d="M2 10.5h13M3.5 10.5V19M13.5 10.5V19M6.5 10.5V6h5v4.5M18 8.5v6.5h3.5M21.5 15v4M18 15v4"/></symbol>
+  <symbol id="bh-columns" viewBox="0 0 24 24"><path d="M3 9h18L12 3.5zM6 11.5v6M10 11.5v6M14 11.5v6M18 11.5v6M3 20.5h18"/></symbol>
+  <symbol id="bh-scales" viewBox="0 0 24 24"><path d="M12 4v16M8 20h8M4.5 7h15M4.5 7 2 13a2.5 2.5 0 0 0 5 0zM19.5 7 17 13a2.5 2.5 0 0 0 5 0z"/></symbol>
+  <symbol id="bh-flask" viewBox="0 0 24 24"><path d="M9 3h6M10 3v6l-5.4 9.9A1.5 1.5 0 0 0 5.9 21h12.2a1.5 1.5 0 0 0 1.3-2.1L14 9V3M7.2 15h9.6"/></symbol>
+  <symbol id="bh-cap" viewBox="0 0 24 24"><path d="M2 9.5 12 5l10 4.5L12 14zM6 11.5V16c0 1.4 2.7 3 6 3s6-1.6 6-3v-4.5M21.5 10v5"/></symbol>
+  <symbol id="bh-cross" viewBox="0 0 24 24"><path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z"/></symbol>
+  <symbol id="bh-phone" viewBox="0 0 24 24"><path d="M5.5 3.5h3.5l1.8 4.6-2.3 1.6a11 11 0 0 0 5.8 5.8l1.6-2.3 4.6 1.8V18a2.5 2.5 0 0 1-2.7 2.5C10.2 20 4 13.8 3.5 6.2A2.5 2.5 0 0 1 5.5 3.5z"/></symbol>
+  <symbol id="bh-mail" viewBox="0 0 24 24"><path d="M3 5.5h18v13H3zM3.5 6l8.5 7 8.5-7"/></symbol>
+  <symbol id="bh-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-5.8-6.5-11a6.5 6.5 0 0 1 13 0c0 5.2-6.5 11-6.5 11zM12 12.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></symbol>
+  <symbol id="bh-tag" viewBox="0 0 24 24"><path d="M3.5 12.5v-9h9l8 8-9 9zM8 7.5h.01"/></symbol>
+  <symbol id="bh-quote" viewBox="0 0 48 36"><path d="M0 36V20.6C0 8.8 6.4 1.9 18 0l1.8 4.6C13 6.5 9.6 10.6 9.4 17H18v19zm27.6 0V20.6C27.6 8.8 34 1.9 45.6 0l1.8 4.6C40.6 6.5 37.2 10.6 37 17h9v19z"/></symbol>
+</svg>
+<div class="bh-frame">
+{{> header headCta=true}}
+<main id="main">
+
+  <section class="bh-hero" aria-labelledby="bh-h1" data-hero>
+    <div class="bh-hero-card bh-photo" data-hero-card>
+      {{pic hero.image class="bh-hero-img" sizes="(min-width: 1024px) 96vw, 100vw" eager}}
+      <span class="bh-dusk" aria-hidden="true"></span>
+      <span class="bh-scrim" aria-hidden="true"></span>
+    </div>
+    <p class="bh-ghost" aria-hidden="true" data-ghost>{{hero.ghost}}</p>
+    <p class="bh-eyebrow">{{hero.eyebrow}}</p>
+    <div class="bh-hero-copy">
+      <h1 class="bh-h1" id="bh-h1"><span class="bh-h1-a" data-h1-line>{{hero.h1a}}</span> <span class="bh-h1-b" data-h1-line>{{hero.h1b}}</span></h1>
+      <div class="bh-hero-foot">
+        <p class="bh-sub">{{hero.sub}}</p>
+        <div class="bh-actions">
+          <a class="btn btn-primary" href="#work">{{hero.primary}}</a>
+          <a class="btn btn-ghost" href="#contact">{{hero.secondary}}</a>
+        </div>
+        <button class="link link-film" type="button" data-film-open><svg class="ico" aria-hidden="true"><use href="#i-play"/></svg><span class="link-text">{{hero.film}}</span></button>
+      </div>
+    </div>
+    <ul class="bh-stats" data-stats>
+      {{#each numbers as n}}
+      <li class="bh-stat"><strong class="bh-stat-fig" data-count>{{n.figure}}</strong> <span class="bh-stat-label">{{n.label}}</span></li>
+      {{/each}}
+    </ul>
+    <p class="bh-since"><span>{{blueHour.since}}</span><span class="bh-since-rule" aria-hidden="true"></span></p>
+  </section>
+
+  <section class="bh-section bh-work" id="work" aria-labelledby="bh-work-h">
+    <div class="bh-wrap">
+      <div class="bh-head-row">
+        <header class="bh-head">
+          <span class="bh-rule" aria-hidden="true"></span>
+          <h2 class="bh-h2" id="bh-work-h">{{work.h2}}</h2>
+          <p class="bh-lead">{{work.line}}</p>
+        </header>
+        <div class="bh-head-tools">
+          <a class="btn btn-ghost" href="{{work.allHref}}" target="_blank" rel="noopener" data-demo-scaffold>{{work.all.label}}<svg class="ico" aria-hidden="true"><use href="#i-next"/></svg></a>
+          <div class="bh-arrows" data-work-arrows hidden>
+            <button class="bh-round" type="button" aria-label="{{ui.previous}}" data-work-prev><svg class="ico" aria-hidden="true"><use href="#i-prev"/></svg></button>
+            <button class="bh-round" type="button" aria-label="{{ui.next}}" data-work-next><svg class="ico" aria-hidden="true"><use href="#i-next"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul class="bh-row" tabindex="0" aria-label="{{work.h2}}" data-work-row>
+      {{#each work.projects as p}}
+      <li class="bh-card" data-card>
+        <a class="bh-card-link" href="{{p.href}}" target="_blank" rel="noopener" data-demo-scaffold>
+          <span class="bh-card-photo bh-photo">{{#if p.slug == blueHour.featured.slug}}{{pic p.second sizes="(min-width: 1024px) 24vw, 80vw"}}{{else}}{{pic p.lead sizes="(min-width: 1024px) 24vw, 80vw"}}{{/if}}<span class="bh-dusk" aria-hidden="true"></span></span>
+          <span class="bh-card-n">{{p.n}}</span>
+          <h3 class="bh-card-name">{{p.name}}</h3>
+          <span class="bh-card-meta">{{p.place}} · {{p.sector}}</span>
+          <span class="bh-card-line">{{p.line}}</span>
+        </a>
+      </li>
+      {{/each}}
+    </ul>
+    <div class="bh-wrap">
+      <article class="bh-feature" aria-labelledby="bh-feature-h">
+        <div class="bh-feature-copy">
+          <h3 class="bh-h3" id="bh-feature-h">{{blueHour.project.name}}</h3>
+          <p class="bh-body">{{blueHour.project.line}}</p>
+          <dl class="bh-facts">
+            <div class="bh-fact" data-fact><dt><svg class="bh-icon" aria-hidden="true"><use href="#bh-pin"/></svg>{{blueHour.featured.labels.0}}</dt><dd>{{blueHour.project.place}}</dd></div>
+            <div class="bh-fact" data-fact><dt><svg class="bh-icon" aria-hidden="true"><use href="#bh-tag"/></svg>{{blueHour.featured.labels.1}}</dt><dd>{{blueHour.project.sector}}</dd></div>
+          </dl>
+          <a class="btn btn-primary" href="{{blueHour.project.href}}" target="_blank" rel="noopener" data-demo-scaffold>{{ui.viewProject}}</a>
+        </div>
+        <figure class="bh-feature-photo bh-photo" data-drift>{{pic blueHour.project.lead sizes="(min-width: 1024px) 56vw, 100vw" alt=""}}<span class="bh-dusk" aria-hidden="true"></span></figure>
+      </article>
+      <div class="bh-index">
+        <h3 class="bh-label bh-index-h">{{ui.indexLabel}}</h3>
+        <ul class="bh-index-list">
+          {{#each work.index as r}}
+          <li><a class="bh-index-link" href="{{r.href}}" target="_blank" rel="noopener" data-demo-scaffold><span class="bh-index-name">{{r.name}}</span><span class="bh-index-meta">{{r.place}}{{#if r.sector}} · {{r.sector}}{{/if}}</span></a></li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="bh-section bh-steps" aria-labelledby="bh-steps-h">
+    <div class="bh-wrap bh-split">
+      <header class="bh-head bh-split-side">
+        <span class="bh-rule" aria-hidden="true"></span>
+        <h2 class="bh-h2" id="bh-steps-h">{{steps.h2}}</h2>
+        <p class="bh-lead">{{steps.line}}</p>
+        <a class="btn btn-ghost" href="{{steps.allHref}}" target="_blank" rel="noopener" data-demo-scaffold>{{steps.all.label}}<svg class="ico" aria-hidden="true"><use href="#i-next"/></svg></a>
+      </header>
+      <ol class="bh-tiles">
+        {{#each steps.items as s}}
+        <li class="bh-tile" data-tile>
+          <svg class="bh-tile-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            {{#if @index == 0}}<path pathLength="1" d="M9.5 18h5M10.5 21h3M12 4a5.5 5.5 0 0 0-3.3 9.9c.6.5.8 1.1.8 1.8v.3h5v-.3c0-.7.3-1.3.8-1.8A5.5 5.5 0 0 0 12 4z"/><path pathLength="1" d="M12 1v1M3 9.5H2M22 9.5h-1M5.3 3.3l.7.7M18.7 3.3l-.7.7"/>{{/if}}
+            {{#if @index == 1}}<path pathLength="1" d="M3 21V7l14 14zM6.5 17.5v-3.1l3.1 3.1z"/><path pathLength="1" d="M13.5 10.5 19.5 4.5l2 2-6 6-2.7.7zM18 6l2 2"/>{{/if}}
+            {{#if @index == 2}}<path pathLength="1" d="M2.5 18.5h19M4.5 18.5V16a7.5 7.5 0 0 1 15 0v2.5"/><path pathLength="1" d="M10 9V6h4v3M8 11v2M16 11v2"/>{{/if}}
+            {{#if @index == 3}}<path pathLength="1" d="M8 20a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9z"/><path pathLength="1" d="M11.2 12.3 20.5 3M17 6.5l2.5 2.5M14.5 9l2 2"/>{{/if}}
+          </svg>
+          <p class="bh-tile-n">{{s.n}}</p>
+          <h3 class="bh-tile-name">{{s.name}}</h3>
+          <p class="bh-tile-copy">{{s.copy}}</p>
+          <ul class="bh-tile-links">
+            {{#each s.links as l}}
+            <li><a href="{{l.href}}" target="_blank" rel="noopener" data-demo-scaffold>{{l.label}}</a></li>
+            {{/each}}
+          </ul>
+          <span class="bh-chip" aria-hidden="true"><svg class="ico"><use href="#i-next"/></svg></span>
+        </li>
+        {{/each}}
+      </ol>
+    </div>
+  </section>
+
+  <section class="bh-section bh-ind" aria-labelledby="bh-ind-h" data-ind>
+    <div class="bh-wrap bh-ind-grid">
+      <div class="bh-ind-copy">
+        <header class="bh-head">
+          <span class="bh-rule" aria-hidden="true"></span>
+          <h2 class="bh-h2" id="bh-ind-h">{{industries.h2}}</h2>
+        </header>
+        <ul class="bh-ind-list">
+          {{#each industries.items as i}}
+          <li><a class="bh-ind-item{{#if @first}} is-on{{/if}}" href="{{i.href}}" target="_blank" rel="noopener" data-demo-scaffold data-ind-item="{{@index}}" data-ind-label="{{i.label}}">
+            <svg class="bh-icon" aria-hidden="true">{{#if @index == 0}}<use href="#bh-desk"/>{{/if}}{{#if @index == 1}}<use href="#bh-columns"/>{{/if}}{{#if @index == 2}}<use href="#bh-scales"/>{{/if}}{{#if @index == 3}}<use href="#bh-flask"/>{{/if}}{{#if @index == 4}}<use href="#bh-cap"/>{{/if}}{{#if @index == 5}}<use href="#bh-cross"/>{{/if}}</svg>
+            <span>{{i.label}}</span>
+          </a></li>
+          {{/each}}
+        </ul>
+      </div>
+      <figure class="bh-ind-photo bh-photo" data-drift>
+        {{#each industries.items as i}}
+        {{#if i.image}}<span class="bh-ind-pane{{#if @first}} is-on{{/if}}" data-ind-pane="{{@index}}">{{pic i.image sizes="(min-width: 1024px) 56vw, 100vw"}}</span>{{/if}}
+        {{/each}}
+        <span class="bh-dusk" aria-hidden="true"></span>
+        <span class="bh-badge" aria-hidden="true"><span class="bh-badge-dot"></span><span class="bh-badge-text" data-ind-badge>{{industries.items.0.label}}</span></span>
+      </figure>
+    </div>
+  </section>
+
+  <section class="bh-section bh-quotes" aria-labelledby="bh-quotes-h" data-quotes>
+    <div class="bh-wrap bh-split">
+      <header class="bh-head bh-split-side">
+        <span class="bh-rule" aria-hidden="true"></span>
+        <h2 class="bh-h2" id="bh-quotes-h">{{quotes.h2}}</h2>
+      </header>
+      <div class="bh-quote-wrap">
+        <div class="bh-quote-card">
+          <svg class="bh-quote-mark" aria-hidden="true" focusable="false"><use href="#bh-quote"/></svg>
+          <div class="bh-quote-stage">
+            {{#each quotes.items as q}}
+            <figure class="bh-quote{{#if @first}} is-on{{/if}}" data-quote>
+              <blockquote><p>{{q.text}}</p></blockquote>
+              <figcaption class="bh-quote-by"><span class="bh-quote-thumb">{{pic q.image sizes="64px" alt=""}}</span><span class="bh-label">{{q.by}}</span></figcaption>
+            </figure>
+            {{/each}}
+          </div>
+        </div>
+        <div class="bh-quote-nav" data-quote-nav hidden>
+          <button class="bh-round" type="button" aria-label="{{ui.previousQuote}}" data-quote-prev><svg class="ico" aria-hidden="true"><use href="#i-prev"/></svg></button>
+          <button class="bh-round" type="button" aria-label="{{ui.nextQuote}}" data-quote-next><svg class="ico" aria-hidden="true"><use href="#i-next"/></svg></button>
+          <p class="visually-hidden" aria-live="polite" data-quote-status data-label-quote="{{ui.quote}}" data-label-of="{{ui.of}}"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bh-section bh-family" aria-labelledby="bh-family-h">
+    <div class="bh-wrap">
+      <div class="bh-panel bh-family-panel">
+        <div class="bh-family-top">
+          <div class="bh-family-copy">
+            <span class="bh-rule" aria-hidden="true"></span>
+            <h2 class="bh-h2" id="bh-family-h">{{family.h2}}</h2>
+            {{#each family.body as para}}
+            <p class="bh-body">{{para}}</p>
+            {{/each}}
+            <a class="bh-text-link" href="{{family.linkHref}}" target="_blank" rel="noopener" data-demo-scaffold>{{family.link.label}}<svg class="ico" aria-hidden="true"><use href="#i-next"/></svg></a>
+          </div>
+          <ul class="bh-people">
+            {{#each family.people as m}}
+            <li class="bh-person" data-person>
+              <div class="bh-person-photo bh-photo">{{pic m.image sizes="200px"}}<span class="bh-dusk" aria-hidden="true"></span></div>
+              <h3 class="bh-person-name">{{m.name}}</h3>
+              <p class="bh-label bh-person-title">{{m.title}}</p>
+            </li>
+            {{/each}}
+          </ul>
+        </div>
+        <div class="bh-time" data-time>
+          <span class="bh-time-line" aria-hidden="true" data-time-line></span>
+          <ol class="bh-time-list" aria-label="{{family.timelineLabel}}">
+            {{#each family.timeline as t}}
+            <li class="bh-time-item">
+              <span class="bh-time-photo{{#if t.image}} bh-photo{{else}} is-empty{{/if}}">{{#if t.image}}{{pic t.image sizes="120px" alt=""}}<span class="bh-dusk" aria-hidden="true"></span>{{/if}}</span>
+              <span class="bh-time-year">{{t.year}}</span>
+              <span class="bh-time-dot" aria-hidden="true" data-time-dot></span>
+              <span class="bh-time-entry">{{t.entry}}</span>
+            </li>
+            {{/each}}
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bh-section bh-show" aria-labelledby="bh-show-h">
+    <div class="bh-wrap">
+      <div class="bh-show-panel">
+        <div class="bh-show-copy">
+          <span class="bh-rule" aria-hidden="true"></span>
+          <h2 class="bh-h2" id="bh-show-h">{{showroom.h2}}</h2>
+          <p class="bh-body">{{showroom.body}}</p>
+        </div>
+        <ul class="bh-details">
+          <li><svg class="bh-icon" aria-hidden="true"><use href="#bh-phone"/></svg><a href="{{org.telHref}}">{{org.telephone}}</a></li>
+          <li><svg class="bh-icon" aria-hidden="true"><use href="#bh-mail"/></svg><a href="{{org.mailHref}}">{{org.email}}</a></li>
+          <li><svg class="bh-icon" aria-hidden="true"><use href="#bh-pin"/></svg><address>{{org.address.full}}</address></li>
+        </ul>
+        <div class="bh-show-media">
+          <figure class="bh-show-photo bh-photo" data-drift>{{pic showroom.image sizes="(min-width: 1024px) 34vw, 100vw"}}<span class="bh-dusk" aria-hidden="true"></span></figure>
+          <a class="btn btn-primary bh-show-btn" href="#contact">{{showroom.button}}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bh-section bh-clients" aria-labelledby="bh-clients-h">
+    <h2 class="bh-label bh-clients-h" id="bh-clients-h">{{clients.heading}}</h2>
+    <div class="bh-marquee" data-marquee>
+      <ul class="bh-logos" data-marquee-track>
+        {{#each clients.logos as c}}
+        <li>{{pic c.image}}</li>
+        {{/each}}
+      </ul>
+    </div>
+  </section>
+
+  <section class="bh-section bh-contact" id="contact" aria-labelledby="bh-contact-h">
+    <div class="bh-wrap">
+      <div class="bh-panel bh-contact-panel">
+        <div class="bh-contact-copy">
+          <span class="bh-rule" aria-hidden="true"></span>
+          <h2 class="bh-h2" id="bh-contact-h">{{contact.h2}}</h2>
+          <p class="bh-lead">{{contact.line}}</p>
+          <ul class="bh-details" aria-label="{{contact.detailsLabel}}">
+            <li><svg class="bh-icon" aria-hidden="true"><use href="#bh-phone"/></svg><a href="{{org.telHref}}">{{org.telephone}}</a></li>
+            <li><svg class="bh-icon" aria-hidden="true"><use href="#bh-mail"/></svg><a href="{{org.mailHref}}">{{org.email}}</a></li>
+            <li><svg class="bh-icon" aria-hidden="true"><use href="#bh-pin"/></svg><address>{{org.address.full}}</address></li>
+          </ul>
+        </div>
+        <div class="bh-contact-form">{{> form}}</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+{{> footer}}
+</div>
+{{> film}}
+<script src="{{root}}assets/js/vendor/gsap.min.js"></script>
+<script src="{{root}}assets/js/vendor/ScrollTrigger.min.js"></script>
+<script src="{{root}}assets/js/vendor/lenis.min.js"></script>
+<script src="{{root}}assets/js/kit.js"></script>
+<script src="{{root}}assets/js/blue-hour.js"></script>
+</body>
+</html>

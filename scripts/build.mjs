@@ -44,6 +44,11 @@ for (const p of site.work.projects) {
   p.small = (manifest[p.lead]?.variants.at(-1).w || 0) < 1600;
 }
 for (const p of site.work.index || []) p.href = live(p.path);
+// BLUE HOUR's featured project is one of the six, picked by slug in site.json.
+if (site.blueHour) {
+  site.blueHour.project = site.work.projects.find((p) => p.slug === site.blueHour.featured.slug);
+  if (!site.blueHour.project) throw new Error(`Featured project not found: ${site.blueHour.featured.slug}`);
+}
 // One list for the project table: the six featured rows, then the rest of the index.
 site.work.rows = [
   ...site.work.projects.map((p) => ({ ...p, featured: true, note: p.line })),
