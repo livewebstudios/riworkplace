@@ -212,7 +212,11 @@
     "secondary": "START A PROJECT",
     "film": "WATCH THE FILM · 0:48",
     "image": "projects/ls-power/cafe",
-    "ghost": "WORKPLACE"
+    "ghost": "WORKPLACE",
+    "h1bLines": [
+      "designed, built and",
+      "delivered fast."
+    ]
   },
   "numbers": [
     {

@@ -38,7 +38,11 @@ for (const step of site.steps.items) {
   });
 }
 const slug = (v) => String(v).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-for (const p of site.work.projects) p.href = live(p.path);
+for (const p of site.work.projects) {
+  p.href = live(p.path);
+  // Under 1600px wide: split layouts only, never full-bleed (handoff 7.7).
+  p.small = (manifest[p.lead]?.variants.at(-1).w || 0) < 1600;
+}
 for (const p of site.work.index || []) p.href = live(p.path);
 // One list for the project table: the six featured rows, then the rest of the index.
 site.work.rows = [

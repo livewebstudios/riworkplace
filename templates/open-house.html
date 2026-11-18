@@ -2,6 +2,9 @@
 <html lang="en" class="no-js">
 <head>
 {{> head title=meta.title description=meta.description}}
+<link rel="preload" as="font" type="font/woff2" href="{{root}}assets/fonts/jost-latin-300-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="{{root}}assets/fonts/cormorant-garamond-latin-500-italic.woff2" crossorigin>
+{{preload hero.image sizes="(min-width: 1024px) 56vw, 100vw"}}
 <link rel="stylesheet" href="{{root}}assets/css/base.css">
 <link rel="stylesheet" href="{{root}}assets/css/kit.css">
 <link rel="stylesheet" href="{{root}}assets/css/open-house.css">
@@ -10,17 +13,212 @@
 {{> icons}}
 {{> header}}
 <main id="main">
-  <section class="wrap">
-    <p class="label">{{hero.eyebrow}}</p>
-    <h1>{{hero.h1}}</h1>
-    <p>{{hero.sub}}</p>
-    <button class="link link-film" type="button" data-film-open><svg class="ico" aria-hidden="true"><use href="#i-play"/></svg><span class="link-text">{{hero.film}}</span></button>
-    {{pic hero.image sizes="50vw" eager}}
+
+  <section class="oh-hero">
+    <div class="oh-hero-copy">
+      <p class="label oh-eyebrow">{{hero.eyebrow}}</p>
+      <h1 class="oh-h1" data-oh-h1><span class="oh-h1-a">{{hero.h1a}}</span> <span class="oh-h1-b">{{#each hero.h1bLines as l}}<span class="oh-h1-l">{{l}}</span> {{/each}}</span></h1>
+    </div>
+    <figure class="oh-hero-photo oh-frame" data-drift>{{pic hero.image sizes="(min-width: 1024px) 56vw, 100vw" eager}}</figure>
+    <div class="oh-hero-more">
+      <p class="oh-sub">{{hero.sub}}</p>
+      <div class="oh-actions">
+        <a class="btn btn-primary" href="#work">{{hero.primary}}</a>
+        <a class="btn btn-ghost" href="#contact">{{hero.secondary}}</a>
+      </div>
+      <button class="link link-film" type="button" data-film-open><svg class="ico" aria-hidden="true"><use href="#i-play"/></svg><span class="link-text">{{hero.film}}</span></button>
+    </div>
   </section>
-  <section class="wrap" id="contact">
-    <h2>{{contact.h2}}</h2>
-    {{> form}}
+
+  <div class="oh-approach">
+    <figure class="oh-approach-photo oh-frame" data-drift>{{pic approach.image sizes="(min-width: 1024px) 30vw, 100vw"}}</figure>
+    <p class="oh-approach-line" data-reveal>{{steps.line}}</p>
+    <div class="oh-numbers">
+      <ul class="oh-numbers-list">
+        {{#each numbers as n}}
+        <li class="oh-number"><strong class="oh-number-fig" data-count>{{n.figure}}</strong> <span class="label oh-number-label">{{n.label}}</span></li>
+        {{/each}}
+      </ul>
+      <div class="oh-corner" aria-hidden="true">{{> brackets}}</div>
+    </div>
+  </div>
+
+  <section class="oh-work" id="work">
+    <header class="oh-head oh-inset">
+      <span class="oh-rule" aria-hidden="true"></span>
+      <h2 class="oh-h2">{{work.h2}}</h2>
+      <p class="oh-lead">{{work.line}}</p>
+    </header>
+    {{#each work.projects as p}}
+    <article class="oh-spread{{#if @odd}} is-left has-second{{else}} is-right{{/if}}{{#if p.small}} is-small{{/if}}" data-spread>
+      <figure class="oh-photo">
+        <div class="oh-photo-clip oh-frame" data-spread-clip>{{pic p.lead sizes="(min-width: 1024px) 66vw, 100vw"}}</div>
+        <div class="oh-photo-brackets" aria-hidden="true">{{> brackets}}</div>
+      </figure>
+      {{#if @odd}}
+      <figure class="oh-second oh-frame" data-reveal>{{pic p.second sizes="(min-width: 1024px) 300px, 44vw"}}</figure>
+      {{/if}}
+      <div class="oh-caption">
+        <p class="oh-numeral" aria-hidden="true" data-numeral>{{p.n}}</p>
+        <h3 class="oh-name">{{p.name}}</h3>
+        <p class="label oh-meta">{{p.place}} · {{p.sector}}</p>
+        <p class="oh-blurb">{{p.line}}</p>
+        <a class="link" href="{{p.href}}" target="_blank" rel="noopener" aria-label="{{ui.viewProject}}: {{p.name}}" data-demo-scaffold><span class="link-text">{{ui.viewProject}}</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+    </article>
+    {{/each}}
+    <div class="oh-index oh-inset">
+      <ul class="oh-index-list" aria-label="{{ui.indexLabel}}">
+        {{#each work.index as p}}
+        <li><a href="{{p.href}}" target="_blank" rel="noopener" data-demo-scaffold><span class="oh-index-name">{{p.name}}</span> <span class="label oh-index-meta">{{p.place}}{{#if p.sector}} · {{p.sector}}{{/if}}</span></a></li>
+        {{/each}}
+      </ul>
+      <a class="link" href="{{work.allHref}}" target="_blank" rel="noopener" data-demo-scaffold><span class="link-text">{{work.all.label}}</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
   </section>
+
+  <section class="oh-steps">
+    <div class="oh-inset">
+      <header class="oh-head">
+        <span class="oh-rule" aria-hidden="true"></span>
+        <h2 class="oh-h2">{{steps.h2}}</h2>
+      </header>
+      <ol class="oh-steps-grid">
+        {{#each steps.items as s}}
+        <li class="oh-step" data-reveal>
+          <p class="oh-step-n" aria-hidden="true">{{s.n}}</p>
+          <div class="oh-step-body">
+            <h3 class="oh-step-name">{{s.name}}</h3>
+            <p class="oh-step-copy">{{s.copy}}</p>
+            <ul class="oh-step-links">
+              {{#each s.links as l}}
+              <li><a href="{{l.href}}" target="_blank" rel="noopener" data-demo-scaffold>{{l.label}}</a></li>
+              {{/each}}
+            </ul>
+          </div>
+        </li>
+        {{/each}}
+      </ol>
+      <a class="link" href="{{steps.allHref}}" target="_blank" rel="noopener" data-demo-scaffold><span class="link-text">{{steps.all.label}}</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+  </section>
+
+  <section class="oh-ind">
+    <div class="oh-inset oh-ind-in">
+      <div class="oh-ind-main">
+        <header class="oh-head">
+          <span class="oh-rule" aria-hidden="true"></span>
+          <h2 class="oh-h2">{{industries.h2}}</h2>
+        </header>
+        <ul class="oh-ind-list" data-ind>
+          {{#each industries.items as i}}
+          <li><a class="oh-ind-row" href="{{i.href}}" target="_blank" rel="noopener" data-ind-row="{{@index}}" data-demo-scaffold><span class="oh-ind-name">{{i.label}}</span>{{#if i.image}}<span class="oh-ind-thumb">{{pic i.image sizes="96px" alt=""}}</span>{{/if}}</a></li>
+          {{/each}}
+        </ul>
+      </div>
+      <div class="oh-ind-preview" data-ind-preview>
+        {{#each industries.items as i}}
+        <div class="oh-ind-pane{{#if @first}} is-on{{/if}}{{#if i.image}}{{else}} is-empty{{/if}}" data-ind-pane="{{@index}}">{{#if i.image}}{{pic i.image sizes="(min-width: 1024px) 36vw, 100vw"}}{{else}}<div class="oh-corner" aria-hidden="true">{{> brackets}}</div>{{/if}}</div>
+        {{/each}}
+      </div>
+    </div>
+  </section>
+
+  <section class="oh-quotes">
+    <div class="oh-inset">
+      <header class="oh-head">
+        <span class="oh-rule" aria-hidden="true"></span>
+        <h2 class="oh-h2">{{quotes.h2}}</h2>
+      </header>
+      <div class="oh-quote-stage" data-quotes>
+        {{#each quotes.items as q}}
+        <figure class="oh-quote" data-quote>
+          <blockquote><p>{{q.text}}</p></blockquote>
+          <figcaption class="label">{{q.by}}</figcaption>
+        </figure>
+        {{/each}}
+        <div class="oh-quote-nav" data-quote-nav hidden>
+          <button class="oh-quote-btn" type="button" aria-label="{{ui.previousQuote}}" data-quote-prev><svg class="ico" aria-hidden="true"><use href="#i-prev"/></svg></button>
+          <span class="label oh-quote-count" data-quote-count data-word-quote="{{ui.quote}}" data-word-of="{{ui.of}}"></span>
+          <button class="oh-quote-btn" type="button" aria-label="{{ui.nextQuote}}" data-quote-next><svg class="ico" aria-hidden="true"><use href="#i-next"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="oh-family">
+    <div class="oh-inset oh-family-in">
+      <div class="oh-family-copy">
+        <header class="oh-head">
+          <span class="oh-rule" aria-hidden="true"></span>
+          <h2 class="oh-h2">{{family.h2}}</h2>
+        </header>
+        {{#each family.body as para}}
+        <p class="oh-family-p">{{para}}</p>
+        {{/each}}
+        <a class="link" href="{{family.linkHref}}" target="_blank" rel="noopener" data-demo-scaffold><span class="link-text">{{family.link.label}}</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <ul class="oh-people">
+        {{#each family.people as m}}
+        <li class="oh-person" data-reveal>
+          <div class="oh-person-photo">{{pic m.image}}</div>
+          <h3 class="oh-person-name">{{m.name}}</h3>
+          <p class="label oh-person-title">{{m.title}}</p>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+    <div class="oh-inset">
+      <ol class="oh-time" aria-label="{{family.timelineLabel}}" data-time>
+        {{#each family.timeline as t}}
+        <li class="oh-time-item{{#if t.image}}{{else}} is-shared{{/if}}">
+          <div class="oh-time-photo">{{#if t.image}}{{pic t.image sizes="(min-width: 1024px) 230px, 320px"}}{{/if}}</div>
+          <p class="oh-time-year">{{t.year}}</p>
+          <p class="oh-time-entry">{{t.entry}}</p>
+        </li>
+        {{/each}}
+      </ol>
+    </div>
+  </section>
+
+  <section class="oh-show">
+    <figure class="oh-show-photo oh-frame" data-drift>{{pic showroom.image sizes="100vw"}}</figure>
+    <div class="oh-show-panel" data-reveal>
+      <span class="oh-rule" aria-hidden="true"></span>
+      <h2 class="oh-h2">{{showroom.h2}}</h2>
+      <p class="oh-show-body">{{showroom.body}}</p>
+      <a class="btn btn-primary" href="#contact">{{showroom.button}}</a>
+    </div>
+  </section>
+
+  <section class="oh-clients oh-inset">
+    <h2 class="label oh-clients-h">{{clients.heading}}</h2>
+    <ul class="oh-logos">
+      {{#each clients.logos as c}}
+      <li>{{pic c.image}}</li>
+      {{/each}}
+    </ul>
+  </section>
+
+  <section class="oh-contact" id="contact">
+    <div class="oh-inset oh-contact-in">
+      <div class="oh-contact-main">
+        <header class="oh-head">
+          <span class="oh-rule" aria-hidden="true"></span>
+          <h2 class="oh-h2">{{contact.h2}}</h2>
+          <p class="oh-lead">{{contact.line}}</p>
+        </header>
+        {{> form}}
+      </div>
+      <aside class="oh-contact-side" aria-label="{{contact.detailsLabel}}">
+        <a class="oh-contact-tel" href="{{org.telHref}}">{{org.telephone}}</a>
+        <a class="oh-contact-mail" href="{{org.mailHref}}">{{org.email}}</a>
+        <address class="oh-contact-addr">{{org.address.full}}</address>
+        <div class="oh-corner" aria-hidden="true">{{> brackets}}</div>
+      </aside>
+    </div>
+  </section>
+
 </main>
 {{> footer}}
 {{> film}}
@@ -29,5 +227,6 @@
 <script src="{{root}}assets/js/vendor/ScrollTrigger.min.js"></script>
 <script src="{{root}}assets/js/vendor/lenis.min.js"></script>
 <script src="{{root}}assets/js/kit.js"></script>
+<script src="{{root}}assets/js/open-house.js"></script>
 </body>
 </html>
