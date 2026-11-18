@@ -987,6 +987,7 @@
   "blueHour": {
     "_note": "Demo-only extras for BLUE HOUR (round 2 handoff, section 5). Nothing else may be added here.",
     "since": "SINCE 1991",
+    "heroImage": "projects/ls-power/boardroom",
     "featured": {
       "slug": "kdlm",
       "labels": ["LOCATION", "SECTOR"]

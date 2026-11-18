@@ -4,7 +4,7 @@
 {{> head title=meta.title description=meta.description}}
 <link rel="preload" as="font" type="font/woff2" href="{{root}}assets/fonts/instrument-serif-latin-400-normal.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="{{root}}assets/fonts/manrope-latin-700-normal.woff2" crossorigin>
-{{preload hero.image sizes="(min-width: 1024px) 96vw, 100vw"}}
+{{preload blueHour.heroImage sizes="(min-width: 1024px) 96vw, 100vw"}}
 <link rel="stylesheet" href="{{root}}assets/css/base.css">
 <link rel="stylesheet" href="{{root}}assets/css/kit.css">
 <link rel="stylesheet" href="{{root}}assets/css/blue-hour.css">
@@ -30,7 +30,7 @@
 
   <section class="bh-hero" aria-labelledby="bh-h1" data-hero>
     <div class="bh-hero-card bh-photo" data-hero-card>
-      {{pic hero.image class="bh-hero-img" sizes="(min-width: 1024px) 96vw, 100vw" eager}}
+      {{pic blueHour.heroImage class="bh-hero-img" sizes="(min-width: 1024px) 96vw, 100vw" eager}}
       <span class="bh-dusk" aria-hidden="true"></span>
       <span class="bh-scrim" aria-hidden="true"></span>
     </div>

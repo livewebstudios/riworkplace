@@ -76,7 +76,7 @@ html.bh { scroll-padding-top: calc(var(--bh-inset, 12px) + 64px + 20px); }
 .bh-h2 { font-size: clamp(2.1rem, 3.4vw, 3.25rem); line-height: 1.05; letter-spacing: -0.005em; text-wrap: balance; max-width: 12em; }
 .bh-h3 { font-size: clamp(1.5rem, 2.2vw, 1.75rem); line-height: 1.15; }
 .bh-lead, .bh-body { color: var(--bh-haze); text-wrap: pretty; max-width: 40em; }
-.bh-label, .demo-blue-hour .label {
+.demo-blue-hour .bh-label, .demo-blue-hour .label {
   font-family: var(--f-manrope); font-size: 0.75rem; font-weight: 600; line-height: 1.5;
   letter-spacing: 0.18em; text-transform: uppercase; color: var(--bh-dim);
 }
@@ -272,7 +272,7 @@ html.bh { scroll-padding-top: calc(var(--bh-inset, 12px) + 64px + 20px); }
 @media (min-width: 1024px) {
   /* Desktop: the copy sits on the photo, over a measured navy scrim (handoff 4.4). */
   .bh-hero {
-    grid-template-columns: minmax(0, 1fr) 220px;
+    grid-template-columns: minmax(0, 1fr) calc(220px + var(--s-6));
     grid-template-rows: auto auto 1fr auto auto;
     column-gap: var(--s-6);
     min-height: calc(clamp(640px, 88svh, 880px) + var(--bh-inset));
@@ -310,7 +310,6 @@ html.bh { scroll-padding-top: calc(var(--bh-inset, 12px) + 64px + 20px); }
     grid-area: 1 / 2 / -1 / 3; align-self: center; z-index: 3;
     grid-template-columns: 1fr; gap: var(--s-3);
     padding: calc(var(--bh-cap-top) + var(--bh-cap-h)) var(--s-6) 0 0;
-    margin-left: calc(-1 * var(--s-6));
   }
   .bh-stat {
     width: 220px; padding: var(--s-4) var(--s-4) var(--s-4) var(--s-5);
@@ -645,6 +644,12 @@ html.bh { scroll-padding-top: calc(var(--bh-inset, 12px) + 64px + 20px); }
 .demo-blue-hour .film-play { background: var(--bh-deep); border-top-right-radius: var(--bh-r-tile); }
 .demo-blue-hour .film-note { color: var(--bh-haze); }
 .demo-blue-hour .film-play:hover .film-play-btn { background: var(--bh-frost); }
+
+/* ---------- motion hooks (only once blue-hour.js has started motion) ---------- */
+/* Photos with inner parallax get 8% of room above and below to drift through. */
+.bh-motion [data-drift] > img, .bh-motion [data-drift] > .bh-ind-pane { position: absolute; inset: -8% 0 auto; width: 100%; height: 116%; }
+.bh-motion .bh-hero-img { inset: -10% 0 auto; height: 110%; }
+.js .bh-quote.is-leaving { visibility: visible; }
 
 @media (prefers-reduced-motion: reduce) {
   .demo-blue-hour .btn-primary::after, .demo-blue-hour .btn-primary::before, .bh-round, .bh-text-link .ico, .bh-chip,
