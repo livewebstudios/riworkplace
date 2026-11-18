@@ -20,7 +20,7 @@
   --bracket-size: clamp(40px, 5vw, 64px);
   --bracket-gap: 14px;
 }
-.demo-open-house .drop, .demo-open-house .switcher { box-shadow: none; }
+.demo-open-house .drop { box-shadow: none; }
 .demo-open-house .film { box-shadow: none; }
 
 /* ---------- shared pieces ---------- */

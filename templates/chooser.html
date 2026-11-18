@@ -15,7 +15,7 @@
     <nav class="pick-nav" aria-label="{{chooser.navLabel}}">
       <ul>
         {{#each demos as d}}
-        <li><a href="{{root}}{{d.slug}}/index.html"><span class="pick-nav-n">{{d.n}}</span> {{d.name}}</a></li>
+        <li><a href="{{root}}{{d.slug}}/index.html" target="_blank" rel="noopener"><span class="pick-nav-n">{{d.n}}</span> {{d.name}}</a></li>
         {{/each}}
       </ul>
     </nav>
@@ -30,12 +30,12 @@
   <ol class="pick-grid">
     {{#each demos as d}}
     <li class="opt opt-{{d.slug}}">
-      <a class="opt-shot" href="{{root}}{{d.slug}}/index.html" tabindex="-1" aria-hidden="true">{{pic d.shot sizes="(min-width: 1024px) 30vw, 92vw"}}</a>
+      <a class="opt-shot" href="{{root}}{{d.slug}}/index.html" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">{{pic d.shot sizes="(min-width: 1024px) 30vw, 92vw"}}</a>
       <div class="opt-body">
         <p class="opt-n" aria-hidden="true">{{d.n}}</p>
         <h2 class="opt-name">{{d.name}}</h2>
         <p class="opt-pitch">{{d.pitch}}</p>
-        <a class="btn btn-primary" href="{{root}}{{d.slug}}/index.html">{{d.open}}</a>
+        <a class="btn btn-primary" href="{{root}}{{d.slug}}/index.html" target="_blank" rel="noopener">{{d.open}}</a>
       </div>
     </li>
     {{/each}}

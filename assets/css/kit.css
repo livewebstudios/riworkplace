@@ -1,5 +1,5 @@
 /* RI Workplace home demos: the shared kit.
-   Nav, footer, buttons, form, film dialog, picture helper, demo switcher.
+   Nav, footer, buttons, form, film dialog, picture helper.
    Section components are never shared. Each demo restyles the kit through tokens. */
 
 /* ---------- skip link ---------- */
@@ -285,27 +285,6 @@ body.is-locked { overflow: hidden; }
   .foot-base { grid-column: 1 / -1; }
 }
 
-/* ---------- demo switcher pill (scaffold) ---------- */
-.switcher {
-  position: fixed; left: 50%; bottom: var(--s-4); z-index: var(--z-switch);
-  display: flex; align-items: center; gap: var(--s-1); padding: var(--s-1);
-  background: var(--white); border: 1px solid var(--hairline-strong); border-radius: var(--radius-pill);
-  box-shadow: var(--shadow-float);
-  font-family: var(--f-jakarta); font-size: var(--fs-label); font-weight: 700; letter-spacing: 0.08em;
-  transform: translateX(-50%);
-  transition: transform 0.35s var(--ease);
-}
-.switcher.is-lifted { transform: translate(-50%, -72px); }
-.switcher.is-tucked { transform: translate(-50%, calc(100% + var(--s-6))); }
-.switcher a {
-  display: inline-flex; align-items: center; justify-content: center;
-  min-width: var(--tap); min-height: var(--tap); padding-inline: var(--s-4);
-  border-radius: var(--radius-pill); color: var(--ink); white-space: nowrap;
-}
-.switcher a:hover { background: var(--chalk); }
-.switcher a[aria-current="page"] { background: var(--ink); color: var(--white); }
-.switcher-dot { color: var(--ink-soft); }
 @media (prefers-reduced-motion: reduce) {
-  .switcher, .btn, .link .ico, .drop, .nav-caret .ico, .sheet-caret .ico { transition: none; }
+  .btn, .link .ico, .drop, .nav-caret .ico, .sheet-caret .ico { transition: none; }
 }
-@media print { .switcher { display: none; } }

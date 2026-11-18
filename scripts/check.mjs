@@ -92,12 +92,11 @@ for (const page of DEMOS) {
   if (!html.includes('action="https://formspree.io/f/REPLACE_ME"')) problems.push('form action is not the Formspree placeholder');
   if (!html.includes('name="_gotcha"')) problems.push('honeypot missing');
   if (!/id="contact"/.test(html) || !/id="work"/.test(html)) problems.push('#work or #contact anchor missing');
-  // every link to the live site is scaffolding: new tab, noopener, flagged
-  for (const a of html.match(/<a\b[^>]*href="https:\/\/riworkplace\.com[^>]*>/g) || []) {
-    if (!a.includes('target="_blank"') || !a.includes('rel="noopener"') || !a.includes('data-demo-scaffold')) problems.push(`live link not flagged: ${a.slice(0, 110)}`);
+  // demos are look-only: no link may leave the page (except the LWS credit)
+  for (const a of html.match(/<a\b[^>]*>/g) || []) {
+    const href = (a.match(/\shref="([^"]*)"/) || [])[1];
+    if (href !== undefined && !href.startsWith('#') && !href.includes('livewebstudios.com')) problems.push(`link leaves the demo: ${a.slice(0, 110)}`);
   }
-  if (!html.includes('data-switcher data-demo-scaffold')) problems.push('switcher missing');
-  if ((html.match(/aria-current="page"/g) || []).length !== 1) problems.push('switcher does not mark exactly one current demo');
   if (/tawk\.to/i.test(html)) problems.push('tawk.to chat widget present');
   if (/istock/i.test(html)) problems.push('stock image reference');
   check(`demo rules: ${page}`, problems);

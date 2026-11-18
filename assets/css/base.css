@@ -75,7 +75,7 @@
   --tap: 44px;
   --row: 48px;
   --focus: 2px solid var(--blue-ink);
-  --z-nav: 50; --z-sheet: 70; --z-switch: 60; --z-modal: 90;
+  --z-nav: 50; --z-sheet: 70; --z-modal: 90;
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 

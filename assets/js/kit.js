@@ -1,5 +1,5 @@
 /* RI Workplace home demos: shared kit.
-   Nav, mobile sheet, film dialog, contact form, reveal utility, motion bootstrap, demo switcher.
+   Nav, mobile sheet, film dialog, contact form, reveal utility, motion bootstrap.
    Exposes window.RI for the per-demo scripts. */
 (function () {
   'use strict';
@@ -238,14 +238,11 @@
     });
   });
 
-  /* ---------- demo switcher: lift clear of the form while contact is in view ---------- */
-  var switcher = $('[data-switcher]');
-  var contact = $('#contact');
-  if (switcher && contact && 'IntersectionObserver' in window) {
-    new IntersectionObserver(function (entries) {
-      switcher.classList.toggle('is-lifted', entries[0].isIntersecting);
-    }, { rootMargin: '0px 0px -10% 0px' }).observe(contact);
-  }
+  /* ---------- placeholder links: "#" stays put instead of jumping to the top ---------- */
+  doc.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href="#"]');
+    if (a) e.preventDefault();
+  });
 
   /* ---------- kick off ---------- */
   RI.reveal();

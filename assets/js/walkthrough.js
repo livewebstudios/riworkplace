@@ -98,8 +98,6 @@
           scrub: true,
           invalidateOnRefresh: true,
           anticipatePin: 1,
-          /* The demo switcher steps out of the way while the walk holds the screen. */
-          onToggle: function (self) { var sw = $('[data-switcher]'); if (sw) sw.classList.toggle('is-tucked', self.isActive); },
           onUpdate: function (self) {
             var max = self.end - self.start;
             setActive(nearest(self.progress * max, max));
@@ -117,8 +115,6 @@
       });
       return function () {
         pinned = null;
-        var sw = $('[data-switcher]');
-        if (sw) sw.classList.toggle('is-tucked', false);
         walk.classList.toggle('is-pinned', false);
         scroller.setAttribute('tabindex', '0');
         active = -1;

@@ -321,6 +321,17 @@ for (const page of pages) {
   const demos = site.demos.map((d) => ({ ...d, current: page.demo && page.demo.slug === d.slug }));
   let html = render(parse(src), [{ root: page.root, page, demo: page.demo, demos, isDemo: Boolean(page.demo) }, site]);
   html = html.replace(/^[ \t]*\n/gm, '');
+  // Demos are look-only: every link that would leave the page goes nowhere ("#").
+  // In-page anchors (#contact, #work, #top, #main) still scroll; the LWS credit stays live.
+  if (page.demo) {
+    html = html.replace(/<a\b[^>]*>/g, (tag) => {
+      const href = (tag.match(/\shref="([^"]*)"/) || [])[1];
+      if (href === undefined || href.startsWith('#') || href.includes('livewebstudios.com')) return tag;
+      return tag
+        .replace(/\shref="[^"]*"/, ' href="#"')
+        .replace(/\s(target|rel)="[^"]*"/g, '');
+    });
+  }
   mkdirSync(dirname(join(ROOT, page.out)), { recursive: true });
   writeFileSync(join(ROOT, page.out), html);
   console.log(`wrote ${page.out} (${(html.length / 1024).toFixed(1)} KB)`);

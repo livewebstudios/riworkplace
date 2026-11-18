@@ -52,10 +52,9 @@ for (const { slug, path } of pages) {
   }
 }
 
-// First screen of each demo at 1440 for the chooser cards, with the demo switcher out of frame.
+// First screen of each demo at 1440 for the chooser cards.
 for (const d of site.demos) {
   const { ctx, page } = await open(`${d.slug}/index.html`, 1440, 900);
-  await page.addStyleTag({ content: '[data-switcher]{visibility:hidden}' });
   await page.waitForTimeout(1600);
   await page.screenshot({ path: join(OUT, `chooser-${d.slug}.jpg`), type: 'jpeg', quality: 88 });
   console.log(`chooser-${d.slug}.jpg`);
