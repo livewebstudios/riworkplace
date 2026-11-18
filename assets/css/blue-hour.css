@@ -510,6 +510,7 @@ html.bh { scroll-padding-top: calc(var(--bh-inset, 12px) + 64px + 20px); }
 @media (min-width: 1024px) {
   .bh-time-list { grid-template-columns: repeat(5, 1fr); gap: var(--s-5); }
   .bh-time-item {
+    align-content: start;
     grid-template-columns: 1fr; grid-template-areas: "photo" "year" "dot" "entry";
     grid-template-rows: 80px auto 12px auto; row-gap: var(--s-3);
   }
@@ -537,7 +538,7 @@ html.bh { scroll-padding-top: calc(var(--bh-inset, 12px) + 64px + 20px); }
 .bh-show-media { position: relative; }
 .bh-show-photo { margin: 0; aspect-ratio: 4 / 3; border-radius: var(--bh-r-tile); background: var(--bh-deep); }
 .bh-show-photo img { width: 100%; height: 100%; object-fit: cover; }
-.bh-show-btn { position: absolute; left: var(--s-5); bottom: -26px; z-index: 2; box-shadow: var(--shadow-float); }
+.demo-blue-hour .bh-show-btn { position: absolute; left: var(--s-5); bottom: -26px; z-index: 2; box-shadow: var(--shadow-float); }
 @media (min-width: 1024px) {
   .bh-show-panel { grid-template-columns: 5fr 3fr 4fr; align-items: center; gap: clamp(28px, 4vw, 56px); }
   .bh-details { padding-left: var(--s-6); border-left: 1px solid var(--bh-line); }
@@ -553,6 +554,13 @@ html.bh { scroll-padding-top: calc(var(--bh-inset, 12px) + 64px + 20px); }
   transition: opacity 0.25s var(--ease);
 }
 .bh-logos li:hover img { opacity: 1; }
+@media (max-width: 767px) {
+  /* static grid (reduced motion, no JavaScript): three across instead of one long column */
+  .bh-logos { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s-6) var(--s-4); justify-items: center; }
+  .bh-logos img { width: 100%; max-width: 112px; }
+  .bh-marquee.is-running .bh-logos { display: flex; }
+  .bh-marquee.is-running .bh-logos img { width: 112px; }
+}
 .bh-marquee.is-running {
   padding-inline: 0;
   -webkit-mask: linear-gradient(to right, transparent, #fff 8%, #fff 92%, transparent);
@@ -592,7 +600,7 @@ html.bh { scroll-padding-top: calc(var(--bh-inset, 12px) + 64px + 20px); }
 .demo-blue-hour .field-check input { min-height: 24px; border-radius: var(--radius-check); }
 .demo-blue-hour .field-check input:checked { background: var(--bh-sky); border-color: var(--bh-sky); }
 .demo-blue-hour .field-check input:checked::after { border-color: var(--bh-night); }
-.demo-blue-hour .field-check label { color: var(--bh-haze); font-family: var(--f-manrope); }
+.demo-blue-hour .field-check label { color: var(--bh-haze); font-family: var(--f-manrope); font-weight: 400; letter-spacing: 0; text-transform: none; }
 .demo-blue-hour .form-status { color: var(--bh-frost); }
 
 /* ---------- footer: navy, ending in the white capsule ---------- */
