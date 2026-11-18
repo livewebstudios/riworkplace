@@ -14,6 +14,8 @@
     <p class="label">{{hero.eyebrow}}</p>
     <h1>{{hero.h1}}</h1>
     <p>{{hero.sub}}</p>
+    <button class="link link-film" type="button" data-film-open><svg class="ico" aria-hidden="true"><use href="#i-play"/></svg><span class="link-text">{{hero.film}}</span></button>
+    {{pic hero.image sizes="50vw" eager}}
   </section>
   <section class="wrap" id="contact">
     <h2>{{contact.h2}}</h2>
@@ -21,6 +23,7 @@
   </section>
 </main>
 {{> footer}}
+{{> film}}
 {{> switcher}}
 <script src="{{root}}assets/js/vendor/gsap.min.js"></script>
 <script src="{{root}}assets/js/vendor/ScrollTrigger.min.js"></script>

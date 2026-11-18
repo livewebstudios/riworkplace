@@ -1,0 +1,15 @@
+{
+  "name": "riworkplace-demo-scripts",
+  "private": true,
+  "type": "module",
+  "description": "Tooling for the RI Workplace home demos. build.mjs needs nothing. The image scripts need sharp.",
+  "scripts": {
+    "build": "node build.mjs",
+    "fetch": "node fetch-images.mjs",
+    "audit": "node audit-images.mjs",
+    "optimize": "node optimize-images.mjs"
+  },
+  "devDependencies": {
+    "sharp": "^0.34.0"
+  }
+}

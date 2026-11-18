@@ -37,8 +37,16 @@ for (const step of site.steps.items) {
     return { label, href: live(servicePaths[label]) };
   });
 }
+const slug = (v) => String(v).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 for (const p of site.work.projects) p.href = live(p.path);
 for (const p of site.work.index || []) p.href = live(p.path);
+// One list for the project table: the six featured rows, then the rest of the index.
+site.work.rows = [
+  ...site.work.projects.map((p) => ({ ...p, featured: true, note: p.line })),
+  ...site.work.index.map((p, i) => ({ ...p, n: String(site.work.projects.length + i + 1).padStart(2, '0'), featured: false, note: '' })),
+].map((r) => ({ ...r, sectorSlug: slug(r.sector) }));
+site.work.sectors = [...new Set(site.work.rows.map((r) => r.sector).filter(Boolean))].map((label) => ({ label, slug: slug(label) }));
+for (const q of site.quotes.items) q.name = q.by.split(' · ')[0];
 for (const i of site.industries.items) {
   if (!servicePaths[i.label]) throw new Error(`Industry not in nav: ${i.label}`);
   i.href = live(servicePaths[i.label]);
@@ -182,6 +190,8 @@ function parse(src) {
       push({ type: 'partial', name, args: parseArgs(rest.join(' ')) });
     } else if (tag.startsWith('pic ')) {
       push({ type: 'pic', args: parseArgs(tag.slice(4)) });
+    } else if (tag.startsWith('preload ')) {
+      push({ type: 'preload', args: parseArgs(tag.slice(8)) });
     } else {
       push({ type: 'var', expr: tag, raw: false });
     }
@@ -224,6 +234,18 @@ function pic(args, scopes) {
   return `<img ${attrs.filter(Boolean).join(' ')}>`;
 }
 
+// Preload hint for the hero image, matching the srcset the picture helper writes.
+function preload(args, scopes) {
+  const key = value(args._[0], scopes);
+  const root = lookup('root', scopes);
+  const info = manifest[key];
+  if (!info) return '';
+  const sizes = args.sizes ? value(args.sizes, scopes) : '100vw';
+  const largest = info.variants[info.variants.length - 1];
+  const srcset = info.variants.map((v) => `${root}assets/img/${v.file} ${v.w}w`).join(', ');
+  return `<link rel="preload" as="image" href="${root}assets/img/${largest.file}" imagesrcset="${srcset}" imagesizes="${esc(sizes)}" fetchpriority="high">`;
+}
+
 function render(nodes, scopes) {
   let out = '';
   for (const n of nodes) {
@@ -248,6 +270,8 @@ function render(nodes, scopes) {
       out += render(partial(n.name), [extra, ...scopes]);
     } else if (n.type === 'pic') {
       out += pic(n.args, scopes);
+    } else if (n.type === 'preload') {
+      out += preload(n.args, scopes);
     }
   }
   return out;

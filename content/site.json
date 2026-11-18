@@ -18,10 +18,26 @@
       "full": "250 Pehle Avenue, Plaza Two, Suite 100, Saddle Brook, NJ 07663"
     },
     "social": [
-      { "name": "LinkedIn", "icon": "linkedin", "url": "https://www.linkedin.com/company/ri-office-design-group/" },
-      { "name": "Facebook", "icon": "facebook", "url": "https://www.facebook.com/RIworkplace" },
-      { "name": "Instagram", "icon": "instagram", "url": "https://www.instagram.com/riworkplace/" },
-      { "name": "Pinterest", "icon": "pinterest", "url": "https://www.pinterest.co.uk/riworkplacepinterest/" }
+      {
+        "name": "LinkedIn",
+        "icon": "linkedin",
+        "url": "https://www.linkedin.com/company/ri-office-design-group/"
+      },
+      {
+        "name": "Facebook",
+        "icon": "facebook",
+        "url": "https://www.facebook.com/RIworkplace"
+      },
+      {
+        "name": "Instagram",
+        "icon": "instagram",
+        "url": "https://www.instagram.com/riworkplace/"
+      },
+      {
+        "name": "Pinterest",
+        "icon": "pinterest",
+        "url": "https://www.pinterest.co.uk/riworkplacepinterest/"
+      }
     ]
   },
   "logo": {
@@ -31,52 +47,132 @@
     "height": 213
   },
   "util": {
-    "portal": { "label": "CLIENT PORTAL LOG-IN", "url": "https://buildertrend.net/" },
-    "contact": { "label": "CONTACT US" }
+    "portal": {
+      "label": "CLIENT PORTAL LOG-IN",
+      "url": "https://buildertrend.net/"
+    },
+    "contact": {
+      "label": "CONTACT US"
+    }
   },
   "nav": [
     {
       "label": "ABOUT US",
       "path": "/about-us/",
       "children": [
-        { "label": "Client Journey", "path": "/client-journey/" },
-        { "label": "Leadership Team", "path": "/leadership-team/" },
-        { "label": "Our Workplace", "path": "/our-workplace/" }
+        {
+          "label": "Client Journey",
+          "path": "/client-journey/"
+        },
+        {
+          "label": "Leadership Team",
+          "path": "/leadership-team/"
+        },
+        {
+          "label": "Our Workplace",
+          "path": "/our-workplace/"
+        }
       ]
     },
     {
       "label": "OUR SERVICES",
       "path": "/our-services/",
       "children": [
-        { "label": "Workplace Analysis & Strategy", "path": "/our-services/workplace-analysis-strategy/" },
-        { "label": "Workplace Architectural Services", "path": "/our-services/workplace-architectural-services/" },
-        { "label": "Space Planning and Layout", "path": "/our-services/space-planning-and-layout/" },
-        { "label": "Interior Design, Decorating and Branding", "path": "/our-services/interior-design-decorating-and-branding/" },
-        { "label": "Pre-Construction", "path": "/pre-construction/" },
-        { "label": "Zoning Services", "path": "/zoning-services/" },
-        { "label": "Project Expediting", "path": "/project-expediting/" },
-        { "label": "Workplace Build-out and Project Management", "path": "/our-services/workplace-build-and-project-management/" },
-        { "label": "Workplace Furniture and Finishes", "path": "/our-services/workplace-furniture-and-finishes/" },
-        { "label": "Hybrid & Flexible Workspaces", "path": "/our-services/hybrid-flexible-workspaces/" },
-        { "label": "Return-to-Work Solutions", "path": "/return-to-work-solutions/" },
-        { "label": "Workplace Retreat", "path": "/our-services/workplace-retreat/" }
+        {
+          "label": "Workplace Analysis & Strategy",
+          "path": "/our-services/workplace-analysis-strategy/"
+        },
+        {
+          "label": "Workplace Architectural Services",
+          "path": "/our-services/workplace-architectural-services/"
+        },
+        {
+          "label": "Space Planning and Layout",
+          "path": "/our-services/space-planning-and-layout/"
+        },
+        {
+          "label": "Interior Design, Decorating and Branding",
+          "path": "/our-services/interior-design-decorating-and-branding/"
+        },
+        {
+          "label": "Pre-Construction",
+          "path": "/pre-construction/"
+        },
+        {
+          "label": "Zoning Services",
+          "path": "/zoning-services/"
+        },
+        {
+          "label": "Project Expediting",
+          "path": "/project-expediting/"
+        },
+        {
+          "label": "Workplace Build-out and Project Management",
+          "path": "/our-services/workplace-build-and-project-management/"
+        },
+        {
+          "label": "Workplace Furniture and Finishes",
+          "path": "/our-services/workplace-furniture-and-finishes/"
+        },
+        {
+          "label": "Hybrid & Flexible Workspaces",
+          "path": "/our-services/hybrid-flexible-workspaces/"
+        },
+        {
+          "label": "Return-to-Work Solutions",
+          "path": "/return-to-work-solutions/"
+        },
+        {
+          "label": "Workplace Retreat",
+          "path": "/our-services/workplace-retreat/"
+        }
       ]
     },
-    { "label": "PROJECTS", "path": "/projects/", "children": [] },
+    {
+      "label": "PROJECTS",
+      "path": "/projects/",
+      "children": []
+    },
     {
       "label": "INDUSTRIES WE SERVE",
       "path": "/industries/",
       "children": [
-        { "label": "Corporate Offices", "path": "/industries/corporate-office-industries/" },
-        { "label": "Financial Firm Office Design", "path": "/industries/financial-firm-office-design/" },
-        { "label": "Law Firm Office Design", "path": "/industries/law-firm-office-design/" },
-        { "label": "Pharmaceutical Facilities", "path": "/industries/life-sciences-workspace-design/" },
-        { "label": "Educational Space Design", "path": "/industries/educational-space-design/" },
-        { "label": "Medical Workplaces", "path": "/industries/medical-workplaces/" }
+        {
+          "label": "Corporate Offices",
+          "path": "/industries/corporate-office-industries/"
+        },
+        {
+          "label": "Financial Firm Office Design",
+          "path": "/industries/financial-firm-office-design/"
+        },
+        {
+          "label": "Law Firm Office Design",
+          "path": "/industries/law-firm-office-design/"
+        },
+        {
+          "label": "Pharmaceutical Facilities",
+          "path": "/industries/life-sciences-workspace-design/"
+        },
+        {
+          "label": "Educational Space Design",
+          "path": "/industries/educational-space-design/"
+        },
+        {
+          "label": "Medical Workplaces",
+          "path": "/industries/medical-workplaces/"
+        }
       ]
     },
-    { "label": "BLOGS", "path": "/blog-news/", "children": [] },
-    { "label": "RI WORKPLACE RETREAT", "path": "/our-services/ri-workplace-retreat/", "children": [] }
+    {
+      "label": "BLOGS",
+      "path": "/blog-news/",
+      "children": []
+    },
+    {
+      "label": "RI WORKPLACE RETREAT",
+      "path": "/our-services/ri-workplace-retreat/",
+      "children": []
+    }
   ],
   "ui": {
     "skip": "Skip to content",
@@ -114,59 +210,329 @@
     "sub": "One family-run team takes your office from first sketch to move-in day. You never get passed between a designer and a contractor.",
     "primary": "SEE THE WORK",
     "secondary": "START A PROJECT",
-    "film": "WATCH THE FILM · 0:48"
+    "film": "WATCH THE FILM · 0:48",
+    "image": "projects/ls-power/cafe",
+    "ghost": "WORKPLACE"
   },
   "numbers": [
-    { "figure": "35+", "label": "years in business" },
-    { "figure": "475+", "label": "projects designed and delivered" },
-    { "figure": "56.5%", "label": "of our business comes from referrals" },
-    { "figure": "Up to 30%", "label": "faster than traditional fit-out firms" }
+    {
+      "figure": "35+",
+      "label": "years in business"
+    },
+    {
+      "figure": "475+",
+      "label": "projects designed and delivered"
+    },
+    {
+      "figure": "56.5%",
+      "label": "of our business comes from referrals"
+    },
+    {
+      "figure": "Up to 30%",
+      "label": "faster than traditional fit-out firms"
+    }
   ],
   "work": {
     "h2": "Recent work",
     "line": "Every space on this page is a finished RI project.",
-    "all": { "label": "ALL PROJECTS", "path": "/projects/" },
-    "projects": [],
-    "index": []
+    "all": {
+      "label": "ALL PROJECTS",
+      "path": "/projects/"
+    },
+    "projects": [
+      {
+        "n": "01",
+        "slug": "ls-power",
+        "name": "LS Power",
+        "place": "East Brunswick, NJ",
+        "sector": "Energy",
+        "line": "A full floor, 26,000 square feet, rebuilt as a Workplace Retreat for more than 85 people. Eight months from demolition to certificate of occupancy.",
+        "path": "/project/ls-power-workplace-retreat/",
+        "lead": "projects/ls-power/reception-wide",
+        "second": "projects/ls-power/coffee-bar",
+        "slice": "projects/ls-power/reception"
+      },
+      {
+        "n": "02",
+        "slug": "kdlm",
+        "name": "Kramer, Dillof, Livingston & Moore",
+        "place": "New York, NY",
+        "sector": "Law",
+        "line": "Two floors on Broadway went from a 90s cubicle farm to glass-fronted offices and a café the firm now hosts guests in. Storage capacity tripled.",
+        "path": "/project/kramer-dillof-livingston-moore-kdlm/",
+        "lead": "projects/kdlm/boardroom",
+        "second": "projects/kdlm/office",
+        "slice": "projects/kdlm/entry"
+      },
+      {
+        "n": "03",
+        "slug": "wetransfer",
+        "name": "WeTransfer",
+        "place": "New York, NY",
+        "sector": "Technology",
+        "line": "An outdated office rebuilt as a hybrid hub in eight weeks, working with our UK design partner.",
+        "path": "/project/wetransfer/",
+        "lead": "projects/wetransfer/lounge",
+        "second": "projects/wetransfer/floor",
+        "slice": "projects/wetransfer/lounge"
+      },
+      {
+        "n": "04",
+        "slug": "jura",
+        "name": "Jura",
+        "place": "Montvale, NJ",
+        "sector": "Headquarters + showroom",
+        "line": "A two-story U.S. headquarters and showroom, designed, built and furnished inside a two-month window.",
+        "path": "/project/jura/",
+        "lead": "projects/jura/lounge",
+        "second": "projects/jura/showroom",
+        "slice": "projects/jura/lounge"
+      },
+      {
+        "n": "05",
+        "slug": "aucta",
+        "name": "Aucta Pharmaceuticals",
+        "place": "Bernards Township, NJ",
+        "sector": "Pharmaceutical",
+        "line": "52,000 square feet of headquarters and lab space across three buildings, delivered in under 12 months.",
+        "path": "/project/aucta-pharmaceuticals-inc/",
+        "lead": "projects/aucta/reception",
+        "second": "projects/aucta/glass-offices"
+      },
+      {
+        "n": "06",
+        "slug": "tweezerman",
+        "name": "Tweezerman International",
+        "place": "Port Washington, NY",
+        "sector": "Consumer brand",
+        "line": "A corporate office reworked to match the brand. Brighter, more flexible, and built around how the team meets.",
+        "path": "/project/tweezerman-international-llc/",
+        "lead": "projects/tweezerman/reception",
+        "second": "projects/tweezerman/conference"
+      }
+    ],
+    "index": [
+      {
+        "name": "National Ramp",
+        "place": "Valley Cottage, NY",
+        "sector": "Manufacturing",
+        "path": "/project/national-ramp/",
+        "lead": "projects/national-ramp/lead"
+      },
+      {
+        "name": "Harborside Lofts at 1500 Garden Street",
+        "place": "Hoboken, NJ",
+        "sector": "Residential",
+        "path": "/project/harborside-lofts-at-1500-garden-street-hoboken-nj/",
+        "lead": "projects/harborside-lofts/lead"
+      },
+      {
+        "name": "Marotta Controls",
+        "place": "Parsippany, NJ",
+        "sector": "Aerospace + defense",
+        "path": "/project/marotta-controls-inc/",
+        "lead": "projects/marotta-controls/lead"
+      },
+      {
+        "name": "Union County Savings Bank",
+        "place": "Springfield, NJ",
+        "sector": "Financial",
+        "path": "/project/union-county-savings-bank-ucsb/",
+        "lead": "projects/ucsb/lead"
+      },
+      {
+        "name": "RI Workplace",
+        "place": "Saddle Brook, NJ",
+        "sector": "Headquarters + showroom",
+        "path": "/project/ri-workplace/",
+        "lead": "projects/ri-workplace/meeting"
+      },
+      {
+        "name": "PowerPak Civil & Safety",
+        "place": "Congers, NY",
+        "sector": "",
+        "path": "/project/powerpak-civil-safety/",
+        "lead": "projects/powerpak/lead"
+      },
+      {
+        "name": "ESTI Warehouse",
+        "place": "Cinnaminson, NJ",
+        "sector": "",
+        "path": "/project/esti-warehouse-inc/",
+        "lead": "projects/esti-warehouse/lead"
+      },
+      {
+        "name": "DL1961",
+        "place": "New York, NY",
+        "sector": "Headquarters + showroom",
+        "path": "/project/dl1961/",
+        "lead": "projects/dl1961/lead"
+      },
+      {
+        "name": "Coulmed",
+        "place": "Springfield, NJ",
+        "sector": "Medical",
+        "path": "/project/coulmed/",
+        "lead": "projects/coulmed/lead"
+      },
+      {
+        "name": "Gramercy Cardiac Diagnostic Services",
+        "place": "New York, NY",
+        "sector": "Medical",
+        "path": "/project/gramercy-cardiac-diagnostic-services-inc/",
+        "lead": "projects/gramercy/lead"
+      },
+      {
+        "name": "Brookaire Company",
+        "place": "East Rutherford, NJ",
+        "sector": "Manufacturing",
+        "path": "/project/brookaire-company/",
+        "lead": "projects/brookaire/lead"
+      },
+      {
+        "name": "Austin Williams",
+        "place": "Hauppauge, NY",
+        "sector": "Advertising",
+        "path": "/project/austin-williams/",
+        "lead": "projects/austin-williams/lead"
+      },
+      {
+        "name": "American Tire & Auto Care",
+        "place": "Mercerville, NJ",
+        "sector": "Automotive",
+        "path": "/project/american-tire-auto-care/",
+        "lead": "projects/american-tire/lead"
+      },
+      {
+        "name": "Baldor Specialty Foods",
+        "place": "Bronx, NY",
+        "sector": "Food",
+        "path": "/project/baldor-specialty-foods-inc/",
+        "lead": "projects/baldor/lead"
+      },
+      {
+        "name": "The Soundcoat Company",
+        "place": "Deer Park, NY",
+        "sector": "",
+        "path": "/project/the-soundcoat-company/",
+        "lead": "projects/soundcoat/lead"
+      },
+      {
+        "name": "Corporate Essentials",
+        "place": "Parsippany, NJ",
+        "sector": "",
+        "path": "/project/corporate-essentials-llc/",
+        "lead": "projects/corporate-essentials/lead"
+      }
+    ],
+    "table": {
+      "no": "NO.",
+      "project": "PROJECT",
+      "place": "PLACE",
+      "sector": "SECTOR",
+      "note": "NOTE",
+      "all": "ALL",
+      "filterLabel": "Filter projects by sector"
+    }
   },
   "steps": {
     "h2": "One team. Four steps.",
     "line": "Design and construction sit under one roof at RI. That is why our projects finish up to 30% faster than the architect-plus-contractor route.",
-    "all": { "label": "ALL SERVICES", "path": "/our-services/" },
+    "all": {
+      "label": "ALL SERVICES",
+      "path": "/our-services/"
+    },
     "items": [
       {
         "n": "01",
         "name": "Dream",
         "copy": "We start with a working session on your goals and your budget. The project is about you.",
-        "services": ["Workplace Analysis & Strategy", "Hybrid & Flexible Workspaces", "Return-to-Work Solutions"]
+        "services": [
+          "Workplace Analysis & Strategy",
+          "Hybrid & Flexible Workspaces",
+          "Return-to-Work Solutions"
+        ]
       },
       {
         "n": "02",
         "name": "Design",
         "copy": "Our designers and architects turn that into a space that looks like your company. You see it in 3D before anything gets built.",
-        "services": ["Workplace Architectural Services", "Space Planning and Layout", "Interior Design, Decorating and Branding"]
+        "services": [
+          "Workplace Architectural Services",
+          "Space Planning and Layout",
+          "Interior Design, Decorating and Branding"
+        ]
       },
       {
         "n": "03",
         "name": "Build",
         "copy": "Our own project managers run construction, with weekly check-ins and a budget tracked as we go.",
-        "services": ["Pre-Construction", "Zoning Services", "Project Expediting", "Workplace Build-out and Project Management"]
+        "services": [
+          "Pre-Construction",
+          "Zoning Services",
+          "Project Expediting",
+          "Workplace Build-out and Project Management"
+        ]
       },
       {
         "n": "04",
         "name": "Transform",
         "copy": "Furniture and finishes go in. Your team moves into an office they want to come back to.",
-        "services": ["Workplace Furniture and Finishes", "Workplace Retreat"]
+        "services": [
+          "Workplace Furniture and Finishes",
+          "Workplace Retreat"
+        ]
       }
     ]
   },
   "industries": {
     "h2": "Industries we serve",
-    "items": []
+    "items": [
+      {
+        "label": "Corporate Offices",
+        "image": "projects/ls-power/open-office"
+      },
+      {
+        "label": "Financial Firm Office Design",
+        "image": "projects/ucsb/lead"
+      },
+      {
+        "label": "Law Firm Office Design",
+        "image": "projects/kdlm/library"
+      },
+      {
+        "label": "Pharmaceutical Facilities",
+        "image": "projects/aucta/glass-offices"
+      },
+      {
+        "label": "Educational Space Design",
+        "image": ""
+      },
+      {
+        "label": "Medical Workplaces",
+        "image": "projects/gramercy/lead"
+      }
+    ]
   },
   "quotes": {
     "h2": "What clients say",
-    "items": []
+    "items": [
+      {
+        "text": "The RI Workplace team was able to flawlessly deliver a beautiful refresh to our NYC hub in record time. From the weekly progress check-ins to the meticulous choosing of a kitchen cabinetry finish, RI displayed total care and confidence in their execution of our unique vision.",
+        "by": "WeTransfer · New York, NY",
+        "image": "projects/wetransfer/floor"
+      },
+      {
+        "text": "RI Workplace exceeded our expectations. Everyone including our customers love the new space. Our employees’ morale has been uplifted.",
+        "by": "Jura · Montvale, NJ",
+        "image": "projects/jura/showroom"
+      },
+      {
+        "text": "When it comes to what you do best, better than others by far, RI is always our recommendation. You’re my first and only recommendation. You guys rock!",
+        "by": "President, Austin Williams · Hauppauge, NY",
+        "image": "projects/austin-williams/lead"
+      }
+    ]
   },
   "family": {
     "h2": "Still a family business.",
@@ -174,36 +540,144 @@
       "The story starts in the trades in the 1970s. In 1991 Rob Scott opened Renotech Interiors in a converted house in Valley Stream, New York.",
       "Thirty-five years and two name changes later, the Scotts still run the company, now in its third generation."
     ],
-    "people": [],
-    "link": { "label": "MEET THE LEADERSHIP TEAM", "path": "/leadership-team/" },
-    "timeline": []
+    "people": [
+      {
+        "name": "Rob Scott",
+        "title": "Founder & CEO",
+        "image": "team/rob-scott"
+      },
+      {
+        "name": "Keith Scott",
+        "title": "Managing Partner & Project Executive",
+        "image": "team/keith-scott"
+      },
+      {
+        "name": "Ben Scott",
+        "title": "Managing Partner & CFO",
+        "image": "team/ben-scott"
+      }
+    ],
+    "link": {
+      "label": "MEET THE LEADERSHIP TEAM",
+      "path": "/leadership-team/"
+    },
+    "timeline": [
+      {
+        "year": "1991",
+        "entry": "Renotech Interiors opens in Valley Stream, NY",
+        "image": "heritage/1990s-exterior"
+      },
+      {
+        "year": "2010",
+        "entry": "Moves to Tappan, NY",
+        "image": "heritage/2010s-interior"
+      },
+      {
+        "year": "2012",
+        "entry": "Becomes RI Group",
+        "image": ""
+      },
+      {
+        "year": "2020",
+        "entry": "Moves to Saddle Brook, NJ. The new office becomes the model for Workplace Retreat",
+        "image": "heritage/2020s-interior"
+      },
+      {
+        "year": "2021",
+        "entry": "Becomes RI Workplace",
+        "image": "heritage/2020s-meeting"
+      }
+    ],
+    "timelineLabel": "RI through the years"
   },
   "showroom": {
     "h2": "Come see it in person.",
     "body": "Our Saddle Brook office doubles as the showroom. Walk the space and pull samples from the library. Coffee is on us.",
-    "button": "PLAN A VISIT"
+    "button": "PLAN A VISIT",
+    "image": "projects/ri-workplace/meeting"
   },
   "clients": {
     "heading": "Trusted by",
-    "logos": []
+    "logos": [
+      {
+        "image": "clients/steinway"
+      },
+      {
+        "image": "clients/clarins"
+      },
+      {
+        "image": "clients/mitsubishi"
+      },
+      {
+        "image": "clients/avis"
+      },
+      {
+        "image": "clients/1800-flowers"
+      },
+      {
+        "image": "clients/akzonobel"
+      },
+      {
+        "image": "clients/perrigo"
+      },
+      {
+        "image": "clients/summit-health"
+      },
+      {
+        "image": "clients/davita"
+      },
+      {
+        "image": "clients/baldor"
+      },
+      {
+        "image": "clients/grassi"
+      },
+      {
+        "image": "clients/workman"
+      }
+    ]
   },
   "contact": {
     "h2": "Let's talk about your office.",
     "line": "Tell us where you are now and where you need to be.",
     "action": "https://formspree.io/f/REPLACE_ME",
     "fields": {
-      "first": { "label": "First name", "error": "Enter your first name." },
-      "last": { "label": "Last name", "error": "Enter your last name." },
-      "email": { "label": "Email", "error": "Enter an email address we can reply to." },
-      "tel": { "label": "Tel / Mobile", "error": "Enter a phone number." },
-      "company": { "label": "Company" },
+      "first": {
+        "label": "First name",
+        "error": "Enter your first name."
+      },
+      "last": {
+        "label": "Last name",
+        "error": "Enter your last name."
+      },
+      "email": {
+        "label": "Email",
+        "error": "Enter an email address we can reply to."
+      },
+      "tel": {
+        "label": "Tel / Mobile",
+        "error": "Enter a phone number."
+      },
+      "company": {
+        "label": "Company"
+      },
       "source": {
         "label": "How did you learn about us?",
         "placeholder": "Choose one",
         "error": "Choose how you learned about us.",
-        "options": ["Google search", "Google ad", "Word of mouth", "Social media", "Reached out to by RI Workplace", "Other"]
+        "options": [
+          "Google search",
+          "Google ad",
+          "Word of mouth",
+          "Social media",
+          "Reached out to by RI Workplace",
+          "Other"
+        ]
       },
-      "message": { "label": "Message", "error": "Tell us a little about your office." },
+      "message": {
+        "label": "Message",
+        "error": "Tell us a little about your office."
+      },
       "consent": {
         "label": "RI Workplace may contact me about my project. RI does not share personal information with third parties.",
         "error": "Check the box so we can reply."
@@ -218,10 +692,16 @@
     "detailsLabel": "Reach us directly"
   },
   "footer": {
-    "privacy": { "label": "PRIVACY POLICY", "path": "/privacy-policy/" },
+    "privacy": {
+      "label": "PRIVACY POLICY",
+      "path": "/privacy-policy/"
+    },
     "copyright": "© 2026 RI Workplace",
     "badgeAlt": "Verified and secured by Live Web Studios",
-    "built": { "label": "Built by Live Web Studios", "url": "https://livewebstudios.com" }
+    "built": {
+      "label": "Built by Live Web Studios",
+      "url": "https://livewebstudios.com"
+    }
   },
   "demos": [
     {
@@ -259,8 +739,286 @@
     "footer": "Private preview. Not indexed."
   },
   "images": {
-    "chooser/open-house": { "alt": "First screen of home page option 1, Open House" },
-    "chooser/walkthrough": { "alt": "First screen of home page option 2, The Walkthrough" },
-    "chooser/cross-section": { "alt": "First screen of home page option 3, Cross Section" }
+    "chooser/open-house": {
+      "src": "_screenshots/chooser-open-house.jpg",
+      "alt": "First screen of home page option 1, Open House"
+    },
+    "chooser/walkthrough": {
+      "src": "_screenshots/chooser-walkthrough.jpg",
+      "alt": "First screen of home page option 2, The Walkthrough"
+    },
+    "chooser/cross-section": {
+      "src": "_screenshots/chooser-cross-section.jpg",
+      "alt": "First screen of home page option 3, Cross Section"
+    },
+    "projects/ls-power/cafe": {
+      "src": "assets/originals/ls-power/ls-power-office-cafe-workplace-retreat-nj-scaled.jpg",
+      "alt": "Café at LS Power in East Brunswick, NJ, with a black stone island, glass meeting rooms and tables by the window"
+    },
+    "projects/ls-power/elevator-lobby": {
+      "src": "assets/originals/ls-power/2-scaled.webp",
+      "alt": "Elevator lobby at LS Power with perforated black wall panels and oak door frames"
+    },
+    "projects/ls-power/reception": {
+      "src": "assets/originals/ls-power/3-scaled.webp",
+      "alt": "Reception at LS Power with a branded desk under a curved wood slat ceiling"
+    },
+    "projects/ls-power/lounge": {
+      "src": "assets/originals/ls-power/22-1-scaled.jpg",
+      "alt": "Reception lounge at LS Power with two orange armchairs in front of a striped wall graphic"
+    },
+    "projects/ls-power/boardroom": {
+      "src": "assets/originals/ls-power/32-1-scaled.jpg",
+      "alt": "Boardroom at LS Power with a long table, a leather banquette and floor-to-ceiling windows"
+    },
+    "projects/ls-power/wellness": {
+      "src": "assets/originals/ls-power/6-1-scaled.jpg",
+      "alt": "Wellness room at LS Power with soft seating, a textured green wall and plants by the window"
+    },
+    "projects/ls-power/open-office": {
+      "src": "assets/originals/ls-power/26-1-scaled.jpg",
+      "alt": "Open office at LS Power with wood-finish workstations and planters"
+    },
+    "projects/ls-power/reception-wide": {
+      "src": "assets/originals/ls-power/8-1-scaled.jpg",
+      "alt": "Reception at LS Power seen from the lounge, with orange seating and a wood slat ceiling"
+    },
+    "projects/ls-power/coffee-bar": {
+      "src": "assets/originals/ls-power/20-1-scaled.jpg",
+      "alt": "Coffee bar at LS Power with green tile, oak cabinets and café tables"
+    },
+    "projects/kdlm/boardroom": {
+      "src": "assets/originals/kdlm/KDLM-1-scaled.jpg",
+      "alt": "Boardroom at Kramer, Dillof, Livingston & Moore in New York with a black stone table, tan leather chairs and built-in law library shelving"
+    },
+    "projects/kdlm/library": {
+      "src": "assets/originals/kdlm/KDLM-9-scaled.jpg",
+      "alt": "Library at Kramer, Dillof, Livingston & Moore with walnut shelving full of law books and a round meeting table"
+    },
+    "projects/kdlm/office": {
+      "src": "assets/originals/kdlm/KDLM-3-scaled.jpg",
+      "alt": "Executive office at Kramer, Dillof, Livingston & Moore with a sofa, armchairs and oak built-in shelving"
+    },
+    "projects/kdlm/entry": {
+      "src": "assets/originals/kdlm/KDLM-14-scaled.jpg",
+      "alt": "Entry at Kramer, Dillof, Livingston & Moore with an arched niche and a stone reception desk"
+    },
+    "projects/wetransfer/lounge": {
+      "src": "assets/originals/wetransfer/WeTransfer-Modern-Corporate-Office-Space-11.jpg",
+      "alt": "Lounge at WeTransfer in New York with velvet sofas on a striped rug, plants and tall loft windows"
+    },
+    "projects/wetransfer/floor": {
+      "src": "assets/originals/wetransfer/WeTransfer-Modern-Corporate-Office-Space-New-York-City.jpg",
+      "alt": "Open floor at WeTransfer with oak storage walls, orange shelving niches and polished concrete"
+    },
+    "projects/jura/lounge": {
+      "src": "assets/originals/jura/Main-Image.jpg",
+      "alt": "Lounge and café at the Jura U.S. headquarters in Montvale, NJ, with armchairs under a ring light"
+    },
+    "projects/jura/showroom": {
+      "src": "assets/originals/jura/5.jpg",
+      "alt": "Glass-fronted showroom at Jura with coffee machines on white display counters"
+    },
+    "projects/aucta/reception": {
+      "src": "assets/originals/aucta/1-modern-pharmaceutical-office-reception-area.jpg",
+      "alt": "Reception at Aucta Pharmaceuticals in Bernards Township, NJ, with a marble desk and a glass conference room beyond"
+    },
+    "projects/aucta/glass-offices": {
+      "src": "assets/originals/aucta/7-modern-office-design-with-glass-offices.jpg",
+      "alt": "Glass-fronted offices at Aucta Pharmaceuticals around a lounge with a green sofa and a green feature wall"
+    },
+    "projects/tweezerman/reception": {
+      "src": "assets/originals/tweezerman/7.jpg",
+      "alt": "Reception lounge at Tweezerman in Port Washington, NY, with ring lights over a backlit logo wall"
+    },
+    "projects/tweezerman/conference": {
+      "src": "assets/originals/tweezerman/4.jpg",
+      "alt": "Conference room at Tweezerman with a long table and glass walls"
+    },
+    "projects/national-ramp/lead": {
+      "src": "assets/originals/index/2025_09_Main-Image.jpg",
+      "alt": "Office at National Ramp with oak open shelving and plants beside the workstations"
+    },
+    "projects/harborside-lofts/lead": {
+      "src": "assets/originals/index/2024_09_Modern-residential-office-design-lounge.jpg",
+      "alt": "Lounge at Harborside Lofts at 1500 Garden Street with walnut shelving and a blue rug"
+    },
+    "projects/marotta-controls/lead": {
+      "src": "assets/originals/index/2022_06_Marotta-Controls-1-1.jpg",
+      "alt": "Open floor at Marotta Controls with polished concrete and wood ceiling baffles"
+    },
+    "projects/ucsb/lead": {
+      "src": "assets/originals/ucsb/2023_10_7.jpg",
+      "alt": "Boardroom at Union County Savings Bank with a long wood table and a teal feature wall"
+    },
+    "projects/ri-workplace/meeting": {
+      "src": "assets/originals/index/2021_10_RI-Group-11-min.jpg",
+      "alt": "Glass meeting room at the RI Workplace office in Saddle Brook, NJ, looking through to the sample library"
+    },
+    "projects/powerpak/lead": {
+      "src": "assets/originals/index/2022_06_4-1.jpg",
+      "alt": "Café corridor at PowerPak Civil & Safety with oak cabinets and planted shelving"
+    },
+    "projects/esti-warehouse/lead": {
+      "src": "assets/originals/index/2023_05_4-scaled.jpg",
+      "alt": "Lobby at ESTI Warehouse with a glass meeting room and lounge chairs"
+    },
+    "projects/dl1961/lead": {
+      "src": "assets/originals/index/2021_07_DL1961-2.jpg",
+      "alt": "Steel-framed glass doors at DL1961 opening onto the showroom"
+    },
+    "projects/coulmed/lead": {
+      "src": "assets/originals/index/2021_07_micronix019.jpg",
+      "alt": "Open office at Coulmed with glass rooms under an exposed wood ceiling"
+    },
+    "projects/gramercy/lead": {
+      "src": "assets/originals/gramercy/2021_07_161006JP_057.jpg",
+      "alt": "Waiting area at Gramercy Cardiac Diagnostic Services with an orange banquette and a brick wall"
+    },
+    "projects/brookaire/lead": {
+      "src": "assets/originals/index/2021_09_brookaire022.jpg",
+      "alt": "Café at Brookaire Company with a long white table under a wood ceiling"
+    },
+    "projects/austin-williams/lead": {
+      "src": "assets/originals/index/2021_07_Austin-Williams-118.jpg",
+      "alt": "Reception at Austin Williams with a white desk and an orange accent wall"
+    },
+    "projects/american-tire/lead": {
+      "src": "assets/originals/index/2026_03_american-tire-auto-care-reception-desk-branded-entry-mat-scaled.jpg",
+      "alt": "Reception at American Tire & Auto Care with a long oak desk and pendant lights"
+    },
+    "projects/baldor/lead": {
+      "src": "assets/originals/index/2021_07_Baldor-11.jpg",
+      "alt": "Open office at Baldor Specialty Foods with a pantry counter and a meeting booth"
+    },
+    "projects/soundcoat/lead": {
+      "src": "assets/originals/index/2025_09_Soundcoat-acoustics-lab-renovated-workspace-design.jpg",
+      "alt": "Lab corridor at The Soundcoat Company with dark counters and oak flooring"
+    },
+    "projects/corporate-essentials/lead": {
+      "src": "assets/originals/index/2021_07_20190124_RI_JEP_5209.jpg",
+      "alt": "Café at Corporate Essentials with a brick wall, a teal bar and metal chairs"
+    },
+    "team/rob-scott": {
+      "src": "assets/originals/team/Rob-Scott.jpg",
+      "alt": "Rob Scott, Founder & CEO"
+    },
+    "team/keith-scott": {
+      "src": "assets/originals/team/Keith-Scott.jpg",
+      "alt": "Keith Scott, Managing Partner & Project Executive"
+    },
+    "team/ben-scott": {
+      "src": "assets/originals/team/Ben-Scott.jpg",
+      "alt": "Ben Scott, Managing Partner & CFO"
+    },
+    "heritage/1990s-exterior": {
+      "src": "assets/originals/heritage/RI-Through-the-Years-RI_s-Office-Exterior-1990_s.jpg",
+      "alt": "The Renotech Interiors office in the 1990s, a converted house with a sign out front",
+      "max": 640
+    },
+    "heritage/2010s-interior": {
+      "src": "assets/originals/heritage/RI-Through-the-Years-RI_s-Office-Interior-2010_s.jpg",
+      "alt": "The RI Group showroom in the 2010s, with a stone reception desk and a wall of task chairs",
+      "max": 640
+    },
+    "heritage/2020s-interior": {
+      "src": "assets/originals/heritage/RI-Through-the-Years-RI_s-Office-Interior-2020_s.jpg",
+      "alt": "The Saddle Brook office in the 2020s, with blue armchairs under a timber ceiling",
+      "max": 640
+    },
+    "heritage/2020s-meeting": {
+      "src": "assets/originals/heritage/RI-Through-the-Years-RI_s-Office-Interior-2020v2_s.jpg",
+      "alt": "The glass meeting room at the Saddle Brook office in the 2020s",
+      "max": 640
+    },
+    "clients/steinway": {
+      "src": "assets/originals/clients/Steinway_and_Sons_logo.png",
+      "alt": "Steinway & Sons"
+    },
+    "clients/clarins": {
+      "src": "assets/originals/clients/CLARINS_Corporate-logo.png",
+      "alt": "Clarins"
+    },
+    "clients/mitsubishi": {
+      "src": "assets/originals/clients/mitsubishi-logo_17.png",
+      "alt": "Mitsubishi"
+    },
+    "clients/avis": {
+      "src": "assets/originals/clients/avis-logo.png",
+      "alt": "Avis"
+    },
+    "clients/1800-flowers": {
+      "src": "assets/originals/clients/1800-flowers-logo.png",
+      "alt": "1-800-Flowers"
+    },
+    "clients/akzonobel": {
+      "src": "assets/originals/clients/akzonobel-logo.png",
+      "alt": "AkzoNobel"
+    },
+    "clients/perrigo": {
+      "src": "assets/originals/clients/perrigo-logo_21.png",
+      "alt": "Perrigo"
+    },
+    "clients/summit-health": {
+      "src": "assets/originals/clients/Summit_Health-removebg-preview.png",
+      "alt": "Summit Health"
+    },
+    "clients/davita": {
+      "src": "assets/originals/clients/Davita-removebg-preview.png",
+      "alt": "DaVita"
+    },
+    "clients/baldor": {
+      "src": "assets/originals/clients/Baldor_logo.png",
+      "alt": "Baldor"
+    },
+    "clients/grassi": {
+      "src": "assets/originals/clients/Grassi-Logo.png",
+      "alt": "Grassi"
+    },
+    "clients/workman": {
+      "src": "assets/originals/clients/workman-logo.png",
+      "alt": "Workman"
+    }
+  },
+  "film": {
+    "poster": "projects/ls-power/cafe"
+  },
+  "walk": {
+    "h2": "Walk the floor at LS Power.",
+    "label": "EAST BRUNSWICK, NJ · 26,000 SQ FT · 8 MONTHS",
+    "railLabel": "Rooms on the floor",
+    "stops": [
+      {
+        "label": "Elevator lobby",
+        "image": "projects/ls-power/elevator-lobby"
+      },
+      {
+        "label": "Reception",
+        "image": "projects/ls-power/reception"
+      },
+      {
+        "label": "Reception lounge",
+        "image": "projects/ls-power/lounge"
+      },
+      {
+        "label": "Café",
+        "image": "projects/ls-power/cafe"
+      },
+      {
+        "label": "Boardroom",
+        "image": "projects/ls-power/boardroom"
+      },
+      {
+        "label": "Wellness room",
+        "image": "projects/ls-power/wellness"
+      },
+      {
+        "label": "Open office",
+        "image": "projects/ls-power/open-office"
+      }
+    ]
+  },
+  "approach": {
+    "image": "projects/kdlm/library"
   }
 }

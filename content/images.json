@@ -1,0 +1,671 @@
+{
+  "projects/ls-power/cafe": {
+    "variants": [
+      {
+        "w": 800,
+        "h": 532,
+        "file": "projects/ls-power/cafe-800.jpg"
+      },
+      {
+        "w": 1600,
+        "h": 1064,
+        "file": "projects/ls-power/cafe-1600.jpg"
+      }
+    ]
+  },
+  "projects/ls-power/elevator-lobby": {
+    "variants": [
+      {
+        "w": 800,
+        "h": 532,
+        "file": "projects/ls-power/elevator-lobby-800.jpg"
+      },
+      {
+        "w": 1600,
+        "h": 1064,
+        "file": "projects/ls-power/elevator-lobby-1600.jpg"
+      }
+    ]
+  },
+  "projects/ls-power/reception": {
+    "variants": [
+      {
+        "w": 800,
+        "h": 532,
+        "file": "projects/ls-power/reception-800.jpg"
+      },
+      {
+        "w": 1600,
+        "h": 1064,
+        "file": "projects/ls-power/reception-1600.jpg"
+      }
+    ]
+  },
+  "projects/ls-power/lounge": {
+    "variants": [
+      {
+        "w": 800,
+        "h": 532,
+        "file": "projects/ls-power/lounge-800.jpg"
+      },
+      {
+        "w": 1600,
+        "h": 1064,
+        "file": "projects/ls-power/lounge-1600.jpg"
+      }
+    ]
+  },
+  "projects/ls-power/boardroom": {
+    "variants": [
+      {
+        "w": 800,
+        "h": 532,
+        "file": "projects/ls-power/boardroom-800.jpg"
+      },
+      {
+        "w": 1600,
+        "h": 1064,
+        "file": "projects/ls-power/boardroom-1600.jpg"
+      }
+    ]
+  },
+  "projects/ls-power/wellness": {
+    "variants": [
+      {
+        "w": 800,
+        "h": 532,
+        "file": "projects/ls-power/wellness-800.jpg"
+      },
+      {
+        "w": 1600,
+        "h": 1064,
+        "file": "projects/ls-power/wellness-1600.jpg"
+      }
+    ]
+  },
+  "projects/ls-power/open-office": {
+    "variants": [
+      {
+        "w": 800,
+        "h": 532,
+        "file": "projects/ls-power/open-office-800.jpg"
+      },
+      {
+        "w": 1600,
+        "h": 1064,
+        "file": "projects/ls-power/open-office-1600.jpg"
+      }
+    ]
+  },
+  "projects/ls-power/reception-wide": {
+    "variants": [
+      {
+        "w": 800,
+        "h": 532,
+        "file": "projects/ls-power/reception-wide-800.jpg"
+      },
+      {
+        "w": 1600,
+        "h": 1064,
+        "file": "projects/ls-power/reception-wide-1600.jpg"
+      }
+    ]
+  },
+  "projects/ls-power/coffee-bar": {
+    "variants": [
+      {
+        "w": 800,
+        "h": 532,
+        "file": "projects/ls-power/coffee-bar-800.jpg"
+      },
+      {
+        "w": 1600,
+        "h": 1064,
+        "file": "projects/ls-power/coffee-bar-1600.jpg"
+      }
+    ]
+  },
+  "projects/kdlm/boardroom": {
+    "variants": [
+      {
+        "w": 800,
+        "h": 534,
+        "file": "projects/kdlm/boardroom-800.jpg"
+      },
+      {
+        "w": 1600,
+        "h": 1068,
+        "file": "projects/kdlm/boardroom-1600.jpg"
+      }
+    ]
+  },
+  "projects/kdlm/library": {
+    "variants": [
+      {
+        "w": 800,
+        "h": 534,
+        "file": "projects/kdlm/library-800.jpg"
+      },
+      {
+        "w": 1600,
+        "h": 1068,
+        "file": "projects/kdlm/library-1600.jpg"
+      }
+    ]
+  },
+  "projects/kdlm/office": {
+    "variants": [
+      {
+        "w": 800,
+        "h": 534,
+        "file": "projects/kdlm/office-800.jpg"
+      },
+      {
+        "w": 1600,
+        "h": 1068,
+        "file": "projects/kdlm/office-1600.jpg"
+      }
+    ]
+  },
+  "projects/kdlm/entry": {
+    "variants": [
+      {
+        "w": 800,
+        "h": 1119,
+        "file": "projects/kdlm/entry-800.jpg"
+      },
+      {
+        "w": 1373,
+        "h": 1920,
+        "file": "projects/kdlm/entry-1373.jpg"
+      }
+    ]
+  },
+  "projects/wetransfer/lounge": {
+    "variants": [
+      {
+        "w": 800,
+        "h": 533,
+        "file": "projects/wetransfer/lounge-800.jpg"
+      },
+      {
+        "w": 1600,
+        "h": 1067,
+        "file": "projects/wetransfer/lounge-1600.jpg"
+      }
+    ]
+  },
+  "projects/wetransfer/floor": {
+    "variants": [
+      {
+        "w": 800,
+        "h": 533,
+        "file": "projects/wetransfer/floor-800.jpg"
+      },
+      {
+        "w": 1600,
+        "h": 1067,
+        "file": "projects/wetransfer/floor-1600.jpg"
+      }
+    ]
+  },
+  "projects/jura/lounge": {
+    "variants": [
+      {
+        "w": 800,
+        "h": 543,
+        "file": "projects/jura/lounge-800.jpg"
+      },
+      {
+        "w": 1500,
+        "h": 1019,
+        "file": "projects/jura/lounge-1500.jpg"
+      }
+    ]
+  },
+  "projects/jura/showroom": {
+    "variants": [
+      {
+        "w": 800,
+        "h": 533,
+        "file": "projects/jura/showroom-800.jpg"
+      },
+      {
+        "w": 1500,
+        "h": 1000,
+        "file": "projects/jura/showroom-1500.jpg"
+      }
+    ]
+  },
+  "projects/aucta/reception": {
+    "variants": [
+      {
+        "w": 800,
+        "h": 532,
+        "file": "projects/aucta/reception-800.jpg"
+      },
+      {
+        "w": 1500,
+        "h": 998,
+        "file": "projects/aucta/reception-1500.jpg"
+      }
+    ]
+  },
+  "projects/aucta/glass-offices": {
+    "variants": [
+      {
+        "w": 800,
+        "h": 532,
+        "file": "projects/aucta/glass-offices-800.jpg"
+      },
+      {
+        "w": 1500,
+        "h": 998,
+        "file": "projects/aucta/glass-offices-1500.jpg"
+      }
+    ]
+  },
+  "projects/tweezerman/reception": {
+    "variants": [
+      {
+        "w": 800,
+        "h": 534,
+        "file": "projects/tweezerman/reception-800.jpg"
+      },
+      {
+        "w": 1280,
+        "h": 854,
+        "file": "projects/tweezerman/reception-1280.jpg"
+      }
+    ]
+  },
+  "projects/tweezerman/conference": {
+    "variants": [
+      {
+        "w": 800,
+        "h": 534,
+        "file": "projects/tweezerman/conference-800.jpg"
+      },
+      {
+        "w": 1280,
+        "h": 854,
+        "file": "projects/tweezerman/conference-1280.jpg"
+      }
+    ]
+  },
+  "projects/national-ramp/lead": {
+    "variants": [
+      {
+        "w": 800,
+        "h": 530,
+        "file": "projects/national-ramp/lead-800.jpg"
+      },
+      {
+        "w": 1500,
+        "h": 994,
+        "file": "projects/national-ramp/lead-1500.jpg"
+      }
+    ]
+  },
+  "projects/harborside-lofts/lead": {
+    "variants": [
+      {
+        "w": 800,
+        "h": 533,
+        "file": "projects/harborside-lofts/lead-800.jpg"
+      },
+      {
+        "w": 1500,
+        "h": 1000,
+        "file": "projects/harborside-lofts/lead-1500.jpg"
+      }
+    ]
+  },
+  "projects/marotta-controls/lead": {
+    "variants": [
+      {
+        "w": 1280,
+        "h": 852,
+        "file": "projects/marotta-controls/lead-1280.jpg"
+      }
+    ]
+  },
+  "projects/ucsb/lead": {
+    "variants": [
+      {
+        "w": 1000,
+        "h": 667,
+        "file": "projects/ucsb/lead-1000.jpg"
+      }
+    ]
+  },
+  "projects/ri-workplace/meeting": {
+    "variants": [
+      {
+        "w": 800,
+        "h": 532,
+        "file": "projects/ri-workplace/meeting-800.jpg"
+      },
+      {
+        "w": 1600,
+        "h": 1064,
+        "file": "projects/ri-workplace/meeting-1600.jpg"
+      }
+    ]
+  },
+  "projects/powerpak/lead": {
+    "variants": [
+      {
+        "w": 800,
+        "h": 533,
+        "file": "projects/powerpak/lead-800.jpg"
+      },
+      {
+        "w": 1280,
+        "h": 852,
+        "file": "projects/powerpak/lead-1280.jpg"
+      }
+    ]
+  },
+  "projects/esti-warehouse/lead": {
+    "variants": [
+      {
+        "w": 800,
+        "h": 533,
+        "file": "projects/esti-warehouse/lead-800.jpg"
+      },
+      {
+        "w": 1600,
+        "h": 1067,
+        "file": "projects/esti-warehouse/lead-1600.jpg"
+      }
+    ]
+  },
+  "projects/dl1961/lead": {
+    "variants": [
+      {
+        "w": 800,
+        "h": 532,
+        "file": "projects/dl1961/lead-800.jpg"
+      },
+      {
+        "w": 1280,
+        "h": 851,
+        "file": "projects/dl1961/lead-1280.jpg"
+      }
+    ]
+  },
+  "projects/coulmed/lead": {
+    "variants": [
+      {
+        "w": 800,
+        "h": 533,
+        "file": "projects/coulmed/lead-800.jpg"
+      },
+      {
+        "w": 1280,
+        "h": 852,
+        "file": "projects/coulmed/lead-1280.jpg"
+      }
+    ]
+  },
+  "projects/gramercy/lead": {
+    "variants": [
+      {
+        "w": 800,
+        "h": 533,
+        "file": "projects/gramercy/lead-800.jpg"
+      },
+      {
+        "w": 1280,
+        "h": 852,
+        "file": "projects/gramercy/lead-1280.jpg"
+      }
+    ]
+  },
+  "projects/brookaire/lead": {
+    "variants": [
+      {
+        "w": 800,
+        "h": 533,
+        "file": "projects/brookaire/lead-800.jpg"
+      },
+      {
+        "w": 1280,
+        "h": 852,
+        "file": "projects/brookaire/lead-1280.jpg"
+      }
+    ]
+  },
+  "projects/austin-williams/lead": {
+    "variants": [
+      {
+        "w": 1280,
+        "h": 852,
+        "file": "projects/austin-williams/lead-1280.jpg"
+      }
+    ]
+  },
+  "projects/american-tire/lead": {
+    "variants": [
+      {
+        "w": 800,
+        "h": 533,
+        "file": "projects/american-tire/lead-800.jpg"
+      },
+      {
+        "w": 1600,
+        "h": 1066,
+        "file": "projects/american-tire/lead-1600.jpg"
+      }
+    ]
+  },
+  "projects/baldor/lead": {
+    "variants": [
+      {
+        "w": 1280,
+        "h": 852,
+        "file": "projects/baldor/lead-1280.jpg"
+      }
+    ]
+  },
+  "projects/soundcoat/lead": {
+    "variants": [
+      {
+        "w": 800,
+        "h": 534,
+        "file": "projects/soundcoat/lead-800.jpg"
+      },
+      {
+        "w": 1600,
+        "h": 1068,
+        "file": "projects/soundcoat/lead-1600.jpg"
+      }
+    ]
+  },
+  "projects/corporate-essentials/lead": {
+    "variants": [
+      {
+        "w": 800,
+        "h": 533,
+        "file": "projects/corporate-essentials/lead-800.jpg"
+      },
+      {
+        "w": 1280,
+        "h": 852,
+        "file": "projects/corporate-essentials/lead-1280.jpg"
+      }
+    ]
+  },
+  "team/rob-scott": {
+    "variants": [
+      {
+        "w": 300,
+        "h": 300,
+        "file": "team/rob-scott-300.jpg"
+      }
+    ]
+  },
+  "team/keith-scott": {
+    "variants": [
+      {
+        "w": 300,
+        "h": 300,
+        "file": "team/keith-scott-300.jpg"
+      }
+    ]
+  },
+  "team/ben-scott": {
+    "variants": [
+      {
+        "w": 300,
+        "h": 300,
+        "file": "team/ben-scott-300.jpg"
+      }
+    ]
+  },
+  "heritage/1990s-exterior": {
+    "variants": [
+      {
+        "w": 640,
+        "h": 426,
+        "file": "heritage/1990s-exterior-640.jpg"
+      }
+    ]
+  },
+  "heritage/2010s-interior": {
+    "variants": [
+      {
+        "w": 640,
+        "h": 426,
+        "file": "heritage/2010s-interior-640.jpg"
+      }
+    ]
+  },
+  "heritage/2020s-interior": {
+    "variants": [
+      {
+        "w": 640,
+        "h": 426,
+        "file": "heritage/2020s-interior-640.jpg"
+      }
+    ]
+  },
+  "heritage/2020s-meeting": {
+    "variants": [
+      {
+        "w": 640,
+        "h": 426,
+        "file": "heritage/2020s-meeting-640.jpg"
+      }
+    ]
+  },
+  "clients/steinway": {
+    "variants": [
+      {
+        "w": 254,
+        "h": 69,
+        "file": "clients/steinway-254.png"
+      }
+    ]
+  },
+  "clients/clarins": {
+    "variants": [
+      {
+        "w": 254,
+        "h": 69,
+        "file": "clients/clarins-254.png"
+      }
+    ]
+  },
+  "clients/mitsubishi": {
+    "variants": [
+      {
+        "w": 254,
+        "h": 69,
+        "file": "clients/mitsubishi-254.png"
+      }
+    ]
+  },
+  "clients/avis": {
+    "variants": [
+      {
+        "w": 254,
+        "h": 69,
+        "file": "clients/avis-254.png"
+      }
+    ]
+  },
+  "clients/1800-flowers": {
+    "variants": [
+      {
+        "w": 254,
+        "h": 69,
+        "file": "clients/1800-flowers-254.png"
+      }
+    ]
+  },
+  "clients/akzonobel": {
+    "variants": [
+      {
+        "w": 254,
+        "h": 69,
+        "file": "clients/akzonobel-254.png"
+      }
+    ]
+  },
+  "clients/perrigo": {
+    "variants": [
+      {
+        "w": 254,
+        "h": 69,
+        "file": "clients/perrigo-254.png"
+      }
+    ]
+  },
+  "clients/summit-health": {
+    "variants": [
+      {
+        "w": 254,
+        "h": 69,
+        "file": "clients/summit-health-254.png"
+      }
+    ]
+  },
+  "clients/davita": {
+    "variants": [
+      {
+        "w": 254,
+        "h": 69,
+        "file": "clients/davita-254.png"
+      }
+    ]
+  },
+  "clients/baldor": {
+    "variants": [
+      {
+        "w": 254,
+        "h": 69,
+        "file": "clients/baldor-254.png"
+      }
+    ]
+  },
+  "clients/grassi": {
+    "variants": [
+      {
+        "w": 254,
+        "h": 69,
+        "file": "clients/grassi-254.png"
+      }
+    ]
+  },
+  "clients/workman": {
+    "variants": [
+      {
+        "w": 254,
+        "h": 69,
+        "file": "clients/workman-254.png"
+      }
+    ]
+  }
+}
