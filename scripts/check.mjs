@@ -149,7 +149,34 @@ for (const page of DEMOS) {
   check(`the Scotts sit between work and contact: ${page}`, pos[0] < pos[1] && pos[1] < pos[2] ? [] : [`order ${pos.join(' / ')}`]);
 }
 
-/* ---------- 5. scaffolding files ---------- */
+/* ---------- 5. BLUE HOUR rules (round 2 handoff, section 7) ---------- */
+if (existsSync(join(ROOT, 'blue-hour/index.html'))) {
+  const css = read('assets/css/blue-hour.css').replace(/\/\*[\s\S]*?\*\//g, '');
+  const html = read('blue-hour/index.html');
+  // No black: no #000 / #000000, no keyword, no rgba(0, 0, 0, ...) anywhere in the stylesheet.
+  const black = css.match(/#000(?:000)?\b|\bblack\b|rgba?\(\s*0\s*,\s*0\s*,\s*0\s*[,)]/gi) || [];
+  check('blue-hour.css: no black', black.map((m) => `found ${m}`));
+  // Lights on: every photo frame carries its dusk layer.
+  const frames = html.match(/<(?:span|div|figure)\b[^>]*class="[^"]*\bbh-photo\b[^"]*"[^>]*>/g) || [];
+  const missing = [];
+  let at = 0;
+  for (const f of frames) {
+    const i = html.indexOf(f, at); at = i + f.length;
+    const tag = f.match(/^<(\w+)/)[1];
+    // the frame's own content runs to its matching close tag; dusk layers sit directly inside it
+    let depth = 1, j = at;
+    const re = new RegExp(`<(/?)${tag}\\b[^>]*>`, 'g'); re.lastIndex = at;
+    let m;
+    while (depth && (m = re.exec(html))) { depth += m[1] ? -1 : 1; j = m.index; }
+    if (!html.slice(at, j).includes('class="bh-dusk"')) missing.push(f.slice(0, 90));
+  }
+  check('blue-hour: every .bh-photo has a .bh-dusk', missing, `${frames.length} photo frames`);
+  // --blue is never a text colour on this page (graphics and display type only; display type here is frost).
+  const blueText = css.match(/(?:^|[;{\s])color:\s*var\(--blue\)/g) || [];
+  check('blue-hour.css: no text in --blue', blueText.map((m) => `found ${m.trim()}`));
+}
+
+/* ---------- 6. scaffolding files ---------- */
 check('robots.txt', /User-agent: \*\s+Disallow: \//.test(read('robots.txt')) ? [] : ['wrong content']);
 check('_headers', /\/\*\s+X-Robots-Tag: noindex, nofollow/.test(read('_headers')) ? [] : ['wrong content']);
 check('no sitemap.xml', readdirSync(ROOT).includes('sitemap.xml') ? ['sitemap.xml exists'] : []);

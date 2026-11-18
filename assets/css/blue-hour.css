@@ -213,7 +213,8 @@ html.bh { scroll-padding-top: calc(var(--bh-inset, 12px) + 64px + 20px); }
   border-radius: var(--bh-r-hero); overflow: hidden; background: var(--bh-deep);
   isolation: isolate;
 }
-.bh-hero-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; }
+/* 10% of extra height above the frame, always, so the scroll-out drift needs no late resize (no layout shift) */
+.bh-hero-card img { position: absolute; inset: -10% 0 auto; width: 100%; height: 110%; object-fit: cover; object-position: 50% 50%; }
 .bh-photo { position: relative; overflow: hidden; }
 .bh-dusk { position: absolute; inset: 0; z-index: 1; background: var(--bh-night); opacity: 0.06; pointer-events: none; }
 .bh-hero-card .bh-dusk { opacity: 0.1; }
@@ -656,7 +657,6 @@ html.bh { scroll-padding-top: calc(var(--bh-inset, 12px) + 64px + 20px); }
 /* ---------- motion hooks (only once blue-hour.js has started motion) ---------- */
 /* Photos with inner parallax get 8% of room above and below to drift through. */
 .bh-motion [data-drift] > img, .bh-motion [data-drift] > .bh-ind-pane { position: absolute; inset: -8% 0 auto; width: 100%; height: 116%; }
-.bh-motion .bh-hero-img { inset: -10% 0 auto; height: 110%; }
 .js .bh-quote.is-leaving { visibility: visible; }
 
 @media (prefers-reduced-motion: reduce) {

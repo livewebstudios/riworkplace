@@ -243,7 +243,7 @@
     // Section headings: the sky rule draws to 40px, then the heading rises 24px. Once.
     $$('.bh-rule').forEach(function (rule) {
       var head = rule.nextElementSibling;
-      gsap.timeline({ scrollTrigger: { trigger: rule, start: 'top 88%', once: true } })
+      gsap.timeline({ scrollTrigger: { trigger: rule, start: 'top 88%', toggleActions: 'play none none none' } })
         .fromTo(rule, { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: 'power2.out' })
         .fromTo(head, { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out', clearProps: 'transform,opacity' }, '-=0.15');
     });
@@ -251,13 +251,13 @@
     // Work row: cards rise in turn as the row enters.
     gsap.fromTo($$('[data-card]'), { y: 32, opacity: 0 }, {
       y: 0, opacity: 1, duration: 0.8, ease: 'power2.out', stagger: 0.08, clearProps: 'transform,opacity',
-      scrollTrigger: { trigger: row, start: 'top 85%', once: true },
+      scrollTrigger: { trigger: row, start: 'top 85%', toggleActions: 'play none none none' },
     });
 
     // Featured KDLM: detail rows fade in one after another.
     gsap.fromTo($$('[data-fact]'), { opacity: 0, y: 12 }, {
       opacity: 1, y: 0, duration: 0.6, ease: 'power2.out', stagger: 0.15, clearProps: 'transform,opacity',
-      scrollTrigger: { trigger: '.bh-facts', start: 'top 85%', once: true },
+      scrollTrigger: { trigger: '.bh-facts', start: 'top 85%', toggleActions: 'play none none none' },
     });
 
     // Step tiles rise 90ms apart; each icon draws itself in as its tile enters, and again on hover.
@@ -265,7 +265,7 @@
     tiles.forEach(function (tile, i) {
       var paths = $$('.bh-tile-icon path', tile);
       gsap.set(paths, { strokeDasharray: 1, strokeDashoffset: 1 });
-      gsap.timeline({ scrollTrigger: { trigger: tile, start: 'top 88%', once: true }, delay: desk ? i * 0.09 : 0 })
+      gsap.timeline({ scrollTrigger: { trigger: tile, start: 'top 88%', toggleActions: 'play none none none' }, delay: desk ? i * 0.09 : 0 })
         .fromTo(tile, { y: 32, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out', clearProps: 'transform,opacity' })
         .to(paths, { strokeDashoffset: 0, duration: 0.9, ease: 'power2.inOut', stagger: 0.15 }, 0.2);
       var redraw = function () {
@@ -280,14 +280,14 @@
     // Family: portraits rise; the timeline draws, and each dot pops as the line reaches it.
     gsap.fromTo($$('[data-person]'), { y: 32, opacity: 0 }, {
       y: 0, opacity: 1, duration: 0.8, ease: 'power2.out', stagger: 0.1, clearProps: 'transform,opacity',
-      scrollTrigger: { trigger: '.bh-people', start: 'top 85%', once: true },
+      scrollTrigger: { trigger: '.bh-people', start: 'top 85%', toggleActions: 'play none none none' },
     });
     var time = $('[data-time]');
     var line = $('[data-time-line]', time);
     var dots = $$('[data-time-dot]', time);
     var lineBox = line.getBoundingClientRect();
     var span = desk ? lineBox.width : lineBox.height;
-    var draw = gsap.timeline({ scrollTrigger: { trigger: time, start: 'top 80%', once: true } });
+    var draw = gsap.timeline({ scrollTrigger: { trigger: time, start: 'top 80%', toggleActions: 'play none none none' } });
     draw.fromTo(line, desk ? { scaleX: 0 } : { scaleY: 0 }, desk ? { scaleX: 1, duration: 1.6, ease: 'none' } : { scaleY: 1, duration: 1.6, ease: 'none' }, 0);
     dots.forEach(function (dot) {
       var b = dot.getBoundingClientRect();
