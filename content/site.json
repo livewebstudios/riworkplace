@@ -254,7 +254,8 @@
         "path": "/project/ls-power-workplace-retreat/",
         "lead": "projects/ls-power/reception-wide",
         "second": "projects/ls-power/coffee-bar",
-        "slice": "projects/ls-power/reception"
+        "slice": "projects/ls-power/reception",
+        "short": "LS Power"
       },
       {
         "n": "02",
@@ -266,7 +267,8 @@
         "path": "/project/kramer-dillof-livingston-moore-kdlm/",
         "lead": "projects/kdlm/boardroom",
         "second": "projects/kdlm/office",
-        "slice": "projects/kdlm/entry"
+        "slice": "projects/kdlm/entry",
+        "short": "KDLM"
       },
       {
         "n": "03",
@@ -278,7 +280,8 @@
         "path": "/project/wetransfer/",
         "lead": "projects/wetransfer/lounge",
         "second": "projects/wetransfer/floor",
-        "slice": "projects/wetransfer/lounge"
+        "slice": "projects/wetransfer/lounge",
+        "short": "WeTransfer"
       },
       {
         "n": "04",
@@ -290,7 +293,8 @@
         "path": "/project/jura/",
         "lead": "projects/jura/lounge",
         "second": "projects/jura/showroom",
-        "slice": "projects/jura/lounge"
+        "slice": "projects/jura/lounge",
+        "short": "Jura"
       },
       {
         "n": "05",
@@ -301,7 +305,8 @@
         "line": "52,000 square feet of headquarters and lab space across three buildings, delivered in under 12 months.",
         "path": "/project/aucta-pharmaceuticals-inc/",
         "lead": "projects/aucta/reception",
-        "second": "projects/aucta/glass-offices"
+        "second": "projects/aucta/glass-offices",
+        "short": "Aucta Pharmaceuticals"
       },
       {
         "n": "06",
@@ -312,7 +317,8 @@
         "line": "A corporate office reworked to match the brand. Brighter, more flexible, and built around how the team meets.",
         "path": "/project/tweezerman-international-llc/",
         "lead": "projects/tweezerman/reception",
-        "second": "projects/tweezerman/conference"
+        "second": "projects/tweezerman/conference",
+        "short": "Tweezerman International"
       }
     ],
     "index": [
@@ -437,7 +443,8 @@
       "note": "NOTE",
       "all": "ALL",
       "filterLabel": "Filter projects by sector"
-    }
+    },
+    "shortNote": "short is the label under each hero slice in demo 3. KDLM is the firm's own abbreviation on the live project page."
   },
   "steps": {
     "h2": "One team. Four steps.",

@@ -40,11 +40,14 @@
 <!-- GA4: G-XXXXXXXXXX goes here at launch -->
 <link rel="icon" href="../assets/img/brand/favicon.svg" type="image/svg+xml">
 <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
+<link rel="preload" as="font" type="font/woff2" href="../assets/fonts/space-grotesk-latin-500-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="../assets/fonts/ibm-plex-mono-latin-400-normal.woff2" crossorigin>
+<link rel="preload" as="image" href="../assets/img/projects/ls-power/reception-1600.jpg" imagesrcset="../assets/img/projects/ls-power/reception-800.jpg 800w, ../assets/img/projects/ls-power/reception-1600.jpg 1600w" imagesizes="(min-width: 1024px) 30vw, 50vw" fetchpriority="high">
 <link rel="stylesheet" href="../assets/css/base.css">
 <link rel="stylesheet" href="../assets/css/kit.css">
 <link rel="stylesheet" href="../assets/css/cross-section.css">
 </head>
-<body class="demo demo-cross-section" id="top">
+<body class="demo demo-cross-section" id="top" data-lenis="off">
 <svg class="sprite" aria-hidden="true" focusable="false">
   <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6c.6-1.1 2-1.9 3.9-1.9 3.6 0 4.3 2.3 4.3 5.4V21h-4v-5.5c0-1.4 0-3-1.9-3s-2.1 1.4-2.1 2.9V21h-4z"/></symbol>
   <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M13.5 21v-8h2.7l.4-3.2h-3.1V7.9c0-.9.3-1.6 1.6-1.6h1.7V3.4c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.3H7.5V13h2.7v8z"/></symbol>
@@ -214,15 +217,448 @@
     <li><a class="btn btn-primary" href="#contact" data-sheet-close>CONTACT US</a></li>
   </ul>
 </div>
-<main id="main">
-  <section class="wrap">
-    <p class="label">OFFICE DESIGN-BUILD · NEW YORK + NEW JERSEY · SINCE 1991</p>
-    <h1>Thriving workplaces designed, built and delivered fast.</h1>
-    <p>One family-run team takes your office from first sketch to move-in day. You never get passed between a designer and a contractor.</p>
+<main id="main" class="cs-frame">
+  <section class="cs-hero">
+    <div class="cs-hero-copy">
+      <p class="label cs-eyebrow">OFFICE DESIGN-BUILD · NEW YORK + NEW JERSEY · SINCE 1991</p>
+      <h1 class="cs-h1">Thriving workplaces designed, built and delivered fast.</h1>
+      <p class="cs-sub">One family-run team takes your office from first sketch to move-in day. You never get passed between a designer and a contractor.</p>
+      <div class="cs-actions">
+        <a class="btn btn-primary" href="#work">SEE THE WORK</a>
+        <a class="btn btn-ghost" href="#contact">START A PROJECT</a>
+      </div>
+      <button class="link link-film" type="button" data-film-open><svg class="ico" aria-hidden="true"><use href="#i-play"/></svg><span class="link-text">WATCH THE FILM · 0:48</span></button>
+    </div>
+    <ul class="cs-cut" data-cut>
+      <li class="cs-slice" data-slice>
+        <a class="cs-slice-link" href="https://riworkplace.com/project/ls-power-workplace-retreat/" target="_blank" rel="noopener" data-demo-scaffold>
+          <span class="cs-slice-photo" data-slice-photo><img src="../assets/img/projects/ls-power/reception-1600.jpg" srcset="../assets/img/projects/ls-power/reception-800.jpg 800w, ../assets/img/projects/ls-power/reception-1600.jpg 1600w" sizes="(min-width: 1024px) 30vw, 50vw" width="1600" height="1064" alt="Reception at LS Power with a branded desk under a curved wood slat ceiling" fetchpriority="high" decoding="async"></span>
+          <span class="cs-slice-label"><span class="cs-slice-n" aria-hidden="true">01</span> <span class="cs-slice-name">LS Power</span></span>
+        </a>
+        <span class="cs-lead" aria-hidden="true"><svg viewBox="0 0 2 100" preserveAspectRatio="none" focusable="false"><path d="M1 0V100" pathLength="1"/></svg><i class="cs-lead-dot"></i></span>
+      </li>
+      <li class="cs-slice" data-slice>
+        <a class="cs-slice-link" href="https://riworkplace.com/project/kramer-dillof-livingston-moore-kdlm/" target="_blank" rel="noopener" data-demo-scaffold>
+          <span class="cs-slice-photo" data-slice-photo><img src="../assets/img/projects/kdlm/entry-1373.jpg" srcset="../assets/img/projects/kdlm/entry-800.jpg 800w, ../assets/img/projects/kdlm/entry-1373.jpg 1373w" sizes="(min-width: 1024px) 30vw, 50vw" width="1373" height="1920" alt="Entry at Kramer, Dillof, Livingston &amp; Moore with an arched niche and a stone reception desk" loading="lazy" decoding="async"></span>
+          <span class="cs-slice-label"><span class="cs-slice-n" aria-hidden="true">02</span> <span class="cs-slice-name">KDLM</span></span>
+        </a>
+        <span class="cs-lead" aria-hidden="true"><svg viewBox="0 0 2 100" preserveAspectRatio="none" focusable="false"><path d="M1 0V100" pathLength="1"/></svg><i class="cs-lead-dot"></i></span>
+      </li>
+      <li class="cs-slice" data-slice>
+        <a class="cs-slice-link" href="https://riworkplace.com/project/wetransfer/" target="_blank" rel="noopener" data-demo-scaffold>
+          <span class="cs-slice-photo" data-slice-photo><img src="../assets/img/projects/wetransfer/lounge-1600.jpg" srcset="../assets/img/projects/wetransfer/lounge-800.jpg 800w, ../assets/img/projects/wetransfer/lounge-1600.jpg 1600w" sizes="(min-width: 1024px) 30vw, 50vw" width="1600" height="1067" alt="Lounge at WeTransfer in New York with velvet sofas on a striped rug, plants and tall loft windows" loading="lazy" decoding="async"></span>
+          <span class="cs-slice-label"><span class="cs-slice-n" aria-hidden="true">03</span> <span class="cs-slice-name">WeTransfer</span></span>
+        </a>
+        <span class="cs-lead" aria-hidden="true"><svg viewBox="0 0 2 100" preserveAspectRatio="none" focusable="false"><path d="M1 0V100" pathLength="1"/></svg><i class="cs-lead-dot"></i></span>
+      </li>
+      <li class="cs-slice" data-slice>
+        <a class="cs-slice-link" href="https://riworkplace.com/project/jura/" target="_blank" rel="noopener" data-demo-scaffold>
+          <span class="cs-slice-photo" data-slice-photo><img src="../assets/img/projects/jura/lounge-1500.jpg" srcset="../assets/img/projects/jura/lounge-800.jpg 800w, ../assets/img/projects/jura/lounge-1500.jpg 1500w" sizes="(min-width: 1024px) 30vw, 50vw" width="1500" height="1019" alt="Lounge and café at the Jura U.S. headquarters in Montvale, NJ, with armchairs under a ring light" loading="lazy" decoding="async"></span>
+          <span class="cs-slice-label"><span class="cs-slice-n" aria-hidden="true">04</span> <span class="cs-slice-name">Jura</span></span>
+        </a>
+        <span class="cs-lead" aria-hidden="true"><svg viewBox="0 0 2 100" preserveAspectRatio="none" focusable="false"><path d="M1 0V100" pathLength="1"/></svg><i class="cs-lead-dot"></i></span>
+      </li>
+    </ul>
   </section>
-  <section class="wrap" id="contact">
-    <h2>Let's talk about your office.</h2>
-    <form class="form" action="https://formspree.io/f/REPLACE_ME" method="POST" novalidate data-form data-msg-success="Thank you. Your message is on its way to the RI team." data-msg-failure="This preview form is not connected yet. Call 800.427.5811 or email info@riworkplace.com." data-msg-sending="SENDING">
+  <div class="cs-numbers">
+    <ul class="cs-numbers-row">
+      <li class="cs-number"><strong class="cs-number-fig" data-count>35+</strong> <span class="label cs-number-label">years in business</span></li>
+      <li class="cs-number"><strong class="cs-number-fig" data-count>475+</strong> <span class="label cs-number-label">projects designed and delivered</span></li>
+      <li class="cs-number"><strong class="cs-number-fig" data-count>56.5%</strong> <span class="label cs-number-label">of our business comes from referrals</span></li>
+      <li class="cs-number"><strong class="cs-number-fig" data-count>Up to 30%</strong> <span class="label cs-number-label">faster than traditional fit-out firms</span></li>
+    </ul>
+  </div>
+  <section class="cs-index" id="work">
+    <div class="cs-index-main">
+      <header class="cs-head">
+        <h2 class="cs-h2">Recent work</h2>
+        <p class="cs-lead-text">Every space on this page is a finished RI project.</p>
+      </header>
+      <div class="cs-filters" role="group" aria-label="Filter projects by sector" data-filters hidden>
+        <button class="cs-chip" type="button" aria-pressed="true" data-filter="">ALL</button>
+        <button class="cs-chip" type="button" aria-pressed="false" data-filter="energy">Energy</button>
+        <button class="cs-chip" type="button" aria-pressed="false" data-filter="law">Law</button>
+        <button class="cs-chip" type="button" aria-pressed="false" data-filter="technology">Technology</button>
+        <button class="cs-chip" type="button" aria-pressed="false" data-filter="headquarters-showroom">Headquarters + showroom</button>
+        <button class="cs-chip" type="button" aria-pressed="false" data-filter="pharmaceutical">Pharmaceutical</button>
+        <button class="cs-chip" type="button" aria-pressed="false" data-filter="consumer-brand">Consumer brand</button>
+        <button class="cs-chip" type="button" aria-pressed="false" data-filter="manufacturing">Manufacturing</button>
+        <button class="cs-chip" type="button" aria-pressed="false" data-filter="residential">Residential</button>
+        <button class="cs-chip" type="button" aria-pressed="false" data-filter="aerospace-defense">Aerospace + defense</button>
+        <button class="cs-chip" type="button" aria-pressed="false" data-filter="financial">Financial</button>
+        <button class="cs-chip" type="button" aria-pressed="false" data-filter="medical">Medical</button>
+        <button class="cs-chip" type="button" aria-pressed="false" data-filter="advertising">Advertising</button>
+        <button class="cs-chip" type="button" aria-pressed="false" data-filter="automotive">Automotive</button>
+        <button class="cs-chip" type="button" aria-pressed="false" data-filter="food">Food</button>
+      </div>
+      <div class="cs-table" role="table" aria-label="Recent work" data-table>
+        <div class="cs-thead" role="row">
+          <span class="label" role="columnheader">NO.</span>
+          <span class="label" role="columnheader">PROJECT</span>
+          <span class="label" role="columnheader">PLACE</span>
+          <span class="label" role="columnheader">SECTOR</span>
+          <span class="label" role="columnheader">NOTE</span>
+        </div>
+        <div class="cs-row is-featured" role="row" data-row data-sector="energy" data-reveal="fade">
+          <span class="cs-row-photo"><img src="../assets/img/projects/ls-power/reception-wide-1600.jpg" srcset="../assets/img/projects/ls-power/reception-wide-800.jpg 800w, ../assets/img/projects/ls-power/reception-wide-1600.jpg 1600w" sizes="(min-width: 1024px) 40vw, 100vw" width="1600" height="1064" alt="Reception at LS Power seen from the lounge, with orange seating and a wood slat ceiling" loading="lazy" decoding="async"></span>
+          <span class="cs-cell cs-cell-no" role="cell">01</span>
+          <span class="cs-cell cs-cell-name" role="cell"><a class="cs-row-link" href="https://riworkplace.com/project/ls-power-workplace-retreat/" target="_blank" rel="noopener" data-demo-scaffold>LS Power</a></span>
+          <span class="cs-cell cs-cell-place" role="cell">East Brunswick, NJ</span>
+          <span class="cs-cell cs-cell-sector" role="cell">Energy</span>
+          <span class="cs-cell cs-cell-note" role="cell">A full floor, 26,000 square feet, rebuilt as a Workplace Retreat for more than 85 people. Eight months from demolition to certificate of occupancy.</span>
+        </div>
+        <div class="cs-row is-featured" role="row" data-row data-sector="law" data-reveal="fade">
+          <span class="cs-row-photo"><img src="../assets/img/projects/kdlm/boardroom-1600.jpg" srcset="../assets/img/projects/kdlm/boardroom-800.jpg 800w, ../assets/img/projects/kdlm/boardroom-1600.jpg 1600w" sizes="(min-width: 1024px) 40vw, 100vw" width="1600" height="1068" alt="Boardroom at Kramer, Dillof, Livingston &amp; Moore in New York with a black stone table, tan leather chairs and built-in law library shelving" loading="lazy" decoding="async"></span>
+          <span class="cs-cell cs-cell-no" role="cell">02</span>
+          <span class="cs-cell cs-cell-name" role="cell"><a class="cs-row-link" href="https://riworkplace.com/project/kramer-dillof-livingston-moore-kdlm/" target="_blank" rel="noopener" data-demo-scaffold>Kramer, Dillof, Livingston &amp; Moore</a></span>
+          <span class="cs-cell cs-cell-place" role="cell">New York, NY</span>
+          <span class="cs-cell cs-cell-sector" role="cell">Law</span>
+          <span class="cs-cell cs-cell-note" role="cell">Two floors on Broadway went from a 90s cubicle farm to glass-fronted offices and a café the firm now hosts guests in. Storage capacity tripled.</span>
+        </div>
+        <div class="cs-row is-featured" role="row" data-row data-sector="technology" data-reveal="fade">
+          <span class="cs-row-photo"><img src="../assets/img/projects/wetransfer/lounge-1600.jpg" srcset="../assets/img/projects/wetransfer/lounge-800.jpg 800w, ../assets/img/projects/wetransfer/lounge-1600.jpg 1600w" sizes="(min-width: 1024px) 40vw, 100vw" width="1600" height="1067" alt="Lounge at WeTransfer in New York with velvet sofas on a striped rug, plants and tall loft windows" loading="lazy" decoding="async"></span>
+          <span class="cs-cell cs-cell-no" role="cell">03</span>
+          <span class="cs-cell cs-cell-name" role="cell"><a class="cs-row-link" href="https://riworkplace.com/project/wetransfer/" target="_blank" rel="noopener" data-demo-scaffold>WeTransfer</a></span>
+          <span class="cs-cell cs-cell-place" role="cell">New York, NY</span>
+          <span class="cs-cell cs-cell-sector" role="cell">Technology</span>
+          <span class="cs-cell cs-cell-note" role="cell">An outdated office rebuilt as a hybrid hub in eight weeks, working with our UK design partner.</span>
+        </div>
+        <div class="cs-row is-featured" role="row" data-row data-sector="headquarters-showroom" data-reveal="fade">
+          <span class="cs-row-photo"><img src="../assets/img/projects/jura/lounge-1500.jpg" srcset="../assets/img/projects/jura/lounge-800.jpg 800w, ../assets/img/projects/jura/lounge-1500.jpg 1500w" sizes="(min-width: 1024px) 40vw, 100vw" width="1500" height="1019" alt="Lounge and café at the Jura U.S. headquarters in Montvale, NJ, with armchairs under a ring light" loading="lazy" decoding="async"></span>
+          <span class="cs-cell cs-cell-no" role="cell">04</span>
+          <span class="cs-cell cs-cell-name" role="cell"><a class="cs-row-link" href="https://riworkplace.com/project/jura/" target="_blank" rel="noopener" data-demo-scaffold>Jura</a></span>
+          <span class="cs-cell cs-cell-place" role="cell">Montvale, NJ</span>
+          <span class="cs-cell cs-cell-sector" role="cell">Headquarters + showroom</span>
+          <span class="cs-cell cs-cell-note" role="cell">A two-story U.S. headquarters and showroom, designed, built and furnished inside a two-month window.</span>
+        </div>
+        <div class="cs-row is-featured" role="row" data-row data-sector="pharmaceutical" data-reveal="fade">
+          <span class="cs-row-photo"><img src="../assets/img/projects/aucta/reception-1500.jpg" srcset="../assets/img/projects/aucta/reception-800.jpg 800w, ../assets/img/projects/aucta/reception-1500.jpg 1500w" sizes="(min-width: 1024px) 40vw, 100vw" width="1500" height="998" alt="Reception at Aucta Pharmaceuticals in Bernards Township, NJ, with a marble desk and a glass conference room beyond" loading="lazy" decoding="async"></span>
+          <span class="cs-cell cs-cell-no" role="cell">05</span>
+          <span class="cs-cell cs-cell-name" role="cell"><a class="cs-row-link" href="https://riworkplace.com/project/aucta-pharmaceuticals-inc/" target="_blank" rel="noopener" data-demo-scaffold>Aucta Pharmaceuticals</a></span>
+          <span class="cs-cell cs-cell-place" role="cell">Bernards Township, NJ</span>
+          <span class="cs-cell cs-cell-sector" role="cell">Pharmaceutical</span>
+          <span class="cs-cell cs-cell-note" role="cell">52,000 square feet of headquarters and lab space across three buildings, delivered in under 12 months.</span>
+        </div>
+        <div class="cs-row is-featured" role="row" data-row data-sector="consumer-brand" data-reveal="fade">
+          <span class="cs-row-photo"><img src="../assets/img/projects/tweezerman/reception-1280.jpg" srcset="../assets/img/projects/tweezerman/reception-800.jpg 800w, ../assets/img/projects/tweezerman/reception-1280.jpg 1280w" sizes="(min-width: 1024px) 40vw, 100vw" width="1280" height="854" alt="Reception lounge at Tweezerman in Port Washington, NY, with ring lights over a backlit logo wall" loading="lazy" decoding="async"></span>
+          <span class="cs-cell cs-cell-no" role="cell">06</span>
+          <span class="cs-cell cs-cell-name" role="cell"><a class="cs-row-link" href="https://riworkplace.com/project/tweezerman-international-llc/" target="_blank" rel="noopener" data-demo-scaffold>Tweezerman International</a></span>
+          <span class="cs-cell cs-cell-place" role="cell">Port Washington, NY</span>
+          <span class="cs-cell cs-cell-sector" role="cell">Consumer brand</span>
+          <span class="cs-cell cs-cell-note" role="cell">A corporate office reworked to match the brand. Brighter, more flexible, and built around how the team meets.</span>
+        </div>
+        <div class="cs-row" role="row" data-row data-sector="manufacturing" data-reveal="fade">
+          <span class="cs-row-photo"><img src="../assets/img/projects/national-ramp/lead-1500.jpg" srcset="../assets/img/projects/national-ramp/lead-800.jpg 800w, ../assets/img/projects/national-ramp/lead-1500.jpg 1500w" sizes="(min-width: 1024px) 40vw, 100vw" width="1500" height="994" alt="Office at National Ramp with oak open shelving and plants beside the workstations" loading="lazy" decoding="async"></span>
+          <span class="cs-cell cs-cell-no" role="cell">07</span>
+          <span class="cs-cell cs-cell-name" role="cell"><a class="cs-row-link" href="https://riworkplace.com/project/national-ramp/" target="_blank" rel="noopener" data-demo-scaffold>National Ramp</a></span>
+          <span class="cs-cell cs-cell-place" role="cell">Valley Cottage, NY</span>
+          <span class="cs-cell cs-cell-sector" role="cell">Manufacturing</span>
+          <span class="cs-cell cs-cell-note" role="cell"></span>
+        </div>
+        <div class="cs-row" role="row" data-row data-sector="residential" data-reveal="fade">
+          <span class="cs-row-photo"><img src="../assets/img/projects/harborside-lofts/lead-1500.jpg" srcset="../assets/img/projects/harborside-lofts/lead-800.jpg 800w, ../assets/img/projects/harborside-lofts/lead-1500.jpg 1500w" sizes="(min-width: 1024px) 40vw, 100vw" width="1500" height="1000" alt="Lounge at Harborside Lofts at 1500 Garden Street with walnut shelving and a blue rug" loading="lazy" decoding="async"></span>
+          <span class="cs-cell cs-cell-no" role="cell">08</span>
+          <span class="cs-cell cs-cell-name" role="cell"><a class="cs-row-link" href="https://riworkplace.com/project/harborside-lofts-at-1500-garden-street-hoboken-nj/" target="_blank" rel="noopener" data-demo-scaffold>Harborside Lofts at 1500 Garden Street</a></span>
+          <span class="cs-cell cs-cell-place" role="cell">Hoboken, NJ</span>
+          <span class="cs-cell cs-cell-sector" role="cell">Residential</span>
+          <span class="cs-cell cs-cell-note" role="cell"></span>
+        </div>
+        <div class="cs-row" role="row" data-row data-sector="aerospace-defense" data-reveal="fade">
+          <span class="cs-row-photo"><img src="../assets/img/projects/marotta-controls/lead-1280.jpg" width="1280" height="852" alt="Open floor at Marotta Controls with polished concrete and wood ceiling baffles" loading="lazy" decoding="async"></span>
+          <span class="cs-cell cs-cell-no" role="cell">09</span>
+          <span class="cs-cell cs-cell-name" role="cell"><a class="cs-row-link" href="https://riworkplace.com/project/marotta-controls-inc/" target="_blank" rel="noopener" data-demo-scaffold>Marotta Controls</a></span>
+          <span class="cs-cell cs-cell-place" role="cell">Parsippany, NJ</span>
+          <span class="cs-cell cs-cell-sector" role="cell">Aerospace + defense</span>
+          <span class="cs-cell cs-cell-note" role="cell"></span>
+        </div>
+        <div class="cs-row" role="row" data-row data-sector="financial" data-reveal="fade">
+          <span class="cs-row-photo"><img src="../assets/img/projects/ucsb/lead-1000.jpg" width="1000" height="667" alt="Boardroom at Union County Savings Bank with a long wood table and a teal feature wall" loading="lazy" decoding="async"></span>
+          <span class="cs-cell cs-cell-no" role="cell">10</span>
+          <span class="cs-cell cs-cell-name" role="cell"><a class="cs-row-link" href="https://riworkplace.com/project/union-county-savings-bank-ucsb/" target="_blank" rel="noopener" data-demo-scaffold>Union County Savings Bank</a></span>
+          <span class="cs-cell cs-cell-place" role="cell">Springfield, NJ</span>
+          <span class="cs-cell cs-cell-sector" role="cell">Financial</span>
+          <span class="cs-cell cs-cell-note" role="cell"></span>
+        </div>
+        <div class="cs-row" role="row" data-row data-sector="headquarters-showroom" data-reveal="fade">
+          <span class="cs-row-photo"><img src="../assets/img/projects/ri-workplace/meeting-1600.jpg" srcset="../assets/img/projects/ri-workplace/meeting-800.jpg 800w, ../assets/img/projects/ri-workplace/meeting-1600.jpg 1600w" sizes="(min-width: 1024px) 40vw, 100vw" width="1600" height="1064" alt="Glass meeting room at the RI Workplace office in Saddle Brook, NJ, looking through to the sample library" loading="lazy" decoding="async"></span>
+          <span class="cs-cell cs-cell-no" role="cell">11</span>
+          <span class="cs-cell cs-cell-name" role="cell"><a class="cs-row-link" href="https://riworkplace.com/project/ri-workplace/" target="_blank" rel="noopener" data-demo-scaffold>RI Workplace</a></span>
+          <span class="cs-cell cs-cell-place" role="cell">Saddle Brook, NJ</span>
+          <span class="cs-cell cs-cell-sector" role="cell">Headquarters + showroom</span>
+          <span class="cs-cell cs-cell-note" role="cell"></span>
+        </div>
+        <div class="cs-row" role="row" data-row data-sector="" data-reveal="fade">
+          <span class="cs-row-photo"><img src="../assets/img/projects/powerpak/lead-1280.jpg" srcset="../assets/img/projects/powerpak/lead-800.jpg 800w, ../assets/img/projects/powerpak/lead-1280.jpg 1280w" sizes="(min-width: 1024px) 40vw, 100vw" width="1280" height="852" alt="Café corridor at PowerPak Civil &amp; Safety with oak cabinets and planted shelving" loading="lazy" decoding="async"></span>
+          <span class="cs-cell cs-cell-no" role="cell">12</span>
+          <span class="cs-cell cs-cell-name" role="cell"><a class="cs-row-link" href="https://riworkplace.com/project/powerpak-civil-safety/" target="_blank" rel="noopener" data-demo-scaffold>PowerPak Civil &amp; Safety</a></span>
+          <span class="cs-cell cs-cell-place" role="cell">Congers, NY</span>
+          <span class="cs-cell cs-cell-sector" role="cell"></span>
+          <span class="cs-cell cs-cell-note" role="cell"></span>
+        </div>
+        <div class="cs-row" role="row" data-row data-sector="" data-reveal="fade">
+          <span class="cs-row-photo"><img src="../assets/img/projects/esti-warehouse/lead-1600.jpg" srcset="../assets/img/projects/esti-warehouse/lead-800.jpg 800w, ../assets/img/projects/esti-warehouse/lead-1600.jpg 1600w" sizes="(min-width: 1024px) 40vw, 100vw" width="1600" height="1067" alt="Lobby at ESTI Warehouse with a glass meeting room and lounge chairs" loading="lazy" decoding="async"></span>
+          <span class="cs-cell cs-cell-no" role="cell">13</span>
+          <span class="cs-cell cs-cell-name" role="cell"><a class="cs-row-link" href="https://riworkplace.com/project/esti-warehouse-inc/" target="_blank" rel="noopener" data-demo-scaffold>ESTI Warehouse</a></span>
+          <span class="cs-cell cs-cell-place" role="cell">Cinnaminson, NJ</span>
+          <span class="cs-cell cs-cell-sector" role="cell"></span>
+          <span class="cs-cell cs-cell-note" role="cell"></span>
+        </div>
+        <div class="cs-row" role="row" data-row data-sector="headquarters-showroom" data-reveal="fade">
+          <span class="cs-row-photo"><img src="../assets/img/projects/dl1961/lead-1280.jpg" srcset="../assets/img/projects/dl1961/lead-800.jpg 800w, ../assets/img/projects/dl1961/lead-1280.jpg 1280w" sizes="(min-width: 1024px) 40vw, 100vw" width="1280" height="851" alt="Steel-framed glass doors at DL1961 opening onto the showroom" loading="lazy" decoding="async"></span>
+          <span class="cs-cell cs-cell-no" role="cell">14</span>
+          <span class="cs-cell cs-cell-name" role="cell"><a class="cs-row-link" href="https://riworkplace.com/project/dl1961/" target="_blank" rel="noopener" data-demo-scaffold>DL1961</a></span>
+          <span class="cs-cell cs-cell-place" role="cell">New York, NY</span>
+          <span class="cs-cell cs-cell-sector" role="cell">Headquarters + showroom</span>
+          <span class="cs-cell cs-cell-note" role="cell"></span>
+        </div>
+        <div class="cs-row" role="row" data-row data-sector="medical" data-reveal="fade">
+          <span class="cs-row-photo"><img src="../assets/img/projects/coulmed/lead-1280.jpg" srcset="../assets/img/projects/coulmed/lead-800.jpg 800w, ../assets/img/projects/coulmed/lead-1280.jpg 1280w" sizes="(min-width: 1024px) 40vw, 100vw" width="1280" height="852" alt="Open office at Coulmed with glass rooms under an exposed wood ceiling" loading="lazy" decoding="async"></span>
+          <span class="cs-cell cs-cell-no" role="cell">15</span>
+          <span class="cs-cell cs-cell-name" role="cell"><a class="cs-row-link" href="https://riworkplace.com/project/coulmed/" target="_blank" rel="noopener" data-demo-scaffold>Coulmed</a></span>
+          <span class="cs-cell cs-cell-place" role="cell">Springfield, NJ</span>
+          <span class="cs-cell cs-cell-sector" role="cell">Medical</span>
+          <span class="cs-cell cs-cell-note" role="cell"></span>
+        </div>
+        <div class="cs-row" role="row" data-row data-sector="medical" data-reveal="fade">
+          <span class="cs-row-photo"><img src="../assets/img/projects/gramercy/lead-1280.jpg" srcset="../assets/img/projects/gramercy/lead-800.jpg 800w, ../assets/img/projects/gramercy/lead-1280.jpg 1280w" sizes="(min-width: 1024px) 40vw, 100vw" width="1280" height="852" alt="Waiting area at Gramercy Cardiac Diagnostic Services with an orange banquette and a brick wall" loading="lazy" decoding="async"></span>
+          <span class="cs-cell cs-cell-no" role="cell">16</span>
+          <span class="cs-cell cs-cell-name" role="cell"><a class="cs-row-link" href="https://riworkplace.com/project/gramercy-cardiac-diagnostic-services-inc/" target="_blank" rel="noopener" data-demo-scaffold>Gramercy Cardiac Diagnostic Services</a></span>
+          <span class="cs-cell cs-cell-place" role="cell">New York, NY</span>
+          <span class="cs-cell cs-cell-sector" role="cell">Medical</span>
+          <span class="cs-cell cs-cell-note" role="cell"></span>
+        </div>
+        <div class="cs-row" role="row" data-row data-sector="manufacturing" data-reveal="fade">
+          <span class="cs-row-photo"><img src="../assets/img/projects/brookaire/lead-1280.jpg" srcset="../assets/img/projects/brookaire/lead-800.jpg 800w, ../assets/img/projects/brookaire/lead-1280.jpg 1280w" sizes="(min-width: 1024px) 40vw, 100vw" width="1280" height="852" alt="Café at Brookaire Company with a long white table under a wood ceiling" loading="lazy" decoding="async"></span>
+          <span class="cs-cell cs-cell-no" role="cell">17</span>
+          <span class="cs-cell cs-cell-name" role="cell"><a class="cs-row-link" href="https://riworkplace.com/project/brookaire-company/" target="_blank" rel="noopener" data-demo-scaffold>Brookaire Company</a></span>
+          <span class="cs-cell cs-cell-place" role="cell">East Rutherford, NJ</span>
+          <span class="cs-cell cs-cell-sector" role="cell">Manufacturing</span>
+          <span class="cs-cell cs-cell-note" role="cell"></span>
+        </div>
+        <div class="cs-row" role="row" data-row data-sector="advertising" data-reveal="fade">
+          <span class="cs-row-photo"><img src="../assets/img/projects/austin-williams/lead-1280.jpg" width="1280" height="852" alt="Reception at Austin Williams with a white desk and an orange accent wall" loading="lazy" decoding="async"></span>
+          <span class="cs-cell cs-cell-no" role="cell">18</span>
+          <span class="cs-cell cs-cell-name" role="cell"><a class="cs-row-link" href="https://riworkplace.com/project/austin-williams/" target="_blank" rel="noopener" data-demo-scaffold>Austin Williams</a></span>
+          <span class="cs-cell cs-cell-place" role="cell">Hauppauge, NY</span>
+          <span class="cs-cell cs-cell-sector" role="cell">Advertising</span>
+          <span class="cs-cell cs-cell-note" role="cell"></span>
+        </div>
+        <div class="cs-row" role="row" data-row data-sector="automotive" data-reveal="fade">
+          <span class="cs-row-photo"><img src="../assets/img/projects/american-tire/lead-1600.jpg" srcset="../assets/img/projects/american-tire/lead-800.jpg 800w, ../assets/img/projects/american-tire/lead-1600.jpg 1600w" sizes="(min-width: 1024px) 40vw, 100vw" width="1600" height="1066" alt="Reception at American Tire &amp; Auto Care with a long oak desk and pendant lights" loading="lazy" decoding="async"></span>
+          <span class="cs-cell cs-cell-no" role="cell">19</span>
+          <span class="cs-cell cs-cell-name" role="cell"><a class="cs-row-link" href="https://riworkplace.com/project/american-tire-auto-care/" target="_blank" rel="noopener" data-demo-scaffold>American Tire &amp; Auto Care</a></span>
+          <span class="cs-cell cs-cell-place" role="cell">Mercerville, NJ</span>
+          <span class="cs-cell cs-cell-sector" role="cell">Automotive</span>
+          <span class="cs-cell cs-cell-note" role="cell"></span>
+        </div>
+        <div class="cs-row" role="row" data-row data-sector="food" data-reveal="fade">
+          <span class="cs-row-photo"><img src="../assets/img/projects/baldor/lead-1280.jpg" width="1280" height="852" alt="Open office at Baldor Specialty Foods with a pantry counter and a meeting booth" loading="lazy" decoding="async"></span>
+          <span class="cs-cell cs-cell-no" role="cell">20</span>
+          <span class="cs-cell cs-cell-name" role="cell"><a class="cs-row-link" href="https://riworkplace.com/project/baldor-specialty-foods-inc/" target="_blank" rel="noopener" data-demo-scaffold>Baldor Specialty Foods</a></span>
+          <span class="cs-cell cs-cell-place" role="cell">Bronx, NY</span>
+          <span class="cs-cell cs-cell-sector" role="cell">Food</span>
+          <span class="cs-cell cs-cell-note" role="cell"></span>
+        </div>
+        <div class="cs-row" role="row" data-row data-sector="" data-reveal="fade">
+          <span class="cs-row-photo"><img src="../assets/img/projects/soundcoat/lead-1600.jpg" srcset="../assets/img/projects/soundcoat/lead-800.jpg 800w, ../assets/img/projects/soundcoat/lead-1600.jpg 1600w" sizes="(min-width: 1024px) 40vw, 100vw" width="1600" height="1068" alt="Lab corridor at The Soundcoat Company with dark counters and oak flooring" loading="lazy" decoding="async"></span>
+          <span class="cs-cell cs-cell-no" role="cell">21</span>
+          <span class="cs-cell cs-cell-name" role="cell"><a class="cs-row-link" href="https://riworkplace.com/project/the-soundcoat-company/" target="_blank" rel="noopener" data-demo-scaffold>The Soundcoat Company</a></span>
+          <span class="cs-cell cs-cell-place" role="cell">Deer Park, NY</span>
+          <span class="cs-cell cs-cell-sector" role="cell"></span>
+          <span class="cs-cell cs-cell-note" role="cell"></span>
+        </div>
+        <div class="cs-row" role="row" data-row data-sector="" data-reveal="fade">
+          <span class="cs-row-photo"><img src="../assets/img/projects/corporate-essentials/lead-1280.jpg" srcset="../assets/img/projects/corporate-essentials/lead-800.jpg 800w, ../assets/img/projects/corporate-essentials/lead-1280.jpg 1280w" sizes="(min-width: 1024px) 40vw, 100vw" width="1280" height="852" alt="Café at Corporate Essentials with a brick wall, a teal bar and metal chairs" loading="lazy" decoding="async"></span>
+          <span class="cs-cell cs-cell-no" role="cell">22</span>
+          <span class="cs-cell cs-cell-name" role="cell"><a class="cs-row-link" href="https://riworkplace.com/project/corporate-essentials-llc/" target="_blank" rel="noopener" data-demo-scaffold>Corporate Essentials</a></span>
+          <span class="cs-cell cs-cell-place" role="cell">Parsippany, NJ</span>
+          <span class="cs-cell cs-cell-sector" role="cell"></span>
+          <span class="cs-cell cs-cell-note" role="cell"></span>
+        </div>
+      </div>
+      <a class="link cs-all" href="https://riworkplace.com/projects/" target="_blank" rel="noopener" data-demo-scaffold><span class="link-text">ALL PROJECTS</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+    <aside class="cs-preview" aria-label="Project photo" data-preview>
+      <figure class="cs-preview-in">
+        <div class="cs-preview-photo"><img src="../assets/img/projects/ls-power/reception-wide-1600.jpg" srcset="../assets/img/projects/ls-power/reception-wide-800.jpg 800w, ../assets/img/projects/ls-power/reception-wide-1600.jpg 1600w" sizes="40vw" width="1600" height="1064" alt="Reception at LS Power seen from the lounge, with orange seating and a wood slat ceiling" loading="lazy" decoding="async"></div>
+        <figcaption class="cs-preview-cap"><span class="cs-preview-n" data-preview-n>01</span><span class="cs-preview-name" data-preview-name>LS Power</span><span class="cs-preview-place" data-preview-place>East Brunswick, NJ</span></figcaption>
+      </figure>
+    </aside>
+  </section>
+  <section class="cs-steps">
+    <header class="cs-head cs-pad">
+      <h2 class="cs-h2">One team. Four steps.</h2>
+      <p class="cs-lead-text">Design and construction sit under one roof at RI. That is why our projects finish up to 30% faster than the architect-plus-contractor route.</p>
+    </header>
+    <ol class="cs-steps-grid">
+      <li class="cs-step">
+        <p class="cs-step-n" aria-hidden="true">01</p>
+        <h3 class="cs-step-name">Dream</h3>
+        <p class="cs-step-copy">We start with a working session on your goals and your budget. The project is about you.</p>
+        <ul class="cs-step-links">
+          <li><a href="https://riworkplace.com/our-services/workplace-analysis-strategy/" target="_blank" rel="noopener" data-demo-scaffold>Workplace Analysis &amp; Strategy</a></li>
+          <li><a href="https://riworkplace.com/our-services/hybrid-flexible-workspaces/" target="_blank" rel="noopener" data-demo-scaffold>Hybrid &amp; Flexible Workspaces</a></li>
+          <li><a href="https://riworkplace.com/return-to-work-solutions/" target="_blank" rel="noopener" data-demo-scaffold>Return-to-Work Solutions</a></li>
+        </ul>
+      </li>
+      <li class="cs-step">
+        <p class="cs-step-n" aria-hidden="true">02</p>
+        <h3 class="cs-step-name">Design</h3>
+        <p class="cs-step-copy">Our designers and architects turn that into a space that looks like your company. You see it in 3D before anything gets built.</p>
+        <ul class="cs-step-links">
+          <li><a href="https://riworkplace.com/our-services/workplace-architectural-services/" target="_blank" rel="noopener" data-demo-scaffold>Workplace Architectural Services</a></li>
+          <li><a href="https://riworkplace.com/our-services/space-planning-and-layout/" target="_blank" rel="noopener" data-demo-scaffold>Space Planning and Layout</a></li>
+          <li><a href="https://riworkplace.com/our-services/interior-design-decorating-and-branding/" target="_blank" rel="noopener" data-demo-scaffold>Interior Design, Decorating and Branding</a></li>
+        </ul>
+      </li>
+      <li class="cs-step">
+        <p class="cs-step-n" aria-hidden="true">03</p>
+        <h3 class="cs-step-name">Build</h3>
+        <p class="cs-step-copy">Our own project managers run construction, with weekly check-ins and a budget tracked as we go.</p>
+        <ul class="cs-step-links">
+          <li><a href="https://riworkplace.com/pre-construction/" target="_blank" rel="noopener" data-demo-scaffold>Pre-Construction</a></li>
+          <li><a href="https://riworkplace.com/zoning-services/" target="_blank" rel="noopener" data-demo-scaffold>Zoning Services</a></li>
+          <li><a href="https://riworkplace.com/project-expediting/" target="_blank" rel="noopener" data-demo-scaffold>Project Expediting</a></li>
+          <li><a href="https://riworkplace.com/our-services/workplace-build-and-project-management/" target="_blank" rel="noopener" data-demo-scaffold>Workplace Build-out and Project Management</a></li>
+        </ul>
+      </li>
+      <li class="cs-step">
+        <p class="cs-step-n" aria-hidden="true">04</p>
+        <h3 class="cs-step-name">Transform</h3>
+        <p class="cs-step-copy">Furniture and finishes go in. Your team moves into an office they want to come back to.</p>
+        <ul class="cs-step-links">
+          <li><a href="https://riworkplace.com/our-services/workplace-furniture-and-finishes/" target="_blank" rel="noopener" data-demo-scaffold>Workplace Furniture and Finishes</a></li>
+          <li><a href="https://riworkplace.com/our-services/workplace-retreat/" target="_blank" rel="noopener" data-demo-scaffold>Workplace Retreat</a></li>
+        </ul>
+      </li>
+    </ol>
+    <p class="cs-pad cs-more"><a class="link" href="https://riworkplace.com/our-services/" target="_blank" rel="noopener" data-demo-scaffold><span class="link-text">ALL SERVICES</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+  </section>
+  <section class="cs-ind">
+    <header class="cs-head cs-pad">
+      <h2 class="cs-h2">Industries we serve</h2>
+    </header>
+    <ul class="cs-ind-grid">
+      <li><a class="cs-ind-cell" href="https://riworkplace.com/industries/corporate-office-industries/" target="_blank" rel="noopener" data-demo-scaffold><span class="cs-ind-n" aria-hidden="true">01</span><span class="cs-ind-name">Corporate Offices</span><span class="cs-ind-photo"><img src="../assets/img/projects/ls-power/open-office-1600.jpg" srcset="../assets/img/projects/ls-power/open-office-800.jpg 800w, ../assets/img/projects/ls-power/open-office-1600.jpg 1600w" sizes="112px" width="1600" height="1064" alt="" loading="lazy" decoding="async"></span></a></li>
+      <li><a class="cs-ind-cell" href="https://riworkplace.com/industries/financial-firm-office-design/" target="_blank" rel="noopener" data-demo-scaffold><span class="cs-ind-n" aria-hidden="true">02</span><span class="cs-ind-name">Financial Firm Office Design</span><span class="cs-ind-photo"><img src="../assets/img/projects/ucsb/lead-1000.jpg" width="1000" height="667" alt="" loading="lazy" decoding="async"></span></a></li>
+      <li><a class="cs-ind-cell" href="https://riworkplace.com/industries/law-firm-office-design/" target="_blank" rel="noopener" data-demo-scaffold><span class="cs-ind-n" aria-hidden="true">03</span><span class="cs-ind-name">Law Firm Office Design</span><span class="cs-ind-photo"><img src="../assets/img/projects/kdlm/library-1600.jpg" srcset="../assets/img/projects/kdlm/library-800.jpg 800w, ../assets/img/projects/kdlm/library-1600.jpg 1600w" sizes="112px" width="1600" height="1068" alt="" loading="lazy" decoding="async"></span></a></li>
+      <li><a class="cs-ind-cell" href="https://riworkplace.com/industries/life-sciences-workspace-design/" target="_blank" rel="noopener" data-demo-scaffold><span class="cs-ind-n" aria-hidden="true">04</span><span class="cs-ind-name">Pharmaceutical Facilities</span><span class="cs-ind-photo"><img src="../assets/img/projects/aucta/glass-offices-1500.jpg" srcset="../assets/img/projects/aucta/glass-offices-800.jpg 800w, ../assets/img/projects/aucta/glass-offices-1500.jpg 1500w" sizes="112px" width="1500" height="998" alt="" loading="lazy" decoding="async"></span></a></li>
+      <li><a class="cs-ind-cell" href="https://riworkplace.com/industries/educational-space-design/" target="_blank" rel="noopener" data-demo-scaffold><span class="cs-ind-n" aria-hidden="true">05</span><span class="cs-ind-name">Educational Space Design</span></a></li>
+      <li><a class="cs-ind-cell" href="https://riworkplace.com/industries/medical-workplaces/" target="_blank" rel="noopener" data-demo-scaffold><span class="cs-ind-n" aria-hidden="true">06</span><span class="cs-ind-name">Medical Workplaces</span><span class="cs-ind-photo"><img src="../assets/img/projects/gramercy/lead-1280.jpg" srcset="../assets/img/projects/gramercy/lead-800.jpg 800w, ../assets/img/projects/gramercy/lead-1280.jpg 1280w" sizes="112px" width="1280" height="852" alt="" loading="lazy" decoding="async"></span></a></li>
+    </ul>
+  </section>
+  <section class="cs-quotes">
+    <header class="cs-head cs-pad">
+      <h2 class="cs-h2">What clients say</h2>
+    </header>
+    <div class="cs-quotes-grid">
+      <figure class="cs-quote">
+        <blockquote><p>The RI Workplace team was able to flawlessly deliver a beautiful refresh to our NYC hub in record time. From the weekly progress check-ins to the meticulous choosing of a kitchen cabinetry finish, RI displayed total care and confidence in their execution of our unique vision.</p></blockquote>
+        <figcaption class="label cs-quote-by">WeTransfer · New York, NY</figcaption>
+      </figure>
+      <figure class="cs-quote">
+        <blockquote><p>RI Workplace exceeded our expectations. Everyone including our customers love the new space. Our employees’ morale has been uplifted.</p></blockquote>
+        <figcaption class="label cs-quote-by">Jura · Montvale, NJ</figcaption>
+      </figure>
+      <figure class="cs-quote">
+        <blockquote><p>When it comes to what you do best, better than others by far, RI is always our recommendation. You’re my first and only recommendation. You guys rock!</p></blockquote>
+        <figcaption class="label cs-quote-by">President, Austin Williams · Hauppauge, NY</figcaption>
+      </figure>
+    </div>
+  </section>
+  <section class="cs-family">
+    <div class="cs-family-top">
+      <div class="cs-family-copy cs-pad">
+        <h2 class="cs-h2">Still a family business.</h2>
+        <p class="cs-family-p">The story starts in the trades in the 1970s. In 1991 Rob Scott opened Renotech Interiors in a converted house in Valley Stream, New York.</p>
+        <p class="cs-family-p">Thirty-five years and two name changes later, the Scotts still run the company, now in its third generation.</p>
+        <a class="link" href="https://riworkplace.com/leadership-team/" target="_blank" rel="noopener" data-demo-scaffold><span class="link-text">MEET THE LEADERSHIP TEAM</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <ul class="cs-people">
+        <li class="cs-person">
+          <div class="cs-person-photo"><img src="../assets/img/team/rob-scott-300.jpg" width="300" height="300" alt="Rob Scott, Founder &amp; CEO" loading="lazy" decoding="async"></div>
+          <h3 class="cs-person-name">Rob Scott</h3>
+          <p class="label cs-person-title">Founder &amp; CEO</p>
+        </li>
+        <li class="cs-person">
+          <div class="cs-person-photo"><img src="../assets/img/team/keith-scott-300.jpg" width="300" height="300" alt="Keith Scott, Managing Partner &amp; Project Executive" loading="lazy" decoding="async"></div>
+          <h3 class="cs-person-name">Keith Scott</h3>
+          <p class="label cs-person-title">Managing Partner &amp; Project Executive</p>
+        </li>
+        <li class="cs-person">
+          <div class="cs-person-photo"><img src="../assets/img/team/ben-scott-300.jpg" width="300" height="300" alt="Ben Scott, Managing Partner &amp; CFO" loading="lazy" decoding="async"></div>
+          <h3 class="cs-person-name">Ben Scott</h3>
+          <p class="label cs-person-title">Managing Partner &amp; CFO</p>
+        </li>
+      </ul>
+    </div>
+    <ol class="cs-time" aria-label="RI through the years">
+      <li class="cs-time-row">
+        <span class="cs-time-year">1991</span>
+        <span class="cs-time-entry">Renotech Interiors opens in Valley Stream, NY</span>
+        <span class="cs-time-photo"><img src="../assets/img/heritage/1990s-exterior-640.jpg" width="640" height="426" alt="" loading="lazy" decoding="async"></span>
+      </li>
+      <li class="cs-time-row">
+        <span class="cs-time-year">2010</span>
+        <span class="cs-time-entry">Moves to Tappan, NY</span>
+        <span class="cs-time-photo"><img src="../assets/img/heritage/2010s-interior-640.jpg" width="640" height="426" alt="" loading="lazy" decoding="async"></span>
+      </li>
+      <li class="cs-time-row">
+        <span class="cs-time-year">2012</span>
+        <span class="cs-time-entry">Becomes RI Group</span>
+        <span class="cs-time-photo"></span>
+      </li>
+      <li class="cs-time-row">
+        <span class="cs-time-year">2020</span>
+        <span class="cs-time-entry">Moves to Saddle Brook, NJ. The new office becomes the model for Workplace Retreat</span>
+        <span class="cs-time-photo"><img src="../assets/img/heritage/2020s-interior-640.jpg" width="640" height="426" alt="" loading="lazy" decoding="async"></span>
+      </li>
+      <li class="cs-time-row">
+        <span class="cs-time-year">2021</span>
+        <span class="cs-time-entry">Becomes RI Workplace</span>
+        <span class="cs-time-photo"><img src="../assets/img/heritage/2020s-meeting-640.jpg" width="640" height="426" alt="" loading="lazy" decoding="async"></span>
+      </li>
+    </ol>
+  </section>
+  <section class="cs-show">
+    <figure class="cs-show-photo"><img src="../assets/img/projects/ri-workplace/meeting-1600.jpg" srcset="../assets/img/projects/ri-workplace/meeting-800.jpg 800w, ../assets/img/projects/ri-workplace/meeting-1600.jpg 1600w" sizes="(min-width: 1024px) 58vw, 100vw" width="1600" height="1064" alt="Glass meeting room at the RI Workplace office in Saddle Brook, NJ, looking through to the sample library" loading="lazy" decoding="async"></figure>
+    <div class="cs-show-copy">
+      <div class="cs-pad cs-show-text">
+        <h2 class="cs-h2">Come see it in person.</h2>
+        <p class="cs-show-body">Our Saddle Brook office doubles as the showroom. Walk the space and pull samples from the library. Coffee is on us.</p>
+        <a class="btn btn-primary" href="#contact">PLAN A VISIT</a>
+      </div>
+      <address class="cs-title-block">
+        <span>RI Workplace</span>
+        <span>250 Pehle Avenue, Plaza Two, Suite 100</span>
+        <span>Saddle Brook, NJ 07663</span>
+      </address>
+    </div>
+  </section>
+  <section class="cs-clients">
+    <h2 class="label cs-clients-h cs-pad">Trusted by</h2>
+    <ul class="cs-logos">
+      <li><img src="../assets/img/clients/steinway-254.png" width="254" height="69" alt="Steinway &amp; Sons" loading="lazy" decoding="async"></li>
+      <li><img src="../assets/img/clients/clarins-254.png" width="254" height="69" alt="Clarins" loading="lazy" decoding="async"></li>
+      <li><img src="../assets/img/clients/mitsubishi-254.png" width="254" height="69" alt="Mitsubishi" loading="lazy" decoding="async"></li>
+      <li><img src="../assets/img/clients/avis-254.png" width="254" height="69" alt="Avis" loading="lazy" decoding="async"></li>
+      <li><img src="../assets/img/clients/1800-flowers-254.png" width="254" height="69" alt="1-800-Flowers" loading="lazy" decoding="async"></li>
+      <li><img src="../assets/img/clients/akzonobel-254.png" width="254" height="69" alt="AkzoNobel" loading="lazy" decoding="async"></li>
+      <li><img src="../assets/img/clients/perrigo-254.png" width="254" height="69" alt="Perrigo" loading="lazy" decoding="async"></li>
+      <li><img src="../assets/img/clients/summit-health-254.png" width="254" height="69" alt="Summit Health" loading="lazy" decoding="async"></li>
+      <li><img src="../assets/img/clients/davita-254.png" width="254" height="69" alt="DaVita" loading="lazy" decoding="async"></li>
+      <li><img src="../assets/img/clients/baldor-254.png" width="254" height="69" alt="Baldor" loading="lazy" decoding="async"></li>
+      <li><img src="../assets/img/clients/grassi-254.png" width="254" height="69" alt="Grassi" loading="lazy" decoding="async"></li>
+      <li><img src="../assets/img/clients/workman-254.png" width="254" height="69" alt="Workman" loading="lazy" decoding="async"></li>
+    </ul>
+  </section>
+  <section class="cs-contact" id="contact">
+    <div class="cs-contact-main cs-pad">
+      <header class="cs-head">
+        <h2 class="cs-h2">Let's talk about your office.</h2>
+        <p class="cs-lead-text">Tell us where you are now and where you need to be.</p>
+      </header>
+      <div class="cs-form-box"><form class="form" action="https://formspree.io/f/REPLACE_ME" method="POST" novalidate data-form data-msg-success="Thank you. Your message is on its way to the RI team." data-msg-failure="This preview form is not connected yet. Call 800.427.5811 or email info@riworkplace.com." data-msg-sending="SENDING">
   <div class="field">
     <label for="f-first">First name <span class="field-req">(required)</span></label>
     <input id="f-first" name="first_name" type="text" autocomplete="given-name" required aria-describedby="e-first">
@@ -279,6 +715,13 @@
     <p class="form-status" role="status" aria-live="polite" data-form-status></p>
   </div>
 </form>
+</div>
+    </div>
+    <aside class="cs-contact-side cs-pad" aria-label="Reach us directly">
+      <a class="cs-contact-tel" href="tel:+18004275811">800.427.5811</a>
+      <a class="cs-contact-mail" href="mailto:info@riworkplace.com">info@riworkplace.com</a>
+      <address class="cs-contact-addr">250 Pehle Avenue, Plaza Two, Suite 100, Saddle Brook, NJ 07663</address>
+    </aside>
   </section>
 </main>
 <footer class="foot" id="footer">
@@ -318,6 +761,19 @@
     </div>
   </div>
 </footer>
+<dialog class="film" id="film" aria-label="RI Workplace film" data-film data-film-src="https://www.youtube-nocookie.com/embed/oGB5OoqgadI?autoplay=1&amp;rel=0" data-film-title="RI Workplace film">
+  <div class="film-bar">
+    <span class="label">RI Workplace film</span>
+    <button class="film-close" type="button" data-film-close>CLOSE</button>
+  </div>
+  <div class="film-stage" data-film-stage>
+    <img src="../assets/img/projects/ls-power/cafe-1600.jpg" srcset="../assets/img/projects/ls-power/cafe-800.jpg 800w, ../assets/img/projects/ls-power/cafe-1600.jpg 1600w" sizes="(min-width: 1000px) 960px, 100vw" width="1600" height="1064" alt="Café at LS Power in East Brunswick, NJ, with a black stone island, glass meeting rooms and tables by the window" loading="lazy" decoding="async">
+    <button class="film-play" type="button" data-film-play>
+      <span class="btn btn-primary film-play-btn"><svg class="ico" aria-hidden="true"><use href="#i-play"/></svg>PLAY THE FILM</span>
+      <span class="film-note">The film plays from YouTube once you press play.</span>
+    </button>
+  </div>
+</dialog>
 <nav class="switcher" aria-label="Home page options" data-switcher data-demo-scaffold>
   <a href="../index.html">ALL 3</a>
   <span class="switcher-dot" aria-hidden="true">·</span>
@@ -329,7 +785,7 @@
 </nav>
 <script src="../assets/js/vendor/gsap.min.js"></script>
 <script src="../assets/js/vendor/ScrollTrigger.min.js"></script>
-<script src="../assets/js/vendor/lenis.min.js"></script>
 <script src="../assets/js/kit.js"></script>
+<script src="../assets/js/cross-section.js"></script>
 </body>
 </html>

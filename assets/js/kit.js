@@ -71,7 +71,7 @@
     var state = { v: 0 };
     window.gsap.to(state, {
       v: parseFloat(m[2]), duration: (opts && opts.duration) || 1.4, ease: 'power2.out',
-      scrollTrigger: { trigger: (opts && opts.trigger) || el, start: 'top 88%', once: true },
+      scrollTrigger: { trigger: (opts && opts.trigger) || el, start: 'top 97%', once: true },
       onUpdate: function () { view.textContent = m[1] + state.v.toFixed(dec) + m[3]; },
       onComplete: function () { view.textContent = final; },
     });
