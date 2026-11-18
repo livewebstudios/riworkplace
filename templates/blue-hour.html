@@ -96,7 +96,7 @@
           </dl>
           <a class="btn btn-primary" href="{{blueHour.project.href}}" target="_blank" rel="noopener" data-demo-scaffold>{{ui.viewProject}}</a>
         </div>
-        <figure class="bh-feature-photo bh-photo" data-drift>{{pic blueHour.project.lead sizes="(min-width: 1024px) 56vw, 100vw" alt=""}}<span class="bh-dusk" aria-hidden="true"></span></figure>
+        <figure class="bh-feature-photo bh-photo" data-drift>{{pic blueHour.project.lead sizes="(min-width: 1024px) 56vw, 100vw"}}<span class="bh-dusk" aria-hidden="true"></span></figure>
       </article>
       <div class="bh-index">
         <h3 class="bh-label bh-index-h">{{ui.indexLabel}}</h3>
@@ -180,7 +180,7 @@
             {{#each quotes.items as q}}
             <figure class="bh-quote{{#if @first}} is-on{{/if}}" data-quote>
               <blockquote><p>{{q.text}}</p></blockquote>
-              <figcaption class="bh-quote-by"><span class="bh-quote-thumb">{{pic q.image sizes="64px" alt=""}}</span><span class="bh-label">{{q.by}}</span></figcaption>
+              <figcaption class="bh-quote-by"><span class="bh-quote-thumb">{{pic q.image sizes="64px"}}</span><span class="bh-label">{{q.by}}</span></figcaption>
             </figure>
             {{/each}}
           </div>
@@ -221,7 +221,7 @@
           <ol class="bh-time-list" aria-label="{{family.timelineLabel}}">
             {{#each family.timeline as t}}
             <li class="bh-time-item">
-              <span class="bh-time-photo{{#if t.image}} bh-photo{{else}} is-empty{{/if}}">{{#if t.image}}{{pic t.image sizes="120px" alt=""}}<span class="bh-dusk" aria-hidden="true"></span>{{/if}}</span>
+              <span class="bh-time-photo{{#if t.image}} bh-photo{{else}} is-empty{{/if}}">{{#if t.image}}{{pic t.image sizes="120px"}}<span class="bh-dusk" aria-hidden="true"></span>{{/if}}</span>
               <span class="bh-time-year">{{t.year}}</span>
               <span class="bh-time-dot" aria-hidden="true" data-time-dot></span>
               <span class="bh-time-entry">{{t.entry}}</span>

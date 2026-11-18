@@ -739,6 +739,7 @@
   },
   "images": {
     "chooser/blue-hour": {
+      "src": "_screenshots/chooser-blue-hour.jpg",
       "alt": "First screen of home page option 1, Blue Hour"
     },
     "blue-hour/backdrop": {

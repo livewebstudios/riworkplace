@@ -59,7 +59,9 @@ for (const { slug, path } of pages) {
 
 // First screen of each demo at 1440 for the chooser cards. BLUE HOUR is captured after its
 // lights-on intro has finished, so the card shows the lit hero.
-for (const d of site.demos) {
+// CARDS=blue-hour limits this step to the named demos (round 2 keeps CROSS SECTION's existing crop).
+const cards = process.env.CARDS ? process.env.CARDS.split(',') : site.demos.map((d) => d.slug);
+for (const d of site.demos.filter((x) => cards.includes(x.slug))) {
   const { ctx, page } = await open(`${d.slug}/index.html`, 1440, 900);
   await page.waitForTimeout(2400);
   await page.screenshot({ path: join(CARDS, `chooser-${d.slug}.jpg`), type: 'jpeg', quality: 88 });
