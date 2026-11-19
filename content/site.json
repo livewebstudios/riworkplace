@@ -194,7 +194,6 @@
     "filmPlay": "PLAY THE FILM",
     "filmNote": "The film plays from YouTube once you press play.",
     "filmId": "oGB5OoqgadI",
-
     "indexLabel": "More RI projects",
     "preview": "Project photo"
   },
@@ -726,15 +725,23 @@
       "pitch": "The fast one. Everything a buyer wants in the first two screens.",
       "open": "OPEN 2",
       "shot": "chooser/cross-section"
+    },
+    {
+      "n": 3,
+      "slug": "move-in-day",
+      "name": "MOVE-IN DAY",
+      "pitch": "Scroll the hero and bare drywall becomes a finished RI room, then the three of you move in.",
+      "open": "OPEN 3",
+      "shot": "chooser/move-in-day"
     }
   ],
   "chooser": {
-    "title": "RI Workplace | Two Home Page Options",
-    "description": "Same words, same photos, two designs. A private preview of two home pages for RI Workplace.",
+    "title": "RI Workplace | Three Home Page Options",
+    "description": "Same words, three designs. A private preview of three home pages for RI Workplace.",
     "label": "HOME PAGE OPTIONS · NOVEMBER 2026",
-    "h1": "Two home pages for RI Workplace.",
-    "line": "Same words, same photos, two designs. Open each one, then tell Jon which feels like RI.",
-    "navLabel": "The two options",
+    "h1": "Three home pages for RI Workplace.",
+    "line": "Same words, three designs. Open each one, then tell Jon which feels like RI.",
+    "navLabel": "The three options",
     "footer": "Private preview. Not indexed."
   },
   "images": {
@@ -980,6 +987,47 @@
     "clients/workman": {
       "src": "assets/originals/clients/workman-logo.png",
       "alt": "Workman"
+    },
+    "chooser/move-in-day": {
+      "src": "_screenshots/chooser-move-in-day.jpg",
+      "alt": "First screen of home page option 3, Move-In Day"
+    },
+    "move-in/plate-0": {
+      "alt": "A bare room with primed drywall and a concrete floor, before RI builds it out.",
+      "_note": "MOVE-IN DAY hero plate, AI-staged (round 3, truth rule lifted for this hero only). Exported by optimize-images.mjs --plates from ../demo4-scroll-plates/."
+    },
+    "move-in/plate-1": {
+      "alt": "",
+      "_note": "MOVE-IN DAY hero plate, AI-staged (round 3, truth rule lifted for this hero only). Exported by optimize-images.mjs --plates from ../demo4-scroll-plates/."
+    },
+    "move-in/plate-2": {
+      "alt": "",
+      "_note": "MOVE-IN DAY hero plate, AI-staged (round 3, truth rule lifted for this hero only). Exported by optimize-images.mjs --plates from ../demo4-scroll-plates/."
+    },
+    "move-in/plate-3": {
+      "alt": "",
+      "_note": "MOVE-IN DAY hero plate, AI-staged (round 3, truth rule lifted for this hero only). Exported by optimize-images.mjs --plates from ../demo4-scroll-plates/."
+    },
+    "move-in/plate-4": {
+      "alt": "",
+      "_note": "MOVE-IN DAY hero plate, AI-staged (round 3, truth rule lifted for this hero only). Exported by optimize-images.mjs --plates from ../demo4-scroll-plates/."
+    },
+    "move-in/plate-5": {
+      "alt": "",
+      "_note": "MOVE-IN DAY hero plate, AI-staged (round 3, truth rule lifted for this hero only). Exported by optimize-images.mjs --plates from ../demo4-scroll-plates/."
+    },
+    "move-in/plate-6": {
+      "alt": "Rob, Keith and Ben Scott talking in the finished terrace lounge.",
+      "_note": "MOVE-IN DAY hero plate, AI-staged (round 3, truth rule lifted for this hero only). Exported by optimize-images.mjs --plates from ../demo4-scroll-plates/."
+    },
+    "move-in/ls-power-dining": {
+      "src": "assets/originals/ls-power/9-1-scaled.jpg",
+      "alt": "Dining area at LS Power with wood chairs, hanging plants and a wall of windows over East Brunswick",
+      "widths": [
+        960,
+        1600,
+        2400
+      ]
     }
   },
   "film": {
@@ -991,7 +1039,37 @@
     "heroImage": "projects/ls-power/boardroom",
     "featured": {
       "slug": "kdlm",
-      "labels": ["LOCATION", "SECTOR"]
+      "labels": [
+        "LOCATION",
+        "SECTOR"
+      ]
+    }
+  },
+  "moveIn": {
+    "_note": "Demo-only extras for MOVE-IN DAY (round 3 handoff, section 5). Nothing else may be added here.",
+    "captions": [
+      "It starts as drywall and a concrete slab.",
+      "Then your people move in.",
+      "Thirty-five years, one family."
+    ],
+    "plates": [
+      "move-in/plate-0",
+      "move-in/plate-1",
+      "move-in/plate-2",
+      "move-in/plate-3",
+      "move-in/plate-4",
+      "move-in/plate-5",
+      "move-in/plate-6"
+    ],
+    "scroll": "SCROLL",
+    "stageLabel": "From bare room to move-in day",
+    "featured": {
+      "slug": "ls-power",
+      "image": "move-in/ls-power-dining",
+      "labels": [
+        "LOCATION",
+        "SECTOR"
+      ]
     }
   }
 }

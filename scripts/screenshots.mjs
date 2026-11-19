@@ -1,14 +1,17 @@
 #!/usr/bin/env node
 // RI Workplace home demos: screenshots for the record and for the chooser cards.
-// Full pages at 390 and 1440 go to ../docs/_screenshots/round2/. The first screen of each demo at 1440
+// Full pages at 390 and 1440 go to ../docs/_screenshots/<ROUND>/ (default round3). The first screen of each demo at 1440
 // is saved as chooser-<slug>.jpg, which optimize-images.mjs then turns into the chooser card images.
+// Env: ROUND=round3-before   PAGES=blue-hour,cross-section (limit the full-page captures)   CARDS=none (skip cards)
+// MOVE-IN DAY (round 3): its full-page record is taken in the reduced-motion state, plus seven 1440 x 900
+// captures of the hero, one per stage (move-in-hero-stage-0.jpg to -6.jpg). Its chooser card is stage 6.
 // Needs Playwright and a local server on the build folder:
 //   python3 -m http.server 8765   (from build/)
 //   PLAYWRIGHT_FROM=/path/with/node_modules/ node scripts/screenshots.mjs
 // PLAYWRIGHT_FROM is any folder whose node_modules holds playwright. Leave it unset if it is installed in scripts/.
 
 import { createRequire } from 'node:module';
-import { mkdirSync, readFileSync } from 'node:fs';
+import { mkdirSync, readFileSync, copyFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -17,10 +20,12 @@ const require = createRequire(process.env.PLAYWRIGHT_FROM ? join(process.env.PLA
 const { chromium } = require('playwright');
 
 const BASE = process.env.BASE_URL || 'http://127.0.0.1:8765/';
-const OUT = join(HERE, '..', '..', 'docs', '_screenshots', 'round2');
+const OUT = join(HERE, '..', '..', 'docs', '_screenshots', process.env.ROUND || 'round3');
 const CARDS = join(HERE, '..', '..', 'docs', '_screenshots');
 const site = JSON.parse(readFileSync(join(HERE, '..', 'content', 'site.json'), 'utf8'));
-const pages = [{ slug: 'chooser', path: 'index.html' }, ...site.demos.map((d) => ({ slug: d.slug, path: `${d.slug}/index.html` }))];
+const only = process.env.PAGES ? process.env.PAGES.split(',') : null;
+const pages = [{ slug: 'chooser', path: 'index.html' }, ...site.demos.map((d) => ({ slug: d.slug, path: `${d.slug}/index.html` }))]
+  .filter((p) => !only || only.includes(p.slug));
 mkdirSync(OUT, { recursive: true });
 
 const browser = await chromium.launch();
@@ -48,11 +53,11 @@ for (const { slug, path } of pages) {
     // BLUE HOUR's photos light up as they reach the visitor. A tall capture scrolled back to the top
     // would show the lower photos at dusk again, so its full-page record is taken in the
     // reduced-motion state, where every photo starts fully lit and nothing drifts.
-    const reduced = slug === 'blue-hour';
+    const reduced = slug === 'blue-hour' || slug === 'move-in-day';
     const { ctx, page } = await open(path, width, height, reduced ? { reducedMotion: 'reduce' } : {});
     await settle(page, height);
     await page.screenshot({ path: join(OUT, `${slug}-${width}-full.jpg`), fullPage: true, type: 'jpeg', quality: 82 });
-    console.log(`round2/${slug}-${width}-full.jpg`);
+    console.log(`${process.env.ROUND || 'round3'}/${slug}-${width}-full.jpg`);
     await ctx.close();
   }
 }
@@ -60,8 +65,31 @@ for (const { slug, path } of pages) {
 // First screen of each demo at 1440 for the chooser cards. BLUE HOUR is captured after its
 // lights-on intro has finished, so the card shows the lit hero.
 // CARDS=blue-hour limits this step to the named demos (round 2 keeps CROSS SECTION's existing crop).
+// MOVE-IN DAY: one 1440 x 900 capture per hero stage. Each stage is held where its plate has fully faded in.
+if ((!only || only.includes('move-in-day')) && site.demos.some((d) => d.slug === 'move-in-day')) {
+  const { ctx, page } = await open('move-in-day/index.html', 1440, 900);
+  await page.waitForTimeout(1500); // late plates load after window load
+  const span = await page.evaluate(() => {
+    const hero = document.querySelector('.mi-hero');
+    return { top: hero.getBoundingClientRect().top + window.scrollY, len: hero.offsetHeight - window.innerHeight };
+  });
+  for (let k = 0; k < 7; k++) {
+    const y = Math.round(span.top + span.len * (k === 0 ? 0 : (k + 0.9) / 7));
+    await page.evaluate((v) => window.scrollTo(0, v), y);
+    await page.waitForTimeout(1600);
+    await page.screenshot({ path: join(OUT, `move-in-hero-stage-${k}.jpg`), type: 'jpeg', quality: 86 });
+    console.log(`move-in-hero-stage-${k}.jpg`);
+  }
+  await ctx.close();
+}
+
 const cards = process.env.CARDS ? process.env.CARDS.split(',') : site.demos.map((d) => d.slug);
-for (const d of site.demos.filter((x) => cards.includes(x.slug))) {
+// MOVE-IN DAY's card is the stage 6 hero capture (the Scotts in the room).
+if (cards.includes('move-in-day')) {
+  copyFileSync(join(OUT, 'move-in-hero-stage-6.jpg'), join(CARDS, 'chooser-move-in-day.jpg'));
+  console.log('chooser-move-in-day.jpg (from stage 6)');
+}
+for (const d of site.demos.filter((x) => cards.includes(x.slug) && x.slug !== 'move-in-day')) {
   const { ctx, page } = await open(`${d.slug}/index.html`, 1440, 900);
   await page.waitForTimeout(2400);
   await page.screenshot({ path: join(CARDS, `chooser-${d.slug}.jpg`), type: 'jpeg', quality: 88 });

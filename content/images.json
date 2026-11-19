@@ -704,5 +704,402 @@
         "file": "chooser/blue-hour-1440.jpg"
       }
     ]
+  },
+  "move-in/plate-0": {
+    "variants": [
+      {
+        "w": 960,
+        "h": 543,
+        "file": "move-in/plate-0-960.jpg"
+      },
+      {
+        "w": 1600,
+        "h": 905,
+        "file": "move-in/plate-0-1600.jpg"
+      },
+      {
+        "w": 2400,
+        "h": 1357,
+        "file": "move-in/plate-0-2400.jpg"
+      }
+    ],
+    "webp": [
+      {
+        "w": 960,
+        "h": 543,
+        "file": "move-in/plate-0-960.webp"
+      },
+      {
+        "w": 1600,
+        "h": 905,
+        "file": "move-in/plate-0-1600.webp"
+      },
+      {
+        "w": 2400,
+        "h": 1357,
+        "file": "move-in/plate-0-2400.webp"
+      }
+    ],
+    "avif": [
+      {
+        "w": 960,
+        "h": 543,
+        "file": "move-in/plate-0-960.avif"
+      },
+      {
+        "w": 1600,
+        "h": 905,
+        "file": "move-in/plate-0-1600.avif"
+      },
+      {
+        "w": 2400,
+        "h": 1357,
+        "file": "move-in/plate-0-2400.avif"
+      }
+    ],
+    "source": "raw"
+  },
+  "move-in/plate-1": {
+    "variants": [
+      {
+        "w": 960,
+        "h": 543,
+        "file": "move-in/plate-1-960.jpg"
+      },
+      {
+        "w": 1600,
+        "h": 905,
+        "file": "move-in/plate-1-1600.jpg"
+      },
+      {
+        "w": 2400,
+        "h": 1357,
+        "file": "move-in/plate-1-2400.jpg"
+      }
+    ],
+    "webp": [
+      {
+        "w": 960,
+        "h": 543,
+        "file": "move-in/plate-1-960.webp"
+      },
+      {
+        "w": 1600,
+        "h": 905,
+        "file": "move-in/plate-1-1600.webp"
+      },
+      {
+        "w": 2400,
+        "h": 1357,
+        "file": "move-in/plate-1-2400.webp"
+      }
+    ],
+    "avif": [
+      {
+        "w": 960,
+        "h": 543,
+        "file": "move-in/plate-1-960.avif"
+      },
+      {
+        "w": 1600,
+        "h": 905,
+        "file": "move-in/plate-1-1600.avif"
+      },
+      {
+        "w": 2400,
+        "h": 1357,
+        "file": "move-in/plate-1-2400.avif"
+      }
+    ],
+    "source": "raw"
+  },
+  "move-in/plate-2": {
+    "variants": [
+      {
+        "w": 960,
+        "h": 543,
+        "file": "move-in/plate-2-960.jpg"
+      },
+      {
+        "w": 1600,
+        "h": 905,
+        "file": "move-in/plate-2-1600.jpg"
+      },
+      {
+        "w": 2400,
+        "h": 1357,
+        "file": "move-in/plate-2-2400.jpg"
+      }
+    ],
+    "webp": [
+      {
+        "w": 960,
+        "h": 543,
+        "file": "move-in/plate-2-960.webp"
+      },
+      {
+        "w": 1600,
+        "h": 905,
+        "file": "move-in/plate-2-1600.webp"
+      },
+      {
+        "w": 2400,
+        "h": 1357,
+        "file": "move-in/plate-2-2400.webp"
+      }
+    ],
+    "avif": [
+      {
+        "w": 960,
+        "h": 543,
+        "file": "move-in/plate-2-960.avif"
+      },
+      {
+        "w": 1600,
+        "h": 905,
+        "file": "move-in/plate-2-1600.avif"
+      },
+      {
+        "w": 2400,
+        "h": 1357,
+        "file": "move-in/plate-2-2400.avif"
+      }
+    ],
+    "source": "raw"
+  },
+  "move-in/plate-3": {
+    "variants": [
+      {
+        "w": 960,
+        "h": 543,
+        "file": "move-in/plate-3-960.jpg"
+      },
+      {
+        "w": 1600,
+        "h": 905,
+        "file": "move-in/plate-3-1600.jpg"
+      },
+      {
+        "w": 2400,
+        "h": 1357,
+        "file": "move-in/plate-3-2400.jpg"
+      }
+    ],
+    "webp": [
+      {
+        "w": 960,
+        "h": 543,
+        "file": "move-in/plate-3-960.webp"
+      },
+      {
+        "w": 1600,
+        "h": 905,
+        "file": "move-in/plate-3-1600.webp"
+      },
+      {
+        "w": 2400,
+        "h": 1357,
+        "file": "move-in/plate-3-2400.webp"
+      }
+    ],
+    "avif": [
+      {
+        "w": 960,
+        "h": 543,
+        "file": "move-in/plate-3-960.avif"
+      },
+      {
+        "w": 1600,
+        "h": 905,
+        "file": "move-in/plate-3-1600.avif"
+      },
+      {
+        "w": 2400,
+        "h": 1357,
+        "file": "move-in/plate-3-2400.avif"
+      }
+    ],
+    "source": "raw"
+  },
+  "move-in/plate-4": {
+    "variants": [
+      {
+        "w": 960,
+        "h": 543,
+        "file": "move-in/plate-4-960.jpg"
+      },
+      {
+        "w": 1600,
+        "h": 905,
+        "file": "move-in/plate-4-1600.jpg"
+      },
+      {
+        "w": 2400,
+        "h": 1357,
+        "file": "move-in/plate-4-2400.jpg"
+      }
+    ],
+    "webp": [
+      {
+        "w": 960,
+        "h": 543,
+        "file": "move-in/plate-4-960.webp"
+      },
+      {
+        "w": 1600,
+        "h": 905,
+        "file": "move-in/plate-4-1600.webp"
+      },
+      {
+        "w": 2400,
+        "h": 1357,
+        "file": "move-in/plate-4-2400.webp"
+      }
+    ],
+    "avif": [
+      {
+        "w": 960,
+        "h": 543,
+        "file": "move-in/plate-4-960.avif"
+      },
+      {
+        "w": 1600,
+        "h": 905,
+        "file": "move-in/plate-4-1600.avif"
+      },
+      {
+        "w": 2400,
+        "h": 1357,
+        "file": "move-in/plate-4-2400.avif"
+      }
+    ],
+    "source": "raw"
+  },
+  "move-in/plate-5": {
+    "variants": [
+      {
+        "w": 960,
+        "h": 543,
+        "file": "move-in/plate-5-960.jpg"
+      },
+      {
+        "w": 1600,
+        "h": 905,
+        "file": "move-in/plate-5-1600.jpg"
+      },
+      {
+        "w": 2400,
+        "h": 1357,
+        "file": "move-in/plate-5-2400.jpg"
+      }
+    ],
+    "webp": [
+      {
+        "w": 960,
+        "h": 543,
+        "file": "move-in/plate-5-960.webp"
+      },
+      {
+        "w": 1600,
+        "h": 905,
+        "file": "move-in/plate-5-1600.webp"
+      },
+      {
+        "w": 2400,
+        "h": 1357,
+        "file": "move-in/plate-5-2400.webp"
+      }
+    ],
+    "avif": [
+      {
+        "w": 960,
+        "h": 543,
+        "file": "move-in/plate-5-960.avif"
+      },
+      {
+        "w": 1600,
+        "h": 905,
+        "file": "move-in/plate-5-1600.avif"
+      },
+      {
+        "w": 2400,
+        "h": 1357,
+        "file": "move-in/plate-5-2400.avif"
+      }
+    ],
+    "source": "raw"
+  },
+  "move-in/plate-6": {
+    "variants": [
+      {
+        "w": 960,
+        "h": 543,
+        "file": "move-in/plate-6-960.jpg"
+      },
+      {
+        "w": 1600,
+        "h": 905,
+        "file": "move-in/plate-6-1600.jpg"
+      },
+      {
+        "w": 2400,
+        "h": 1357,
+        "file": "move-in/plate-6-2400.jpg"
+      }
+    ],
+    "webp": [
+      {
+        "w": 960,
+        "h": 543,
+        "file": "move-in/plate-6-960.webp"
+      },
+      {
+        "w": 1600,
+        "h": 905,
+        "file": "move-in/plate-6-1600.webp"
+      },
+      {
+        "w": 2400,
+        "h": 1357,
+        "file": "move-in/plate-6-2400.webp"
+      }
+    ],
+    "avif": [
+      {
+        "w": 960,
+        "h": 543,
+        "file": "move-in/plate-6-960.avif"
+      },
+      {
+        "w": 1600,
+        "h": 905,
+        "file": "move-in/plate-6-1600.avif"
+      },
+      {
+        "w": 2400,
+        "h": 1357,
+        "file": "move-in/plate-6-2400.avif"
+      }
+    ],
+    "source": "raw"
+  },
+  "move-in/ls-power-dining": {
+    "variants": [
+      {
+        "w": 960,
+        "h": 639,
+        "file": "move-in/ls-power-dining-960.jpg"
+      },
+      {
+        "w": 1600,
+        "h": 1064,
+        "file": "move-in/ls-power-dining-1600.jpg"
+      },
+      {
+        "w": 2400,
+        "h": 1597,
+        "file": "move-in/ls-power-dining-2400.jpg"
+      }
+    ]
   }
 }

@@ -45,6 +45,11 @@ for (const p of site.work.projects) {
 }
 for (const p of site.work.index || []) p.href = live(p.path);
 // BLUE HOUR's featured project is one of the six, picked by slug in site.json.
+// MOVE-IN DAY's featured project, picked by slug the same way.
+if (site.moveIn) {
+  site.moveIn.project = site.work.projects.find((p) => p.slug === site.moveIn.featured.slug);
+  if (!site.moveIn.project) throw new Error(`Featured project not found: ${site.moveIn.featured.slug}`);
+}
 if (site.blueHour) {
   site.blueHour.project = site.work.projects.find((p) => p.slug === site.blueHour.featured.slug);
   if (!site.blueHour.project) throw new Error(`Featured project not found: ${site.blueHour.featured.slug}`);
@@ -199,6 +204,8 @@ function parse(src) {
       push({ type: 'partial', name, args: parseArgs(rest.join(' ')) });
     } else if (tag.startsWith('pic ')) {
       push({ type: 'pic', args: parseArgs(tag.slice(4)) });
+    } else if (tag.startsWith('picture ')) {
+      push({ type: 'picture', args: parseArgs(tag.slice(8)) });
     } else if (tag.startsWith('preload ')) {
       push({ type: 'preload', args: parseArgs(tag.slice(8)) });
     } else {
@@ -243,16 +250,45 @@ function pic(args, scopes) {
   return `<img ${attrs.filter(Boolean).join(' ')}>`;
 }
 
+// Picture helper (round 3, MOVE-IN DAY plates): <picture> with AVIF and WebP sources over the JPG <img>.
+// Needs a manifest entry with `avif` and `webp` lists (optimize-images.mjs --plates).
+// Args: key, class (on <picture>), imgclass, sizes, eager | late, and any data-* or aria-* passed to <picture>.
+// `late` = lazy and low priority, for plates the page shows only after the first one.
+function picture(args, scopes) {
+  const key = value(args._[0], scopes);
+  const root = lookup('root', scopes);
+  const meta = site.images[key];
+  const info = manifest[key];
+  if (!meta) throw new Error(`Image not in site.json: ${key}`);
+  if (!info || !info.avif || !info.webp) throw new Error(`No AVIF/WebP set for ${key}: run optimize-images.mjs --plates`);
+  const sizes = esc(args.sizes ? value(args.sizes, scopes) : '100vw');
+  const set = (list) => list.map((v) => `${root}assets/img/${v.file} ${v.w}w`).join(', ');
+  const largest = info.variants[info.variants.length - 1];
+  const extra = Object.entries(args).filter(([k]) => /^(data|aria)-/.test(k)).map(([k, v]) => `${k}="${esc(value(v, scopes))}"`);
+  const cls = args.class ? ` class="${esc(value(args.class, scopes))}"` : '';
+  const imgcls = args.imgclass ? `class="${esc(value(args.imgclass, scopes))}" ` : '';
+  const load = args._.includes('eager') ? 'fetchpriority="high" decoding="async"' : args._.includes('late') ? 'loading="lazy" fetchpriority="low" decoding="async"' : 'loading="lazy" decoding="async"';
+  return `<picture${cls}${extra.length ? ' ' + extra.join(' ') : ''}>`
+    + `<source type="image/avif" srcset="${set(info.avif)}" sizes="${sizes}">`
+    + `<source type="image/webp" srcset="${set(info.webp)}" sizes="${sizes}">`
+    + `<img ${imgcls}src="${root}assets/img/${largest.file}" srcset="${set(info.variants)}" sizes="${sizes}" width="${largest.w}" height="${largest.h}" alt="${esc(args.alt ? value(args.alt, scopes) : meta.alt)}" ${load}>`
+    + `</picture>`;
+}
+
 // Preload hint for the hero image, matching the srcset the picture helper writes.
+// format=avif preloads the AVIF set instead (with type="image/avif"), for the picture helper.
 function preload(args, scopes) {
   const key = value(args._[0], scopes);
   const root = lookup('root', scopes);
   const info = manifest[key];
   if (!info) return '';
   const sizes = args.sizes ? value(args.sizes, scopes) : '100vw';
-  const largest = info.variants[info.variants.length - 1];
-  const srcset = info.variants.map((v) => `${root}assets/img/${v.file} ${v.w}w`).join(', ');
-  return `<link rel="preload" as="image" href="${root}assets/img/${largest.file}" imagesrcset="${srcset}" imagesizes="${esc(sizes)}" fetchpriority="high">`;
+  const format = args.format ? value(args.format, scopes) : '';
+  const list = format && info[format] ? info[format] : info.variants;
+  const largest = list[list.length - 1];
+  const srcset = list.map((v) => `${root}assets/img/${v.file} ${v.w}w`).join(', ');
+  const type = format && info[format] ? ` type="image/${format}"` : '';
+  return `<link rel="preload" as="image" href="${root}assets/img/${largest.file}" imagesrcset="${srcset}" imagesizes="${esc(sizes)}"${type} fetchpriority="high">`;
 }
 
 function render(nodes, scopes) {
@@ -279,6 +315,8 @@ function render(nodes, scopes) {
       out += render(partial(n.name), [extra, ...scopes]);
     } else if (n.type === 'pic') {
       out += pic(n.args, scopes);
+    } else if (n.type === 'picture') {
+      out += picture(n.args, scopes);
     } else if (n.type === 'preload') {
       out += preload(n.args, scopes);
     }
