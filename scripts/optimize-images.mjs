@@ -14,6 +14,12 @@
 // pixel-locked version per stage (PLATES below), writes assets/img/move-in/plate-N-<w>.{avif,webp,jpg}
 // at 960, 1600 and 2400 wide, metadata stripped, no size-skip rule. Registers move-in/plate-0 to plate-6
 // in content/images.json with `avif` and `webp` lists beside the JPG variants.
+//
+// CROSS SECTION drawings (round 4): node scripts/optimize-images.mjs --drawn
+// Reads the registered drawings from ../docs/assets/drawn/aligned/<slot>.png (register-drawings.mjs),
+// writes assets/img/drawn/<slot>-<w>.jpg at exactly the pixel sizes of its photo's variants, JPG quality 82
+// (76 when the largest file would pass 350KB), metadata stripped. Registers drawn/<slot> in images.json
+// with "alt": "" (drawings are decorative). Only slots marked `ship` in DRAWN below are written.
 
 import sharp from 'sharp';
 import { readFileSync, writeFileSync, mkdirSync, copyFileSync, statSync, existsSync } from 'node:fs';
@@ -29,13 +35,14 @@ const QUALITY = 82;
 const SKIP_UNDER = 100 * 1024;
 
 const PLATES_MODE = process.argv.includes('--plates');
+const DRAWN_MODE = process.argv.includes('--drawn');
 const ONLY = process.argv.slice(2).filter((a) => !a.startsWith('--'));
 const manifestPath = join(BUILD, 'content', 'images.json');
-const manifest = (ONLY.length || PLATES_MODE) && existsSync(manifestPath) ? JSON.parse(readFileSync(manifestPath, 'utf8')) : {};
+const manifest = (ONLY.length || PLATES_MODE || DRAWN_MODE) && existsSync(manifestPath) ? JSON.parse(readFileSync(manifestPath, 'utf8')) : {};
 const report = [];
 let before = 0, after = 0;
 
-for (const [key, meta] of Object.entries(PLATES_MODE ? {} : site.images)) {
+for (const [key, meta] of Object.entries(PLATES_MODE || DRAWN_MODE ? {} : site.images)) {
   if (!meta.src) continue;
   if (ONLY.length && !ONLY.includes(key)) continue;
   const src = join(DOCS, meta.src);
@@ -108,6 +115,47 @@ if (PLATES_MODE) {
     console.log(`plate-${p.n} (${p.use})  ${row.join('  |  ')}`);
   }
   console.log(`1600 AVIF set, all seven: ${(avif1600 / 1024 / 1024).toFixed(2)} MB (target under 1.9 MB)`);
+}
+
+/* ---------- CROSS SECTION drawings ---------- */
+// slot -> the photo key it was traced from. ship: false falls back to photo only (see OPEN_QUESTIONS round 4).
+const DRAWN = [
+  { slot: 'ls-power-reception', photo: 'projects/ls-power/reception', ship: true },
+  { slot: 'kdlm-entry', photo: 'projects/kdlm/entry', ship: true },
+  { slot: 'wetransfer-lounge', photo: 'projects/wetransfer/lounge', ship: true },
+  { slot: 'jura-lounge', photo: 'projects/jura/lounge', ship: true },
+  { slot: 'ls-power-reception-wide', photo: 'projects/ls-power/reception-wide', ship: true },
+  { slot: 'kdlm-boardroom', photo: 'projects/kdlm/boardroom', ship: true },
+  { slot: 'aucta-reception', photo: 'projects/aucta/reception', ship: true },
+  { slot: 'tweezerman-reception', photo: 'projects/tweezerman/reception', ship: true },
+  { slot: 'ri-workplace-meeting', photo: 'projects/ri-workplace/meeting', ship: true },
+];
+if (DRAWN_MODE) {
+  const dir = join(DOCS, 'assets', 'drawn', 'aligned');
+  mkdirSync(join(OUT, 'drawn'), { recursive: true });
+  for (const d of DRAWN) {
+    const key = `drawn/${d.slot}`;
+    const src = join(dir, `${d.slot}.png`);
+    const photo = manifest[d.photo];
+    if (!d.ship || !existsSync(src) || !photo) { delete manifest[key]; console.log(`${key}: not shipped`); continue; }
+    const write = async (q) => {
+      const out = [];
+      for (const v of photo.variants) {
+        const file = `drawn/${d.slot}-${v.w}.jpg`;
+        const res = await sharp(src).resize(v.w, v.h, { fit: 'fill', kernel: 'lanczos3' })
+          .jpeg({ quality: q, mozjpeg: true, progressive: true }).toFile(join(OUT, file));
+        if (res.width !== v.w || res.height !== v.h) throw new Error(`${file} is ${res.width}x${res.height}, photo is ${v.w}x${v.h}`);
+        out.push({ w: v.w, h: v.h, file, bytes: res.size });
+      }
+      return out;
+    };
+    let q = 82;
+    let vars = await write(q);
+    const big = vars.at(-1).bytes;
+    if (big > 350 * 1024) { q = 76; vars = await write(q); console.log(`  ${key}: ${(big / 1024).toFixed(0)}K at 82 -> ${(vars.at(-1).bytes / 1024).toFixed(0)}K at 76`); }
+    manifest[key] = { alt: '', quality: q, variants: vars.map(({ w, h, file }) => ({ w, h, file })) };
+    console.log(`${key.padEnd(32)} q${q}  ${vars.map((v) => `${v.w}x${v.h} ${(v.bytes / 1024).toFixed(0)}K`).join('  ')}`);
+  }
 }
 
 writeFileSync(manifestPath, JSON.stringify(manifest, null, 2) + '\n');

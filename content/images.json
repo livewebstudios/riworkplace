@@ -1115,5 +1115,149 @@
         "file": "chooser/move-in-day-1440.jpg"
       }
     ]
+  },
+  "drawn/ls-power-reception": {
+    "alt": "",
+    "quality": 76,
+    "variants": [
+      {
+        "w": 800,
+        "h": 532,
+        "file": "drawn/ls-power-reception-800.jpg"
+      },
+      {
+        "w": 1600,
+        "h": 1064,
+        "file": "drawn/ls-power-reception-1600.jpg"
+      }
+    ]
+  },
+  "drawn/kdlm-entry": {
+    "alt": "",
+    "quality": 76,
+    "variants": [
+      {
+        "w": 800,
+        "h": 1119,
+        "file": "drawn/kdlm-entry-800.jpg"
+      },
+      {
+        "w": 1373,
+        "h": 1920,
+        "file": "drawn/kdlm-entry-1373.jpg"
+      }
+    ]
+  },
+  "drawn/wetransfer-lounge": {
+    "alt": "",
+    "quality": 76,
+    "variants": [
+      {
+        "w": 800,
+        "h": 533,
+        "file": "drawn/wetransfer-lounge-800.jpg"
+      },
+      {
+        "w": 1600,
+        "h": 1067,
+        "file": "drawn/wetransfer-lounge-1600.jpg"
+      }
+    ]
+  },
+  "drawn/jura-lounge": {
+    "alt": "",
+    "quality": 82,
+    "variants": [
+      {
+        "w": 800,
+        "h": 543,
+        "file": "drawn/jura-lounge-800.jpg"
+      },
+      {
+        "w": 1500,
+        "h": 1019,
+        "file": "drawn/jura-lounge-1500.jpg"
+      }
+    ]
+  },
+  "drawn/ls-power-reception-wide": {
+    "alt": "",
+    "quality": 82,
+    "variants": [
+      {
+        "w": 800,
+        "h": 532,
+        "file": "drawn/ls-power-reception-wide-800.jpg"
+      },
+      {
+        "w": 1600,
+        "h": 1064,
+        "file": "drawn/ls-power-reception-wide-1600.jpg"
+      }
+    ]
+  },
+  "drawn/kdlm-boardroom": {
+    "alt": "",
+    "quality": 82,
+    "variants": [
+      {
+        "w": 800,
+        "h": 534,
+        "file": "drawn/kdlm-boardroom-800.jpg"
+      },
+      {
+        "w": 1600,
+        "h": 1068,
+        "file": "drawn/kdlm-boardroom-1600.jpg"
+      }
+    ]
+  },
+  "drawn/aucta-reception": {
+    "alt": "",
+    "quality": 82,
+    "variants": [
+      {
+        "w": 800,
+        "h": 532,
+        "file": "drawn/aucta-reception-800.jpg"
+      },
+      {
+        "w": 1500,
+        "h": 998,
+        "file": "drawn/aucta-reception-1500.jpg"
+      }
+    ]
+  },
+  "drawn/tweezerman-reception": {
+    "alt": "",
+    "quality": 82,
+    "variants": [
+      {
+        "w": 800,
+        "h": 534,
+        "file": "drawn/tweezerman-reception-800.jpg"
+      },
+      {
+        "w": 1280,
+        "h": 854,
+        "file": "drawn/tweezerman-reception-1280.jpg"
+      }
+    ]
+  },
+  "drawn/ri-workplace-meeting": {
+    "alt": "",
+    "quality": 76,
+    "variants": [
+      {
+        "w": 800,
+        "h": 532,
+        "file": "drawn/ri-workplace-meeting-800.jpg"
+      },
+      {
+        "w": 1600,
+        "h": 1064,
+        "file": "drawn/ri-workplace-meeting-1600.jpg"
+      }
+    ]
   }
 }

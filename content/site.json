@@ -231,6 +231,15 @@
       "label": "faster than traditional fit-out firms"
     }
   ],
+  "drawn": {
+    "h2": "From first sketch to move-in day.",
+    "line": "Every room starts on paper. Drag the line across a drawing to see the finished space.",
+    "hint": "DRAG TO BUILD",
+    "tagDrawn": "DRAWN",
+    "tagBuilt": "BUILT",
+    "railLabel": "Drawn to built, six projects",
+    "sliderLabel": "drawing to photo"
+  },
   "work": {
     "h2": "Recent work",
     "line": "Every space on this page is a finished RI project.",
@@ -250,7 +259,9 @@
         "lead": "projects/ls-power/reception-wide",
         "second": "projects/ls-power/coffee-bar",
         "slice": "projects/ls-power/reception",
-        "short": "LS Power"
+        "short": "LS Power",
+        "leadDrawn": "drawn/ls-power-reception-wide",
+        "sliceDrawn": "drawn/ls-power-reception"
       },
       {
         "n": "02",
@@ -263,7 +274,9 @@
         "lead": "projects/kdlm/boardroom",
         "second": "projects/kdlm/office",
         "slice": "projects/kdlm/entry",
-        "short": "KDLM"
+        "short": "KDLM",
+        "leadDrawn": "drawn/kdlm-boardroom",
+        "sliceDrawn": "drawn/kdlm-entry"
       },
       {
         "n": "03",
@@ -276,7 +289,9 @@
         "lead": "projects/wetransfer/lounge",
         "second": "projects/wetransfer/floor",
         "slice": "projects/wetransfer/lounge",
-        "short": "WeTransfer"
+        "short": "WeTransfer",
+        "leadDrawn": "drawn/wetransfer-lounge",
+        "sliceDrawn": "drawn/wetransfer-lounge"
       },
       {
         "n": "04",
@@ -289,7 +304,9 @@
         "lead": "projects/jura/lounge",
         "second": "projects/jura/showroom",
         "slice": "projects/jura/lounge",
-        "short": "Jura"
+        "short": "Jura",
+        "leadDrawn": "drawn/jura-lounge",
+        "sliceDrawn": "drawn/jura-lounge"
       },
       {
         "n": "05",
@@ -301,7 +318,8 @@
         "path": "/project/aucta-pharmaceuticals-inc/",
         "lead": "projects/aucta/reception",
         "second": "projects/aucta/glass-offices",
-        "short": "Aucta Pharmaceuticals"
+        "short": "Aucta Pharmaceuticals",
+        "leadDrawn": "drawn/aucta-reception"
       },
       {
         "n": "06",
@@ -313,7 +331,8 @@
         "path": "/project/tweezerman-international-llc/",
         "lead": "projects/tweezerman/reception",
         "second": "projects/tweezerman/conference",
-        "short": "Tweezerman International"
+        "short": "Tweezerman International",
+        "leadDrawn": "drawn/tweezerman-reception"
       }
     ],
     "index": [
@@ -600,7 +619,8 @@
     "h2": "Come see it in person.",
     "body": "Our Saddle Brook office doubles as the showroom. Walk the space and pull samples from the library. Coffee is on us.",
     "button": "PLAN A VISIT",
-    "image": "projects/ri-workplace/meeting"
+    "image": "projects/ri-workplace/meeting",
+    "imageDrawn": "drawn/ri-workplace-meeting"
   },
   "clients": {
     "heading": "Trusted by",
@@ -1028,6 +1048,42 @@
         1600,
         2400
       ]
+    },
+    "drawn/ls-power-reception": {
+      "alt": "",
+      "note": "Decorative AI trace of the photo, round 4. Built by optimize-images.mjs --drawn, no src here."
+    },
+    "drawn/kdlm-entry": {
+      "alt": "",
+      "note": "Decorative AI trace of the photo, round 4. Built by optimize-images.mjs --drawn, no src here."
+    },
+    "drawn/wetransfer-lounge": {
+      "alt": "",
+      "note": "Decorative AI trace of the photo, round 4. Built by optimize-images.mjs --drawn, no src here."
+    },
+    "drawn/jura-lounge": {
+      "alt": "",
+      "note": "Decorative AI trace of the photo, round 4. Built by optimize-images.mjs --drawn, no src here."
+    },
+    "drawn/ls-power-reception-wide": {
+      "alt": "",
+      "note": "Decorative AI trace of the photo, round 4. Built by optimize-images.mjs --drawn, no src here."
+    },
+    "drawn/kdlm-boardroom": {
+      "alt": "",
+      "note": "Decorative AI trace of the photo, round 4. Built by optimize-images.mjs --drawn, no src here."
+    },
+    "drawn/aucta-reception": {
+      "alt": "",
+      "note": "Decorative AI trace of the photo, round 4. Built by optimize-images.mjs --drawn, no src here."
+    },
+    "drawn/tweezerman-reception": {
+      "alt": "",
+      "note": "Decorative AI trace of the photo, round 4. Built by optimize-images.mjs --drawn, no src here."
+    },
+    "drawn/ri-workplace-meeting": {
+      "alt": "",
+      "note": "Decorative AI trace of the photo, round 4. Built by optimize-images.mjs --drawn, no src here."
     }
   },
   "film": {
