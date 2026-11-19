@@ -345,6 +345,57 @@
 .d2b__tag--built { left: 12px; opacity: clamp(0, calc(var(--d2b-n) * 10), 1); }
 .d2b__tag--drawn { right: 12px; opacity: clamp(0, calc((1 - var(--d2b-n)) * 10), 1); }
 
+/* Layers are stacked absolutely here, so the figure's own box (aspect ratio, or the showroom's stretched row) sets the size. */
+.demo-cross-section .d2b > .d2b__photo, .demo-cross-section .d2b > .d2b__drawing { position: absolute; inset: 0; }
+
+/* ---------- 2b. drawn to built rail (round 4): six featured projects, drawing to photo ---------- */
+.cs-drawn-head { align-items: end; }
+.cs-drawn-intro { display: grid; gap: var(--s-4); }
+.cs-rail-nav { display: none; }
+.cs-drawn-hint { display: none; }
+.cs-rail-btn {
+  display: grid; place-items: center; width: 48px; height: 48px; border: 1px solid var(--hairline-strong); background: var(--white); color: var(--ink);
+  transition: background-color 0.2s var(--ease), color 0.2s var(--ease), border-color 0.2s var(--ease), opacity 0.2s var(--ease);
+}
+.cs-rail-btn .ico { width: 14px; height: 14px; }
+.cs-rail-prev .ico { rotate: 90deg; }
+.cs-rail-next .ico { rotate: -90deg; }
+.cs-rail-btn[aria-disabled="true"] { opacity: 0.35; cursor: default; }
+@media (hover: hover) { .cs-rail-btn:not([aria-disabled="true"]):hover { background: var(--blue-ink); border-color: var(--blue-ink); color: var(--white); } }
+.cs-rail {
+  overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scroll-padding-inline: var(--cell);
+  scrollbar-width: none; padding-bottom: var(--s-7);
+}
+.cs-rail::-webkit-scrollbar { display: none; }
+.cs-rail:focus-visible { outline: var(--focus); outline-offset: -4px; }
+.cs-rail-track { display: flex; gap: var(--s-5); width: max-content; padding-inline: var(--cell); }
+.cs-card { position: relative; flex: none; width: 86vw; scroll-snap-align: start; }
+.cs-card-frame { border: 1px solid var(--hairline); }
+.cs-card-fig { margin: 0; aspect-ratio: 3 / 2; background: var(--concrete); }
+.cs-card-tb {
+  display: grid; grid-template-columns: var(--s-7) minmax(0, 1fr); gap: var(--s-1) var(--s-3); align-items: baseline;
+  padding: var(--s-4) 0 0; margin-top: var(--s-4); border-top: var(--rule);
+}
+.cs-card-n { grid-row: 1 / span 3; font-family: var(--f-mono); font-size: 0.8125rem; color: var(--blue-ink); }
+.cs-card-name { font-weight: 500; font-size: 1.125rem; line-height: 1.2; letter-spacing: -0.01em; text-transform: uppercase; }
+.cs-card-place { font-family: var(--f-mono); font-size: 0.75rem; letter-spacing: 0.04em; text-transform: uppercase; line-height: 1.4; color: var(--ink-soft); }
+.cs-card-link { justify-self: start; margin-top: var(--s-2); }
+@media (min-width: 768px) {
+  .cs-drawn-head { display: flex; justify-content: space-between; gap: var(--s-6); }
+  .js .cs-rail-nav { display: flex; align-items: center; gap: var(--s-2); flex: none; }
+}
+@media (min-width: 1024px) {
+  .cs-rail { container-type: inline-size; }
+  .cs-card { width: calc((100cqw - 2 * var(--cell)) * 8 / 12); }
+  .cs-card-tb { grid-template-columns: 2.25rem minmax(0, 1fr) auto; }
+  .cs-card-n { grid-row: 1 / span 2; }
+  .cs-card-name, .cs-card-place { grid-column: 2; }
+  .cs-card-link { grid-column: 3; grid-row: 1 / span 2; align-self: center; margin-top: 0; }
+}
+@media (min-width: 1024px) and (pointer: fine) {
+  .cs-drawn:has(.is-drag) .cs-drawn-hint { display: block; margin-right: var(--s-3); color: var(--ink-soft); white-space: nowrap; }
+}
+
 /* ---------- hero sticky stage (round 4): 1024 and up, 640 tall and up, motion on ----------
    The hero fills the screen under the nav and sticks inside a 160svh run while the cut sweeps. */
 .demo-cross-section { --cs-util: 0px; }

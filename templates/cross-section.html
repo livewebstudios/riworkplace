@@ -68,6 +68,48 @@
     </ul>
   </div>
 
+  <section class="cs-drawn" id="drawn">
+    <header class="cs-head cs-pad cs-drawn-head">
+      <div class="cs-drawn-intro">
+        <h2 class="cs-h2">{{drawn.h2}}</h2>
+        <p class="cs-lead-text">{{drawn.line}}</p>
+      </div>
+      <div class="cs-rail-nav">
+        <p class="label cs-drawn-hint" aria-hidden="true">{{drawn.hint}}</p>
+        <button class="cs-rail-btn cs-rail-prev" type="button" data-rail="prev" aria-label="{{ui.previous}}" aria-controls="drawn-rail" aria-disabled="true"><svg class="ico" aria-hidden="true"><use href="#i-chevron"/></svg></button>
+        <button class="cs-rail-btn cs-rail-next" type="button" data-rail="next" aria-label="{{ui.next}}" aria-controls="drawn-rail"><svg class="ico" aria-hidden="true"><use href="#i-chevron"/></svg></button>
+      </div>
+    </header>
+    <div class="cs-rail" id="drawn-rail" role="region" aria-label="{{drawn.railLabel}}" data-rail-region>
+      <ol class="cs-rail-track">
+        {{#each work.projects as p}}
+        <li class="cs-card">
+          <div class="cs-card-frame">
+            {{#if p.leadDrawn | shipped}}
+            <figure class="d2b cs-card-fig" data-d2b="drag" data-d2b-mobile="wipe" data-d2b-label="{{p.name}}, {{drawn.sliderLabel}}">
+              <span class="d2b__photo">{{pic p.lead sizes="(min-width: 1024px) 60vw, 86vw"}}</span>
+              <span class="d2b__drawing" aria-hidden="true">{{pic p.leadDrawn sizes="(min-width: 1024px) 60vw, 86vw" alt=""}}</span>
+              <span class="d2b__tag d2b__tag--built" aria-hidden="true">{{drawn.tagBuilt}}</span>
+              <span class="d2b__tag d2b__tag--drawn" aria-hidden="true">{{drawn.tagDrawn}}</span>
+            </figure>
+            {{else}}
+            <figure class="d2b cs-card-fig">
+              <span class="d2b__photo">{{pic p.lead sizes="(min-width: 1024px) 60vw, 86vw"}}</span>
+            </figure>
+            {{/if}}
+          </div>
+          <div class="cs-card-tb">
+            <span class="cs-card-n">{{p.n}}</span>
+            <h3 class="cs-card-name">{{p.name}}</h3>
+            <p class="cs-card-place">{{p.place}} · {{p.sector}}</p>
+            <a class="link cs-card-link" href="{{p.href}}" target="_blank" rel="noopener" data-demo-scaffold><span class="link-text">{{ui.viewProject}}</span><span class="visually-hidden">, {{p.name}}</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+        </li>
+        {{/each}}
+      </ol>
+    </div>
+  </section>
+
   <section class="cs-index" id="work">
     <div class="cs-index-main">
       <header class="cs-head">
@@ -187,7 +229,14 @@
   </section>
 
   <section class="cs-show">
+    {{#if showroom.imageDrawn | shipped}}
+    <figure class="cs-show-photo d2b" data-d2b="scrub">
+      <span class="d2b__photo">{{pic showroom.image sizes="(min-width: 1024px) 58vw, 100vw"}}</span>
+      <span class="d2b__drawing" aria-hidden="true">{{pic showroom.imageDrawn sizes="(min-width: 1024px) 58vw, 100vw" alt=""}}</span>
+    </figure>
+    {{else}}
     <figure class="cs-show-photo">{{pic showroom.image sizes="(min-width: 1024px) 58vw, 100vw"}}</figure>
+    {{/if}}
     <div class="cs-show-copy">
       <div class="cs-pad cs-show-text">
         <h2 class="cs-h2">{{showroom.h2}}</h2>

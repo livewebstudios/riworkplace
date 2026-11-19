@@ -85,6 +85,43 @@
     });
   });
 
+  /* ---------- drawn to built rail (round 4): arrow buttons, ported from WJG "Work rail" ----------
+     Native horizontal scroll with snap. The arrows page one card plus the gap and disable at the ends.
+     Works without GSAP and under reduced motion (it is the visitor's own move). */
+  var rail = $('[data-rail-region]');
+  if (rail) {
+    var track = $('.cs-rail-track', rail);
+    var prev = $('[data-rail="prev"]');
+    var next = $('[data-rail="next"]');
+    var wide = window.matchMedia('(min-width: 1024px)');
+    var syncTab = function () { /* a tab stop only where the rail is a real scroller with arrows */
+      if (wide.matches) rail.setAttribute('tabindex', '0'); else rail.removeAttribute('tabindex');
+    };
+    var stride = function () {
+      var card = $('.cs-card', rail);
+      var gap = parseFloat(window.getComputedStyle(track).columnGap) || 0;
+      return card ? card.getBoundingClientRect().width + gap : rail.clientWidth * 0.8;
+    };
+    var syncBtns = function () {
+      var max = rail.scrollWidth - rail.clientWidth;
+      prev.setAttribute('aria-disabled', rail.scrollLeft <= 2 ? 'true' : 'false');
+      next.setAttribute('aria-disabled', rail.scrollLeft >= max - 2 ? 'true' : 'false');
+    };
+    var go = function (dir) { rail.scrollBy({ left: dir * stride(), behavior: RI.reduced ? 'auto' : 'smooth' }); };
+    prev.addEventListener('click', function () { if (prev.getAttribute('aria-disabled') !== 'true') go(-1); });
+    next.addEventListener('click', function () { if (next.getAttribute('aria-disabled') !== 'true') go(1); });
+    var railTick = false;
+    rail.addEventListener('scroll', function () {
+      if (railTick) return;
+      railTick = true;
+      window.requestAnimationFrame(function () { railTick = false; syncBtns(); });
+    }, { passive: true });
+    window.addEventListener('resize', function () { syncTab(); syncBtns(); });
+    window.addEventListener('load', syncBtns);
+    syncTab();
+    syncBtns();
+  }
+
   /* Round 4: the page script ran, so the failsafe in <head> stands down. Without GSAP the hero shows its photos. */
   RI.csHero = true;
   if (!RI.motion && !RI.reduced) doc.documentElement.classList.add('cs-static');
