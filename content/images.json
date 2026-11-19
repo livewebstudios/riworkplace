@@ -1101,5 +1101,19 @@
         "file": "move-in/ls-power-dining-2400.jpg"
       }
     ]
+  },
+  "chooser/move-in-day": {
+    "variants": [
+      {
+        "w": 800,
+        "h": 500,
+        "file": "chooser/move-in-day-800.jpg"
+      },
+      {
+        "w": 1440,
+        "h": 900,
+        "file": "chooser/move-in-day-1440.jpg"
+      }
+    ]
   }
 }
