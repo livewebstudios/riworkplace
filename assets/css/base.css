@@ -6,6 +6,9 @@
 /* BLUE HOUR and the chooser (round 2) */
 @font-face { font-family: "Instrument Serif"; font-weight: 400; font-style: normal; font-display: swap; src: url("../fonts/instrument-serif-latin-400-normal.woff2") format("woff2"); }
 @font-face { font-family: "Instrument Serif"; font-weight: 400; font-style: italic; font-display: swap; src: url("../fonts/instrument-serif-latin-400-italic.woff2") format("woff2"); }
+/* MOVE-IN DAY (round 3): Fraunces, variable weight + optical size, latin only (@fontsource-variable/fraunces 5.2.9) */
+@font-face { font-family: "Fraunces"; font-weight: 100 900; font-style: normal; font-display: swap; src: url("../fonts/fraunces-latin-opsz-normal.woff2") format("woff2-variations"), url("../fonts/fraunces-latin-opsz-normal.woff2") format("woff2"); }
+@font-face { font-family: "Fraunces"; font-weight: 100 900; font-style: italic; font-display: swap; src: url("../fonts/fraunces-latin-wght-italic.woff2") format("woff2-variations"), url("../fonts/fraunces-latin-wght-italic.woff2") format("woff2"); }
 @font-face { font-family: "Manrope"; font-weight: 400; font-style: normal; font-display: swap; src: url("../fonts/manrope-latin-400-normal.woff2") format("woff2"); }
 @font-face { font-family: "Manrope"; font-weight: 500; font-style: normal; font-display: swap; src: url("../fonts/manrope-latin-500-normal.woff2") format("woff2"); }
 @font-face { font-family: "Manrope"; font-weight: 600; font-style: normal; font-display: swap; src: url("../fonts/manrope-latin-600-normal.woff2") format("woff2"); }
@@ -45,6 +48,18 @@
   --bh-line-strong: rgba(242, 245, 250, 0.28);
   --bh-glass: rgba(15, 32, 56, 0.72);
   --bh-glass-edge: rgba(255, 255, 255, 0.14);
+
+  /* MOVE-IN DAY (round 3). Warm paper and stone pulled from the hero photo. Measured in OPEN_QUESTIONS round 3. */
+  --mi-paper: #FAF8F5;   /* page background */
+  --mi-stone: #ECE8E2;   /* alternate bands, cards */
+  --mi-sand: #D9D2C7;    /* rules, borders */
+  --mi-ink: #24211E;     /* headings, body: 15.1:1 paper, 13.1:1 stone */
+  --mi-ink-2: #5A544D;   /* secondary text: 7.05:1 paper, 6.12:1 stone */
+  --mi-bronze: #8A5A34;  /* accent rules, numbers, icon strokes: 5.51:1 paper, 4.79:1 stone */
+  --mi-bronze-lit: #D2A276; /* bronze on the dark hero scrim (rail fill, decoration only) */
+  --mi-olive: #56702B;   /* small accents only */
+  --mi-shade: 20, 18, 16; /* hero scrim, as rgb channels */
+  --f-fraunces: "Fraunces", "Iowan Old Style", Georgia, serif;
 
   /* spacing */
   --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-5: 24px; --s-6: 32px;

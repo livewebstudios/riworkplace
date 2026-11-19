@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js mi">
+<head>
+{{> head title=meta.title description=meta.description}}
+<script>if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('mi-motion');</script>
+<link rel="preload" as="font" type="font/woff2" href="{{root}}assets/fonts/fraunces-latin-opsz-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="{{root}}assets/fonts/manrope-latin-600-normal.woff2" crossorigin>
+{{preload moveIn.plates.0 format="avif" sizes="(min-width: 1024px) 112vw, 133vw"}}
+<link rel="stylesheet" href="{{root}}assets/css/base.css">
+<link rel="stylesheet" href="{{root}}assets/css/kit.css">
+<link rel="stylesheet" href="{{root}}assets/css/move-in-day.css">
+</head>
+<body class="demo demo-move-in-day" id="top">
+{{> icons}}
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="mi-phone" viewBox="0 0 24 24"><path d="M5.5 3.5h3.5l1.8 4.6-2.3 1.6a11 11 0 0 0 5.8 5.8l1.6-2.3 4.6 1.8V18a2.5 2.5 0 0 1-2.7 2.5C10.2 20 4 13.8 3.5 6.2A2.5 2.5 0 0 1 5.5 3.5z"/></symbol>
+  <symbol id="mi-mail" viewBox="0 0 24 24"><path d="M3 5.5h18v13H3zM3.5 6l8.5 7 8.5-7"/></symbol>
+  <symbol id="mi-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-5.8-6.5-11a6.5 6.5 0 0 1 13 0c0 5.2-6.5 11-6.5 11zM12 12.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></symbol>
+  <symbol id="mi-quote" viewBox="0 0 48 36"><path d="M0 36V20.6C0 8.8 6.4 1.9 18 0l1.8 4.6C13 6.5 9.6 10.6 9.4 17H18v19zm27.6 0V20.6C27.6 8.8 34 1.9 45.6 0l1.8 4.6C40.6 6.5 37.2 10.6 37 17h9v19z"/></symbol>
+</svg>
+{{> header headCta=true}}
+<main id="main">
+
+  <section class="mi-hero" aria-labelledby="mi-h1" data-hero>
+    <div class="mi-stage" data-stage>
+      <div class="mi-box" aria-label="{{moveIn.stageLabel}}" role="group">
+        <div class="mi-plates" data-plates>
+          {{#each moveIn.plates as k}}
+          {{#if @index == 0}}{{picture k class="mi-plate" data-plate=@index imgclass="mi-plate-img" sizes="(min-width: 1024px) 112vw, 133vw" eager}}{{/if}}
+          {{#if @index == 6}}{{picture k class="mi-plate mi-plate-last" data-plate=@index imgclass="mi-plate-img" sizes="(min-width: 1024px) 112vw, 133vw" late}}{{/if}}
+          {{#if @index != 0}}{{#if @index != 6}}{{picture k class="mi-plate mi-plate-mid" data-plate=@index aria-hidden="true" imgclass="mi-plate-img" sizes="(min-width: 1024px) 112vw, 133vw" late}}{{/if}}{{/if}}
+          {{/each}}
+          <span class="mi-glow" aria-hidden="true" data-glow></span>
+        </div>
+        <span class="mi-scrim" aria-hidden="true"></span>
+      </div>
+      <div class="mi-text">
+        <div class="mi-progress" aria-hidden="true">
+          <ol class="mi-rail" data-rail>
+            {{#each moveIn.plates as k}}
+            <li class="mi-tick"><span class="mi-tick-fill" data-tick></span></li>
+            {{/each}}
+          </ol>
+          <span class="mi-cue" data-cue>{{moveIn.scroll}}<span class="mi-cue-line"></span></span>
+        </div>
+        <div class="mi-slot">
+          <div class="mi-copy" data-copy>
+            <p class="mi-eyebrow">{{hero.eyebrow}}</p>
+            <h1 class="mi-h1" id="mi-h1">{{hero.h1}}</h1>
+            <p class="mi-sub">{{hero.sub}}</p>
+          </div>
+          <ol class="mi-captions" aria-live="polite" data-captions>
+            <li class="mi-cap" data-cap><p class="mi-cap-line">{{moveIn.captions.0}}</p></li>
+            {{#each steps.items as s}}
+            <li class="mi-cap" data-cap><p class="mi-cap-label"><span class="mi-cap-n">{{s.n}}</span> {{s.name}}</p><p class="mi-cap-copy">{{s.copy}}</p></li>
+            {{/each}}
+            <li class="mi-cap" data-cap><p class="mi-cap-line">{{moveIn.captions.1}}</p><p class="mi-cap-line mi-cap-line-2">{{moveIn.captions.2}}</p></li>
+          </ol>
+        </div>
+        <div class="mi-actions" data-actions>
+          <a class="btn btn-primary" href="#work">{{hero.primary}}</a>
+          <a class="btn btn-ghost mi-btn-light" href="#contact">{{hero.secondary}}</a>
+          <button class="link link-film mi-film" type="button" data-film-open><svg class="ico" aria-hidden="true"><use href="#i-play"/></svg><span class="link-text">{{hero.film}}</span></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="mi-numbers">
+    <ul class="wrap mi-stats">
+      {{#each numbers as n}}
+      <li class="mi-stat"><strong class="mi-stat-fig" data-count>{{n.figure}}</strong> <span class="mi-stat-label">{{n.label}}</span></li>
+      {{/each}}
+    </ul>
+  </div>
+
+  <section class="mi-section mi-work" id="work" aria-labelledby="mi-work-h">
+    <div class="wrap">
+      <div class="mi-head-row">
+        <header class="mi-head" data-rise>
+          <span class="mi-rule" aria-hidden="true"></span>
+          <h2 class="mi-h2" id="mi-work-h">{{work.h2}}</h2>
+          <p class="mi-lead">{{work.line}}</p>
+        </header>
+        <div class="mi-head-tools">
+          <a class="link" href="{{work.allHref}}" target="_blank" rel="noopener" data-demo-scaffold><span class="link-text">{{work.all.label}}</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <button class="mi-next" type="button" data-work-next hidden><span>{{ui.next}}</span><svg class="ico" aria-hidden="true"><use href="#i-next"/></svg></button>
+        </div>
+      </div>
+      <ul class="mi-projects" data-work>
+        {{#each work.projects as p}}
+        <li class="mi-proj" data-proj>
+          <a class="mi-proj-link" href="{{p.href}}" target="_blank" rel="noopener" data-demo-scaffold>
+            <span class="mi-proj-photo mi-photo">{{pic p.lead sizes="(min-width: 1024px) 62vw, 100vw"}}</span>
+            <span class="mi-proj-text">
+              <span class="mi-proj-n">{{p.n}}</span>
+              <h3 class="mi-proj-name">{{p.name}}</h3>
+              <span class="mi-proj-meta">{{p.place}} · {{p.sector}}</span>
+              <span class="mi-proj-line">{{p.line}}</span>
+            </span>
+          </a>
+        </li>
+        {{/each}}
+      </ul>
+      <p class="visually-hidden" aria-live="polite" data-work-status data-label-of="{{ui.of}}"></p>
+    </div>
+
+    <article class="mi-feature" aria-labelledby="mi-feature-h">
+      <figure class="mi-feature-photo mi-photo" data-clip>{{pic moveIn.featured.image sizes="100vw"}}</figure>
+      <div class="wrap">
+        <div class="mi-feature-card">
+          <div class="mi-feature-copy">
+            <p class="mi-feature-n">{{moveIn.project.n}}</p>
+            <h3 class="mi-h3" id="mi-feature-h">{{moveIn.project.name}}</h3>
+            <p class="mi-body">{{moveIn.project.line}}</p>
+          </div>
+          <div class="mi-feature-side">
+            <dl class="mi-facts">
+              <div class="mi-fact"><dt>{{moveIn.featured.labels.0}}</dt><dd>{{moveIn.project.place}}</dd></div>
+              <div class="mi-fact"><dt>{{moveIn.featured.labels.1}}</dt><dd>{{moveIn.project.sector}}</dd></div>
+            </dl>
+            <a class="btn btn-primary" href="{{moveIn.project.href}}" target="_blank" rel="noopener" data-demo-scaffold>{{ui.viewProject}}</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <div class="wrap mi-index">
+      <h3 class="mi-label mi-index-h">{{ui.indexLabel}}</h3>
+      <ul class="mi-index-list">
+        {{#each work.index as r}}
+        <li><a class="mi-index-link" href="{{r.href}}" target="_blank" rel="noopener" data-demo-scaffold><span class="mi-index-name">{{r.name}}</span><span class="mi-index-meta">{{r.place}}{{#if r.sector}} · {{r.sector}}{{/if}}</span></a></li>
+        {{/each}}
+      </ul>
+    </div>
+  </section>
+
+  <section class="mi-section mi-steps" aria-labelledby="mi-steps-h">
+    <div class="wrap">
+      <div class="mi-head-row">
+        <header class="mi-head" data-rise>
+          <span class="mi-rule" aria-hidden="true"></span>
+          <h2 class="mi-h2" id="mi-steps-h">{{steps.h2}}</h2>
+          <p class="mi-lead">{{steps.line}}</p>
+        </header>
+        <div class="mi-head-tools">
+          <a class="link" href="{{steps.allHref}}" target="_blank" rel="noopener" data-demo-scaffold><span class="link-text">{{steps.all.label}}</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+      <ol class="mi-step-list">
+        {{#each steps.items as s}}
+        <li class="mi-step" data-step>
+          <p class="mi-step-n">{{s.n}}</p>
+          <h3 class="mi-step-name">{{s.name}}</h3>
+          <p class="mi-step-copy">{{s.copy}}</p>
+          <ul class="mi-step-links">
+            {{#each s.links as l}}
+            <li><a href="{{l.href}}" target="_blank" rel="noopener" data-demo-scaffold>{{l.label}}</a></li>
+            {{/each}}
+          </ul>
+        </li>
+        {{/each}}
+      </ol>
+    </div>
+  </section>
+
+  <section class="mi-section mi-ind" aria-labelledby="mi-ind-h">
+    <div class="wrap">
+      <header class="mi-head" data-rise>
+        <span class="mi-rule" aria-hidden="true"></span>
+        <h2 class="mi-h2" id="mi-ind-h">{{industries.h2}}</h2>
+      </header>
+      <ul class="mi-ind-grid">
+        {{#each industries.items as i}}
+        <li class="mi-ind-item">
+          <a class="mi-ind-link" href="{{i.href}}" target="_blank" rel="noopener" data-demo-scaffold>
+            <span class="mi-ind-photo mi-photo{{#if i.image}}{{else}} is-empty{{/if}}">{{#if i.image}}{{pic i.image sizes="(min-width: 1024px) 30vw, (min-width: 600px) 46vw, 100vw"}}{{else}}<span class="mi-ind-mark" aria-hidden="true">{{@n|pad2}}</span>{{/if}}</span>
+            <span class="mi-ind-label"><span class="mi-ind-n">{{@n|pad2}}</span>{{i.label}}<svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+          </a>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+  </section>
+
+  <section class="mi-section mi-quotes" aria-labelledby="mi-quotes-h" data-quotes>
+    <div class="wrap mi-quotes-in">
+      <header class="mi-head" data-rise>
+        <span class="mi-rule" aria-hidden="true"></span>
+        <h2 class="mi-h2" id="mi-quotes-h">{{quotes.h2}}</h2>
+      </header>
+      <div class="mi-quote-wrap">
+        <svg class="mi-quote-mark" aria-hidden="true" focusable="false"><use href="#mi-quote"/></svg>
+        <div class="mi-quote-stage">
+          {{#each quotes.items as q}}
+          <figure class="mi-quote{{#if @first}} is-on{{/if}}" data-quote>
+            <blockquote><p>{{q.text}}</p></blockquote>
+            <figcaption class="mi-quote-by">{{q.by}}</figcaption>
+          </figure>
+          {{/each}}
+        </div>
+        <div class="mi-quote-nav" data-quote-nav hidden>
+          <button class="mi-round" type="button" aria-label="{{ui.previousQuote}}" data-quote-prev><svg class="ico" aria-hidden="true"><use href="#i-prev"/></svg></button>
+          <p class="mi-quote-count" aria-hidden="true" data-quote-count></p>
+          <button class="mi-round" type="button" aria-label="{{ui.nextQuote}}" data-quote-next><svg class="ico" aria-hidden="true"><use href="#i-next"/></svg></button>
+          <p class="visually-hidden" aria-live="polite" data-quote-status data-label-quote="{{ui.quote}}" data-label-of="{{ui.of}}"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mi-section mi-family" aria-labelledby="mi-family-h">
+    <div class="wrap">
+      <div class="mi-family-top">
+        <div class="mi-family-copy">
+          <span class="mi-rule" aria-hidden="true"></span>
+          <h2 class="mi-h2" id="mi-family-h">{{family.h2}}</h2>
+          {{#each family.body as para}}
+          <p class="mi-body">{{para}}</p>
+          {{/each}}
+          <a class="link" href="{{family.linkHref}}" target="_blank" rel="noopener" data-demo-scaffold><span class="link-text">{{family.link.label}}</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+        <ul class="mi-people">
+          {{#each family.people as m}}
+          <li class="mi-person" data-person>
+            <div class="mi-person-photo">{{pic m.image sizes="200px"}}</div>
+            <h3 class="mi-person-name">{{m.name}}</h3>
+            <p class="mi-person-title">{{m.title}}</p>
+          </li>
+          {{/each}}
+        </ul>
+      </div>
+      <ol class="mi-time" aria-label="{{family.timelineLabel}}">
+        {{#each family.timeline as t}}
+        <li class="mi-time-item">
+          <span class="mi-time-year">{{t.year}}</span>
+          <span class="mi-time-entry">{{t.entry}}</span>
+        </li>
+        {{/each}}
+      </ol>
+    </div>
+  </section>
+
+  <section class="mi-section mi-show" aria-labelledby="mi-show-h">
+    <div class="wrap mi-show-in">
+      <figure class="mi-show-photo mi-photo" data-clip>{{pic showroom.image sizes="(min-width: 1024px) 50vw, 100vw"}}</figure>
+      <div class="mi-show-copy">
+        <span class="mi-rule" aria-hidden="true"></span>
+        <h2 class="mi-h2" id="mi-show-h">{{showroom.h2}}</h2>
+        <p class="mi-body">{{showroom.body}}</p>
+        <ul class="mi-details">
+          <li><svg class="mi-icon" aria-hidden="true"><use href="#mi-phone"/></svg><a href="{{org.telHref}}">{{org.telephone}}</a></li>
+          <li><svg class="mi-icon" aria-hidden="true"><use href="#mi-mail"/></svg><a href="{{org.mailHref}}">{{org.email}}</a></li>
+          <li><svg class="mi-icon" aria-hidden="true"><use href="#mi-pin"/></svg><address>{{org.address.full}}</address></li>
+        </ul>
+        <a class="btn btn-primary" href="#contact">{{showroom.button}}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="mi-section mi-clients" aria-labelledby="mi-clients-h">
+    <div class="wrap">
+      <h2 class="mi-label mi-clients-h" id="mi-clients-h">{{clients.heading}}</h2>
+    </div>
+    <div class="mi-marquee" data-marquee>
+      <ul class="mi-logos" data-marquee-track>
+        {{#each clients.logos as c}}
+        <li>{{pic c.image}}</li>
+        {{/each}}
+      </ul>
+    </div>
+  </section>
+
+  <section class="mi-section mi-contact" id="contact" aria-labelledby="mi-contact-h">
+    <div class="wrap mi-contact-in">
+      <div class="mi-contact-copy">
+        <span class="mi-rule" aria-hidden="true"></span>
+        <h2 class="mi-h2" id="mi-contact-h">{{contact.h2}}</h2>
+        <p class="mi-lead">{{contact.line}}</p>
+        <ul class="mi-details" aria-label="{{contact.detailsLabel}}">
+          <li><svg class="mi-icon" aria-hidden="true"><use href="#mi-phone"/></svg><a href="{{org.telHref}}">{{org.telephone}}</a></li>
+          <li><svg class="mi-icon" aria-hidden="true"><use href="#mi-mail"/></svg><a href="{{org.mailHref}}">{{org.email}}</a></li>
+          <li><svg class="mi-icon" aria-hidden="true"><use href="#mi-pin"/></svg><address>{{org.address.full}}</address></li>
+        </ul>
+      </div>
+      <div class="mi-contact-form">{{> form}}</div>
+    </div>
+  </section>
+
+</main>
+{{> footer}}
+{{> film}}
+<script src="{{root}}assets/js/vendor/gsap.min.js"></script>
+<script src="{{root}}assets/js/vendor/ScrollTrigger.min.js"></script>
+<script src="{{root}}assets/js/vendor/lenis.min.js"></script>
+<script src="{{root}}assets/js/kit.js"></script>
+<script src="{{root}}assets/js/move-in-day.js"></script>
+</body>
+</html>
