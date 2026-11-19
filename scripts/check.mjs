@@ -79,7 +79,8 @@ for (const page of PAGES) {
   for (const img of html.match(/<img\b[^>]*>/g) || []) {
     if (!/\salt="/.test(img)) problems.push(`img without alt: ${img.slice(0, 80)}`);
     if (!/\swidth="\d+"/.test(img) || !/\sheight="\d+"/.test(img)) problems.push(`img without width/height: ${img.slice(0, 80)}`);
-    if (!/loading="lazy"|fetchpriority="high"/.test(img) && !/ri-35-years-logo/.test(img)) problems.push(`img neither lazy nor priority: ${img.slice(0, 80)}`);
+    // fetchpriority low or auto = a deliberate first-screen load (round 4: CROSS SECTION hero photos and drawings 2 to 4)
+    if (!/loading="lazy"|fetchpriority="(?:high|low|auto)"/.test(img) && !/ri-35-years-logo/.test(img)) problems.push(`img neither lazy nor priority: ${img.slice(0, 80)}`);
   }
   const logos = html.match(/<img\b[^>]*ri-35-years-logo[^>]*>/g) || [];
   if (!logos.length || logos.some((l) => !l.includes('alt="RI Workplace, 35 years"'))) problems.push('logo img missing or wrong alt');
@@ -202,6 +203,58 @@ if (existsSync(join(ROOT, 'move-in-day/index.html'))) {
   // demo-only extras: the moveIn block's captions are on the page, as real text
   check('move-in-day: moveIn captions present', site.moveIn.captions.filter((c) => !decode(html).includes(c)).map((c) => `missing caption: ${c}`));
   check('move-in-day: captions are live text', /class="mi-captions" aria-live="polite"/.test(html) && !/mi-cap[^"]*"[^>]*aria-hidden/.test(html) ? [] : ['captions not live or hidden from screen readers']);
+}
+
+/* ---------- 5c. CROSS SECTION drawn to built (round 4 handoff, section 7) ---------- */
+if (existsSync(join(ROOT, 'cross-section/index.html'))) {
+  const html = read('cross-section/index.html');
+  const manifest = JSON.parse(read('content/images.json'));
+  // every live figure has both layers; every drawing img has alt="" inside an aria-hidden parent
+  const figs = [...html.matchAll(/<figure class="[^"]*\bd2b\b[^"]*"([^>]*)>([\s\S]*?)<\/figure>/g)];
+  const probs = [];
+  let live = 0;
+  for (const [, attrs, inner] of figs) {
+    if (!/data-d2b="/.test(attrs)) { if (/d2b__drawing/.test(inner)) probs.push('figure without data-d2b carries a drawing layer'); continue; }
+    live++;
+    if (!/class="d2b__photo"/.test(inner) || !/class="d2b__drawing" aria-hidden="true"/.test(inner)) probs.push(`figure missing a layer: ${attrs.slice(0, 80)}`);
+    if (/data-d2b="drag"/.test(attrs) && !/data-d2b-label="[^"]+, [^"]+"/.test(attrs)) probs.push(`drag figure without a label: ${attrs.slice(0, 80)}`);
+  }
+  const slices = [...html.matchAll(/<li class="cs-slice has-drawn"[\s\S]*?<\/li>/g)].map((m) => m[0]);
+  for (const sl of slices) if (!/cs-slice-built/.test(sl) || !/class="d2b__drawing cs-slice-drawn" aria-hidden="true"/.test(sl)) probs.push('hero slice missing a layer');
+  const drawImgs = [...html.matchAll(/<span class="d2b__drawing[^"]*"( aria-hidden="true")?>(<img\b[^>]*>)/g)];
+  for (const [, hidden, img] of drawImgs) {
+    if (!hidden) probs.push(`drawing parent not aria-hidden: ${img.slice(0, 70)}`);
+    if (!/\salt=""/.test(img)) probs.push(`drawing img alt is not empty: ${img.slice(0, 70)}`);
+  }
+  check('cross-section: drawn-to-built figures', probs, `${live} live figures, ${slices.length} hero slices, ${drawImgs.length} drawing images`);
+  // every drawing file is exactly the size of its photo's variant (same order, same w x h, real pixels)
+  const jpegSize = (file) => {
+    const b = readFileSync(join(ROOT, 'assets/img', file));
+    for (let i = 2; i < b.length;) {
+      if (b[i] !== 0xff) return null;
+      const m = b[i + 1], len = b.readUInt16BE(i + 2);
+      if (m >= 0xc0 && m <= 0xcf && m !== 0xc4 && m !== 0xc8 && m !== 0xcc) return [b.readUInt16BE(i + 7), b.readUInt16BE(i + 5)];
+      i += 2 + len;
+    }
+    return null;
+  };
+  const sizeProbs = [];
+  const pairs = site.work.projects.flatMap((p) => [[p.leadDrawn, p.lead], [p.sliceDrawn, p.slice]]).concat([[site.showroom.imageDrawn, site.showroom.image]])
+    .filter(([d]) => d && manifest[d]);
+  for (const [d, ph] of pairs) {
+    const dv = manifest[d].variants, pv = manifest[ph].variants;
+    if (dv.length !== pv.length) { sizeProbs.push(`${d}: ${dv.length} variants, photo has ${pv.length}`); continue; }
+    dv.forEach((v, i) => {
+      const real = jpegSize(v.file);
+      if (v.w !== pv[i].w || v.h !== pv[i].h || !real || real[0] !== pv[i].w || real[1] !== pv[i].h) sizeProbs.push(`${v.file} is ${real ? real.join('x') : '?'}, photo ${pv[i].file} is ${pv[i].w}x${pv[i].h}`);
+    });
+  }
+  check('cross-section: drawing files match their photo variants', sizeProbs, `${pairs.length} pairs`);
+  check('cross-section: drawn section is an h2 between the numbers and the index',
+    /<div class="cs-numbers">[\s\S]*<section class="cs-drawn" id="drawn">\s*<header[^>]*>\s*<div[^>]*>\s*<h2/.test(html) && html.indexOf('id="drawn"') < html.indexOf('id="work"') ? [] : ['section missing or out of place']);
+  check('cross-section: d2b.js loads after kit.js and before cross-section.js',
+    /kit\.js"><\/script>\s*<script src="[^"]*d2b\.js"><\/script>\s*<script src="[^"]*cross-section\.js"/.test(html) ? [] : ['script order']);
+  check('cross-section: LCP preload is slice 01 drawing', /<link rel="preload" as="image" href="[^"]*drawn\/[^"]+"[^>]*fetchpriority="high">/.test(html) ? [] : ['no drawing preload']);
 }
 
 /* ---------- 6. scaffolding files ---------- */
