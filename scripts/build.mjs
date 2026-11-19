@@ -109,6 +109,9 @@ const filters = {
   json: (v) => JSON.stringify(v),
   slug: (v) => String(v).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''),
   count: (v) => (v || []).length,
+  // Round 4: the drawing key if that drawing shipped (it is in images.json), else ''. Lets a template leave out
+  // the drawing layer, its tags and data-d2b for a slot whose drawing was rejected or expired: {{#if p.leadDrawn | shipped}}
+  shipped: (v) => (v && manifest[v] ? v : ''),
 };
 
 function lookup(expr, scopes) {
@@ -231,6 +234,8 @@ function pic(args, scopes) {
   const info = manifest[key];
   const cls = args.class ? value(args.class, scopes) : '';
   const eager = args._.includes('eager');
+  // Round 4: `low` = loads at once (no lazy) but at low priority, for the hero photos waiting under the drawings.
+  const low = args._.includes('low');
   if (!meta) throw new Error(`Image not in site.json: ${key}`);
   if (!info) {
     // Fallback for a slot with no downloaded photo: a labeled tint block.
@@ -245,7 +250,7 @@ function pic(args, scopes) {
     info.variants.length > 1 ? `srcset="${srcset}" sizes="${esc(sizes)}"` : '',
     `width="${largest.w}" height="${largest.h}"`,
     `alt="${esc(args.alt ? value(args.alt, scopes) : meta.alt)}"`,
-    eager ? 'fetchpriority="high" decoding="async"' : 'loading="lazy" decoding="async"',
+    eager ? 'fetchpriority="high" decoding="async"' : low ? 'fetchpriority="low" decoding="async"' : 'loading="lazy" decoding="async"',
   ];
   return `<img ${attrs.filter(Boolean).join(' ')}>`;
 }
