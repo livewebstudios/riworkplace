@@ -78,7 +78,7 @@
   var onWide = null; /* set by the hero below: a widened slice also lifts to its photo */
   slices.forEach(function (slice) {
     $('.cs-slice-link', slice).addEventListener('click', function (e) {
-      if (!small.matches || slice.classList.contains('is-wide')) return;
+      if (slices.length < 2 || !small.matches || slice.classList.contains('is-wide')) return; /* one slice: no widen step */
       e.preventDefault();
       slices.forEach(function (s) { s.classList.toggle('is-wide', s === slice); });
       if (onWide) onWide(slice);

@@ -92,6 +92,9 @@
 .cs-lead-dot { position: absolute; left: -3px; bottom: -3px; width: 7px; height: 7px; border-radius: 50%; background: var(--blue); }
 .cs-slice:nth-child(1) .cs-lead { display: none; }
 .cs-slice:nth-child(4) { display: none; }
+/* Round 5: the hero is one photo. It keeps the 3:2 frame on phones and fills the stage on desktop. */
+.cs-cut--one .cs-slice-photo { min-height: 0; aspect-ratio: 3 / 2; }
+@media (min-width: 1024px) { .cs-cut--one .cs-slice-photo { aspect-ratio: auto; } }
 
 @media (min-width: 768px) {
   .cs-slice:nth-child(4) { display: flex; }

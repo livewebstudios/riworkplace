@@ -4,7 +4,7 @@
 {{> head title=meta.title description=meta.description}}
 <link rel="preload" as="font" type="font/woff2" href="{{root}}assets/fonts/space-grotesk-latin-500-normal.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="{{root}}assets/fonts/ibm-plex-mono-latin-400-normal.woff2" crossorigin>
-{{#if work.projects.0.sliceDrawn | shipped}}{{preload work.projects.0.sliceDrawn sizes="(min-width: 1024px) 30vw, 50vw"}}{{else}}{{preload work.projects.0.slice sizes="(min-width: 1024px) 30vw, 50vw"}}{{/if}}
+{{preload work.projects.2.sliceDrawn sizes="(min-width: 1024px) 58vw, 100vw"}}
 <!-- Failsafe (round 4): if this page's script never runs, the hero shows its photos and drops the sticky stage. -->
 <script>setTimeout(function () { if (!window.RI || !window.RI.csHero) document.documentElement.className += ' cs-static'; }, 2600);</script>
 <link rel="stylesheet" href="{{root}}assets/css/base.css">
@@ -28,34 +28,21 @@
       </div>
       <button class="link link-film" type="button" data-film-open><svg class="ico" aria-hidden="true"><use href="#i-play"/></svg><span class="link-text">{{hero.film}}</span></button>
     </div>
-    <ul class="cs-cut" data-cut>
-      {{#each work.projects as p}}
-      {{#if p.slice}}
-      {{#if p.sliceDrawn | shipped}}
+    <!-- Hero (round 5): one photo, the WeTransfer lounge, drawn first and built behind the section cut. -->
+    <ul class="cs-cut cs-cut--one" data-cut>
       <li class="cs-slice has-drawn" data-slice>
-        <a class="cs-slice-link" href="{{p.href}}" target="_blank" rel="noopener" data-demo-scaffold>
+        <a class="cs-slice-link" href="{{work.projects.2.href}}" target="_blank" rel="noopener" data-demo-scaffold>
           <span class="cs-slice-photo" data-slice-photo>
             <span class="cs-slice-layers" data-slice-layers>
-              <span class="d2b__photo cs-slice-built" data-slice-built>{{pic p.slice sizes="(min-width: 1024px) 30vw, 50vw" low}}</span>
-              <span class="d2b__drawing cs-slice-drawn" aria-hidden="true">{{#if @first}}{{pic p.sliceDrawn sizes="(min-width: 1024px) 30vw, 50vw" alt="" eager}}{{else}}{{pic p.sliceDrawn sizes="(min-width: 1024px) 30vw, 50vw" alt="" auto}}{{/if}}</span>
+              <span class="d2b__photo cs-slice-built" data-slice-built>{{pic work.projects.2.slice sizes="(min-width: 1024px) 58vw, 100vw" low}}</span>
+              <span class="d2b__drawing cs-slice-drawn" aria-hidden="true">{{pic work.projects.2.sliceDrawn sizes="(min-width: 1024px) 58vw, 100vw" alt="" eager}}</span>
             </span>
             <span class="cs-cut-line" aria-hidden="true"></span>
           </span>
-      {{else}}
-      <li class="cs-slice" data-slice>
-        <a class="cs-slice-link" href="{{p.href}}" target="_blank" rel="noopener" data-demo-scaffold>
-          <span class="cs-slice-photo" data-slice-photo>
-            <span class="cs-slice-layers" data-slice-layers>
-              <span class="d2b__photo cs-slice-built">{{#if @first}}{{pic p.slice sizes="(min-width: 1024px) 30vw, 50vw" eager}}{{else}}{{pic p.slice sizes="(min-width: 1024px) 30vw, 50vw"}}{{/if}}</span>
-            </span>
-          </span>
-      {{/if}}
-          <span class="cs-slice-label"><span class="cs-slice-n" aria-hidden="true">{{p.n}}</span> <span class="cs-slice-name">{{p.short}}</span></span>
+          <span class="cs-slice-label"><span class="cs-slice-n" aria-hidden="true">{{work.projects.2.n}}</span> <span class="cs-slice-name">{{work.projects.2.short}}</span></span>
         </a>
         <span class="cs-lead" aria-hidden="true"><svg viewBox="0 0 2 100" preserveAspectRatio="none" focusable="false"><path d="M1 0V100" pathLength="1"/></svg><i class="cs-lead-dot"></i></span>
       </li>
-      {{/if}}
-      {{/each}}
     </ul>
   </section>
   </div>
