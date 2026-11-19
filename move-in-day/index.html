@@ -40,7 +40,7 @@
 <!-- GA4: G-XXXXXXXXXX goes here at launch -->
 <link rel="icon" href="../assets/img/brand/favicon.svg" type="image/svg+xml">
 <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
-<script>if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('mi-motion');</script>
+<script>if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && !(window.innerWidth < 1024 && window.innerHeight < 600)) document.documentElement.classList.add('mi-motion');</script>
 <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/fraunces-latin-opsz-normal.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/manrope-latin-600-normal.woff2" crossorigin>
 <link rel="preload" as="image" href="../assets/img/move-in/plate-0-2400.avif" imagesrcset="../assets/img/move-in/plate-0-960.avif 960w, ../assets/img/move-in/plate-0-1600.avif 1600w, ../assets/img/move-in/plate-0-2400.avif 2400w" imagesizes="(min-width: 1024px) 112vw, 133vw" type="image/avif" fetchpriority="high">

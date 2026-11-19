@@ -2,7 +2,7 @@
 <html lang="en" class="no-js mi">
 <head>
 {{> head title=meta.title description=meta.description}}
-<script>if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('mi-motion');</script>
+<script>if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && !(window.innerWidth < 1024 && window.innerHeight < 600)) document.documentElement.classList.add('mi-motion');</script>
 <link rel="preload" as="font" type="font/woff2" href="{{root}}assets/fonts/fraunces-latin-opsz-normal.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="{{root}}assets/fonts/manrope-latin-600-normal.woff2" crossorigin>
 {{preload moveIn.plates.0 format="avif" sizes="(min-width: 1024px) 112vw, 133vw"}}

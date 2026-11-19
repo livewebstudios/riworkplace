@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// RI Workplace home demos: static checks on the four generated pages.
+// RI Workplace home demos: static checks on the chooser and every built demo page.
 // Zero dependencies. Run: node scripts/check.mjs   (exit code 1 if anything fails)
 // Covers the copy kill list, the LWS page rules, demo scaffolding, and the
 // "same words in all three demos" comparison from the handoff acceptance list.
@@ -174,6 +174,34 @@ if (existsSync(join(ROOT, 'blue-hour/index.html'))) {
   // --blue is never a text colour on this page (graphics and display type only; display type here is frost).
   const blueText = css.match(/(?:^|[;{\s])color:\s*var\(--blue\)/g) || [];
   check('blue-hour.css: no text in --blue', blueText.map((m) => `found ${m.trim()}`));
+}
+
+/* ---------- 5b. MOVE-IN DAY rules (round 3 handoff, section 7) ---------- */
+if (existsSync(join(ROOT, 'move-in-day/index.html'))) {
+  const css = read('assets/css/move-in-day.css').replace(/\/\*[\s\S]*?\*\//g, '');
+  const html = read('move-in-day/index.html');
+  const black = css.match(/#000(?:000)?\b|\bblack\b|rgba?\(\s*0\s*,\s*0\s*,\s*0\s*[,)]/gi) || [];
+  check('move-in-day.css: no black', black.map((m) => `found ${m}`));
+  check('move-in-day.css: no backdrop-filter', /backdrop-filter/.test(css) ? ['backdrop-filter used'] : []);
+  // seven plates, in order, each a <picture> with AVIF and WebP sources
+  const plates = [...html.matchAll(/<picture class="mi-plate[^"]*" data-plate="(\d)"[^>]*>([\s\S]*?)<\/picture>/g)];
+  const problems = [];
+  if (plates.map((m) => m[1]).join('') !== '0123456') problems.push(`plates found: ${plates.map((m) => m[1]).join(',') || 'none'}`);
+  for (const [, n, inner] of plates) {
+    if (!/type="image\/avif"/.test(inner) || !/type="image\/webp"/.test(inner)) problems.push(`plate ${n}: missing AVIF or WebP source`);
+    const alt = (inner.match(/<img\b[^>]*\salt="([^"]*)"/) || [])[1];
+    const want = site.images[`move-in/plate-${n}`].alt;
+    if (n === '0' || n === '6') { if (!alt || alt !== want) problems.push(`plate ${n}: alt text missing or not the site.json alt`); }
+    else if (alt !== '') problems.push(`plate ${n}: should have alt=""`);
+  }
+  if (!/data-plate="0"[^>]*>[\s\S]*?fetchpriority="high"/.test(html.match(/<picture class="mi-plate" data-plate="0"[\s\S]*?<\/picture>/)?.[0] || '')) problems.push('plate 0 is not high priority');
+  if (!/<link rel="preload" as="image" href="[^"]*plate-0-\d+\.avif"[^>]*type="image\/avif"/.test(html)) problems.push('no AVIF preload for plate 0');
+  check('move-in-day: seven hero plates', problems, `${plates.length} plates`);
+  const h1 = (html.match(/<h1[\s>]/g) || []).length;
+  check('move-in-day: one h1', h1 === 1 ? [] : [`${h1} h1 elements`]);
+  // demo-only extras: the moveIn block's captions are on the page, as real text
+  check('move-in-day: moveIn captions present', site.moveIn.captions.filter((c) => !decode(html).includes(c)).map((c) => `missing caption: ${c}`));
+  check('move-in-day: captions are live text', /class="mi-captions" aria-live="polite"/.test(html) && !/mi-cap[^"]*"[^>]*aria-hidden/.test(html) ? [] : ['captions not live or hidden from screen readers']);
 }
 
 /* ---------- 6. scaffolding files ---------- */

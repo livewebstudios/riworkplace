@@ -15,9 +15,10 @@
   var gsap = window.gsap;
   var motion = Boolean(RI.motion && gsap && window.ScrollTrigger);
 
-  /* The head script adds mi-motion before first paint unless reduced motion is set.
-     If the motion stack did not boot, fall back to the still hero. */
+  /* The head script adds mi-motion before first paint unless reduced motion is set (or the phone is
+     under 600px tall, too short to pin the stage). If the motion stack did not boot, fall back to the still hero. */
   if (!motion) html.classList.remove('mi-motion');
+  var heroMotion = motion && html.classList.contains('mi-motion');
 
   /* ---------- late plates: plates 1 to 6 load after window load ---------- */
   function late() { html.classList.add('mi-late'); if (motion) window.ScrollTrigger.refresh(); }
@@ -29,7 +30,7 @@
      ========================================================= */
   var hero = $('[data-hero]');
   var head = $('[data-head]');
-  if (motion && hero) {
+  if (heroMotion && hero) {
     var stage = $('[data-stage]', hero);
     var platesWrap = $('[data-plates]', hero);
     var plates = $$('.mi-plate', hero);
@@ -40,6 +41,21 @@
     var ticks = $$('[data-tick]', hero);
     var cue = $('[data-cue]', hero);
     var lastPlate = plates[plates.length - 1];
+    var box = $('.mi-box', hero);
+    var text = $('.mi-text', hero);
+    // Under 1024 the stage is the photo box plus the words. On a short phone that can be taller than the
+    // screen below the header: then the stage takes its full height and sticks with its bottom on the
+    // bottom of the screen, so nothing is cut off while it is pinned.
+    function fit() {
+      stage.style.height = '';
+      stage.style.top = '';
+      var need = box.offsetHeight + text.offsetHeight;
+      var navH = head ? head.offsetHeight : 0;
+      if (need > window.innerHeight - navH) {
+        stage.style.height = need + 'px';
+        stage.style.top = (window.innerHeight - need) + 'px';
+      }
+    }
     // segment -> caption shown (segment 4 holds 03 Build)
     var capFor = [0, 1, 2, 3, 3, 4, 5];
 
@@ -50,6 +66,7 @@
     var mm = gsap.matchMedia();
     mm.add({ desk: '(min-width: 1024px)', mob: '(max-width: 1023.98px)' }, function (ctx) {
       var desk = ctx.conditions.desk;
+      if (!desk) { fit(); window.ScrollTrigger.addEventListener('refreshInit', fit); }
       // start state
       gsap.set(plates, { opacity: 0 });
       gsap.set(plates[0], { opacity: 1 });
@@ -110,6 +127,9 @@
       tl.to({}, { duration: 0.15 }, 6.85);
 
       return function () {
+        window.ScrollTrigger.removeEventListener('refreshInit', fit);
+        stage.style.height = '';
+        stage.style.top = '';
         promote(false);
         setSolid(false);
         lastPlate.removeAttribute('aria-hidden');
