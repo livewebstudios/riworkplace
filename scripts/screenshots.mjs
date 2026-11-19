@@ -3,6 +3,7 @@
 // Full pages at 390 and 1440 go to ../docs/_screenshots/<ROUND>/ (default round3). The first screen of each demo at 1440
 // is saved as chooser-<slug>.jpg, which optimize-images.mjs then turns into the chooser card images.
 // Env: ROUND=round3-before   PAGES=blue-hour,cross-section (limit the full-page captures)   CARDS=none (skip cards)
+// CROSS SECTION (round 4): its chooser card is the first screen after the intro, drawings showing.
 // MOVE-IN DAY (round 3): its full-page record is taken in the reduced-motion state, plus seven 1440 x 900
 // captures of the hero, one per stage (move-in-hero-stage-0.jpg to -6.jpg). Its chooser card is stage 6.
 // Needs Playwright and a local server on the build folder:
@@ -80,6 +81,28 @@ if ((!only || only.includes('move-in-day')) && site.demos.some((d) => d.slug ===
     await page.screenshot({ path: join(OUT, `move-in-hero-stage-${k}.jpg`), type: 'jpeg', quality: 86 });
     console.log(`move-in-hero-stage-${k}.jpg`);
   }
+  await ctx.close();
+}
+
+// CROSS SECTION (round 4): three 1440 x 900 frames of the hero sweep (start, middle, end of the sticky stage)
+// and one rail card held at 50% (cross-hero-start.jpg, -middle.jpg, -end.jpg, cross-rail-card.jpg).
+if ((!only || only.includes('cross-section')) && site.demos.some((d) => d.slug === 'cross-section')) {
+  const { ctx, page } = await open('cross-section/index.html', 1440, 900);
+  const run = await page.evaluate(() => {
+    const r = document.querySelector('[data-hero-run]');
+    const nav = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nav-h'));
+    return { start: r.getBoundingClientRect().top + window.scrollY - nav, travel: r.offsetHeight - document.querySelector('[data-hero]').offsetHeight };
+  });
+  for (const [name, f] of [['start', 0], ['middle', 0.42], ['end', 0.92]]) {
+    await page.evaluate((v) => window.scrollTo(0, v), Math.round(run.start + run.travel * f));
+    await page.waitForTimeout(1200);
+    await page.screenshot({ path: join(OUT, `cross-hero-${name}.jpg`), type: 'jpeg', quality: 86 });
+    console.log(`cross-hero-${name}.jpg`);
+  }
+  await page.$eval('#drawn', (el) => el.scrollIntoView());
+  await page.waitForTimeout(2600); // the intro tween takes the first card to 50%
+  await (await page.$('.cs-card')).screenshot({ path: join(OUT, 'cross-rail-card.jpg'), type: 'jpeg', quality: 86 });
+  console.log('cross-rail-card.jpg');
   await ctx.close();
 }
 
