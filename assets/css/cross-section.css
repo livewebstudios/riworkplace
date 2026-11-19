@@ -57,7 +57,23 @@
 .cs-slice:nth-child(3), .cs-slice:nth-child(4) { flex-grow: 1.5; }
 .cs-slice-link { display: flex; flex-direction: column; flex: 1; min-width: 0; }
 .cs-slice-photo { position: relative; flex: 1; min-height: 300px; overflow: hidden; background: var(--concrete); }
-.cs-slice-photo img { position: absolute; left: 0; top: -9%; width: 100%; height: 118%; max-width: none; object-fit: cover; }
+/* Round 4: both layers sit in one wrapper that takes the old image sizing. The drift moves the wrapper,
+   so drawing and photo always move together and stay registered. */
+.cs-slice-layers { position: absolute; left: 0; top: -9%; width: 100%; height: 118%; }
+.cs-slice-layers > span { position: absolute; inset: 0; }
+.cs-slice-layers img { width: 100%; height: 100%; max-width: none; object-fit: cover; }
+/* The section cut: the photo (on top) is clipped to the left of a line 20 degrees off vertical. cross-section.js
+   writes --x0 (where the line crosses the layer's top edge) and --x1 (its bottom edge), in px, per slice.
+   With no values yet the photo is fully clipped, so the first paint is the drawing. */
+.cs-slice.has-drawn .cs-slice-built { z-index: 1; clip-path: polygon(0 0, var(--x0, 0px) 0, var(--x1, 0px) 100%, 0 100%); }
+.cs-slice-drawn { z-index: 0; }
+.cs-cut-line {
+  position: absolute; z-index: 2; bottom: 0; left: calc(var(--xb, 0px) - 1px); width: 2px; height: 106.42%;
+  background: var(--blue); transform-origin: 50% 100%; rotate: 20deg; opacity: var(--cut-o, 0); pointer-events: none;
+}
+/* The photo is the truth: no JS, a failed script or reduced motion shows photos, no drawings, no cut line. */
+.no-js .cs-slice-built, .cs-static .cs-slice-built { clip-path: none !important; }
+.no-js .cs-slice-drawn, .cs-static .cs-slice-drawn, .no-js .cs-cut-line, .cs-static .cs-cut-line { display: none; }
 .cs-slice-label {
   display: flex; align-items: center; gap: var(--s-2); min-height: var(--row); padding: var(--s-2) var(--s-2) var(--s-2) var(--s-3);
   font-family: var(--f-mono); font-size: 0.75rem; letter-spacing: 0.04em; text-transform: uppercase; line-height: 1.25; color: var(--ink);
@@ -329,7 +345,18 @@
 .d2b__tag--built { left: 12px; opacity: clamp(0, calc(var(--d2b-n) * 10), 1); }
 .d2b__tag--drawn { right: 12px; opacity: clamp(0, calc((1 - var(--d2b-n)) * 10), 1); }
 
+/* ---------- hero sticky stage (round 4): 1024 and up, 640 tall and up, motion on ----------
+   The hero fills the screen under the nav and sticks inside a 160svh run while the cut sweeps. */
+.demo-cross-section { --cs-util: 0px; }
+@media (min-width: 1200px) { .demo-cross-section { --cs-util: 46px; } }
+@media (min-width: 1024px) and (min-height: 640px) and (prefers-reduced-motion: no-preference) {
+  .js:not(.cs-static) .cs-hero-run { height: calc(160svh - var(--nav-h) - var(--cs-util)); }
+  .js:not(.cs-static) .cs-hero { position: sticky; top: var(--nav-h); z-index: 1; min-height: calc(100svh - var(--nav-h) - var(--cs-util)); background: var(--white); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .cs-slice, .cs-slice-label, .cs-chip, .cs-row::before, .cs-ind-cell, .cs-logos img { transition: none; }
-  .cs-slice-photo img { top: 0; height: 100%; }
+  .cs-slice-layers { top: 0; height: 100%; }
+  .cs-slice-built { clip-path: none !important; }
+  .cs-slice-drawn, .cs-cut-line { display: none; }
 }

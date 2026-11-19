@@ -236,6 +236,8 @@ function pic(args, scopes) {
   const eager = args._.includes('eager');
   // Round 4: `low` = loads at once (no lazy) but at low priority, for the hero photos waiting under the drawings.
   const low = args._.includes('low');
+  // `auto` = loads at once at normal priority (first-screen images that are not the LCP image).
+  const auto = args._.includes('auto');
   if (!meta) throw new Error(`Image not in site.json: ${key}`);
   if (!info) {
     // Fallback for a slot with no downloaded photo: a labeled tint block.
@@ -250,7 +252,7 @@ function pic(args, scopes) {
     info.variants.length > 1 ? `srcset="${srcset}" sizes="${esc(sizes)}"` : '',
     `width="${largest.w}" height="${largest.h}"`,
     `alt="${esc(args.alt ? value(args.alt, scopes) : meta.alt)}"`,
-    eager ? 'fetchpriority="high" decoding="async"' : low ? 'fetchpriority="low" decoding="async"' : 'loading="lazy" decoding="async"',
+    eager ? 'fetchpriority="high" decoding="async"' : low ? 'fetchpriority="low" decoding="async"' : auto ? 'fetchpriority="auto" decoding="async"' : 'loading="lazy" decoding="async"',
   ];
   return `<img ${attrs.filter(Boolean).join(' ')}>`;
 }
